@@ -1,0 +1,68 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<ion-header>
+<ion-toolbar  color="success">
+  <ion-buttons slot="start">
+    <ion-menu-button>
+      
+     </ion-menu-button> 
+   </ion-buttons>
+</ion-toolbar>
+   
+<!-- Searchbar -->
+<div class="autocomplete">
+  <ion-toolbar color="success">
+<ion-searchbar  (ionInput)="getItems($event)"  placeholder="Find the User....." type="text" debounce="500"  ></ion-searchbar>
+</ion-toolbar>
+</div>
+</ion-header>
+
+<ion-content>
+   <!------ Refresher ------->
+   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div>
+  <table  color="primary" id ="table" mat-table [dataSource]="listDatas" class="table">
+
+  <ng-container matColumnDef="fullname">
+      <th style="font-size: 10px;" mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let arr"> {{arr.fullname}} </td>
+     </ng-container>
+
+
+ <ng-container  matColumnDef="number">
+      <th style="font-size: 10px;"  mat-header-cell *matHeaderCellDef>Phone
+      </th>
+      <td mat-cell *matCellDef="let arr"> {{arr.number}} </td>
+    
+    </ng-container>
+
+    <ng-container matColumnDef="id">
+      <th style="font-size: 10px;" mat-header-cell *matHeaderCellDef> Registered ID
+      <td mat-cell *matCellDef="let  arr"> {{arr.id}} </td>
+     
+    </ng-container>
+
+
+    <ng-container matColumnDef="delete">
+      <th style="font-size: 10px;" mat-header-cell *matHeaderCellDef> Delete </th>
+      <td mat-cell *matCellDef="let arr">
+        <!-- <button (click)="delete(arr.id)" >Delete</button> -->
+      
+      <ion-button class="ion-margin-start" (click)="delete(arr.id);" color="success">Delete</ion-button>
+     
+  </td>
+    </ng-container>
+
+
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>
+</ion-content>

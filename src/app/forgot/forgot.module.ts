@@ -4,18 +4,18 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { PostadPageRoutingModule } from './postad-routing.module';
+import { ForgotPageRoutingModule } from './forgot-routing.module';
 
-import { PostadPage } from './postad.page';
+import { ForgotPage } from './forgot.page';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
     ReactiveFormsModule,
+    FormsModule,
     IonicModule,
-    PostadPageRoutingModule
+    ForgotPageRoutingModule
   ],
-  declarations: [PostadPage]
+  declarations: [ForgotPage]
 })
-export class PostadPageModule {}
+export class ForgotPageModule {}

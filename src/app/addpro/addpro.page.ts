@@ -218,19 +218,16 @@ add(){
 this.data["filename"] = undefined;
   console.log(this.data["filename"]);
   for(var k = 0;k<this.images.length;k++)
-
-{
+  {
   if(this.data["filename"] == undefined){
     this.data["filename"] =  "admin-products/"+ Date.now().toString() +k.toString()+ ".png";
   }
   else{
     this.data["filename"] +=  ",admin-products/"+ Date.now().toString()+k.toString()+ ".png";
   }
-  
-}
+  }
  for(var i = 0;i<this.images.length;i++)
   {
-  
   this.formcontrol.get("name").setValidators(Validators.required);
   this.formcontrol.get("name").updateValueAndValidity();
   this.formcontrol.get("desc").setValidators(Validators.required);

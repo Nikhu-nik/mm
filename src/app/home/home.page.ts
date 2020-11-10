@@ -51,6 +51,7 @@ export class HomePage implements OnInit {
   public language: string;
   myphoto: any;
  imgbase;
+ advimgbase;
   role;
   ar;
   cart;
@@ -64,7 +65,7 @@ export class HomePage implements OnInit {
   fileUploads: Observable<string[]>;
   @Input() fileUpload: string;
   products: Product[] = [];
-  postadd: PostAdd[] = [];
+  postadds: PostAdd[] = [];
   isDisplay = false;
   show: boolean = false;
   map: any;
@@ -247,7 +248,7 @@ ret(){
     }
     else {
       console.log(PostAdd.postadd);
-      this.postadd = PostAdd.postadd;
+      this.postadds = PostAdd.postadd;
     }
   } , (err) => {
     console.log(err);

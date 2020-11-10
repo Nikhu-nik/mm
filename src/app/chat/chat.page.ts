@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-// import { Socket } from 'ngx-socket-io';
+import { Socket } from 'ngx-socket-io';
 import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-chat',
@@ -14,7 +14,7 @@ export class ChatPage implements OnInit {
   messages = [];
   currentUser = '';
   constructor(private camera: Camera,
-    private toastCtrl: ToastController) { }
+    private socket: Socket, private toastCtrl: ToastController) { }
 
   ngOnInit() {
     this.socket.connect();

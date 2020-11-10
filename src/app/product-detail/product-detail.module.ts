@@ -4,18 +4,18 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { PostadPageRoutingModule } from './postad-routing.module';
+import { ProductDetailPageRoutingModule } from './product-detail-routing.module';
 
-import { PostadPage } from './postad.page';
+import { ProductDetailPage } from './product-detail.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
     IonicModule,
-    PostadPageRoutingModule
+    ReactiveFormsModule,
+    ProductDetailPageRoutingModule
   ],
-  declarations: [PostadPage]
+  declarations: [ProductDetailPage]
 })
-export class PostadPageModule {}
+export class ProductDetailPageModule {}

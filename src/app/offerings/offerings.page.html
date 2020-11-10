@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar >
+
+    <ion-title color="light" *ngIf="!isSearchbarOpened" >
+       offerings
+      </ion-title>
+    <ion-searchbar
+    (ionChange)="getItems($event)" *ngIf="isSearchbarOpened" showCancelButton = "true"
+     (ionCancel)="isSearchbarOpened=false"></ion-searchbar>
+    <ion-buttons slot="end" *ngIf="!isSearchbarOpened">
+      <ion-button icon-only (click)="isSearchbarOpened=true">
+        <ion-icon class="search-icon" name="search">  </ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>  
+</ion-header>
+
+<ion-content>
+ 
+  
+
+
+  
+    <ion-list>
+      <div *ngIf="items.length > 0; else noItems">
+      <ion-item  *ngFor="let item of items" (click)="gotopostadd(item)">
+  <img [src]="item.ImageCategory">
+  <ion-label  class="item ion-margin-start">{{item.categoryname}}</ion-label>
+  <ion-icon  name="chevron-forward-outline" slot="end"></ion-icon>
+  </ion-item>
+</div>
+ 
+<ng-template #noItems>
+  <ion-item>
+    No items found.
+  </ion-item>
+</ng-template>
+</ion-list>
+
+
+ 
+</ion-content>
+
+
+
+
+

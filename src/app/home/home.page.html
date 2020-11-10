@@ -11,10 +11,10 @@
 
     <!-----Language------>
 
-    <!-- <ion-col size="3">
+    <ion-col size="3">
       <ion-item class="language-item">
 
-        <ion-select style="margin-left: -15px;" [(ngModel)]="language" [value]="language" placeholder="Language"
+        <ion-select  [(ngModel)]="language" [value]="language" placeholder="Language"
           (ionChange)="changeLanguage()">
           <ion-select-option value="en">English</ion-select-option>
 
@@ -22,7 +22,7 @@
           <ion-select-option value="hi">Hindi</ion-select-option>
         </ion-select>
       </ion-item>
-    </ion-col> -->
+    </ion-col>
 
   </ion-row>
   <!-- </div> -->
@@ -221,7 +221,7 @@
             <ion-slides (ionSlidesDidLoad)="load(slider)" zoom>
               <ion-slide *ngFor="let fig of l.imgbase.split(',')">
                 <p class="more">1 more +</p>
-    <img class="pro-image" src="http://ec2-54-179-100-147.ap-southeast-1.compute.amazonaws.com:3000/{{fig}}"/>
+    <img class="pro-image" src="http://localhost:3000/{{fig}}"/>
               </ion-slide>
             </ion-slides>
 
@@ -240,15 +240,15 @@
               <ion-button fill="solid" [routerLink]="['/product-detail',l.id]">View </ion-button>
             </div>
           </ion-card-content>
-</ion-card>
+         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
 
 
-  <!-- <ion-grid>
+  <ion-grid>
     <ion-row>
-      <ion-col *ngFor="let a of postadd" >
+      <ion-col *ngFor="let a of postadds" >
         <ion-card mode='ios'>
           <ion-item>
             <ion-icon class="icon" name="location"></ion-icon>
@@ -260,7 +260,7 @@
             <ion-card-subtitle>{{a.advfullname}}</ion-card-subtitle>
        
           </ion-card-header>
-          <ion-card-content>
+          <ion-card-content>     
           <ion-slides (ionSlidesDidLoad)="load(slider)" zoom>
           <ion-slide *ngFor="let figs of a.advimgbase.split(',')">
             <p class="more">1 more +</p>
@@ -289,7 +289,7 @@
         </ion-card>
       </ion-col>
     </ion-row>
-  </ion-grid> -->
+  </ion-grid>
 
 
 

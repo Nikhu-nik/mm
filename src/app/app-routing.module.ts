@@ -11,8 +11,20 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
+    path: 'mapmodel',
+    loadChildren: () => import('./mapmodel/mapmodel.module').then( m => m.MapmodelPageModule)
+  },
+  {
     path: 'addpro',
     loadChildren: () => import('./addpro/addpro.module').then( m => m.AddproPageModule)
+  },
+  {
+    path: 'offerings',
+    loadChildren: () => import('./offerings/offerings.module').then( m => m.OfferingsPageModule)
+  },
+  {
+    path: 'forgot',
+    loadChildren: () => import('./forgot/forgot.module').then( m => m.ForgotPageModule)
   },
   {
     path: 'register',
@@ -25,6 +37,18 @@ const routes: Routes = [
   {
     path: 'postad',
     loadChildren: () => import('./postad/postad.module').then( m => m.PostadPageModule)
+  },
+  {
+    path: 'product-detail/:id',
+    loadChildren: () => import('./product-detail/product-detail.module').then( m => m.ProductDetailPageModule)
+  },
+  {
+    path: 'product-list',
+    loadChildren: () => import('./product-list/product-list.module').then( m => m.ProductListPageModule)
+  },
+  {
+    path: 'all-users',
+    loadChildren: () => import('./all-users/all-users.module').then( m => m.AllUsersPageModule)
   },
   {
     path: 'edit-profile',

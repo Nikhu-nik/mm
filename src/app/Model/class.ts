@@ -31,7 +31,6 @@ export class Product {
   productphone:Number;
   productfullname:String;
   category: String;
-
   imgbase: string;
  }
 

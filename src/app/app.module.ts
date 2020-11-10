@@ -13,7 +13,7 @@ import { Base64 } from '@ionic-native/base64/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
 import { File } from '@ionic-native/File/ngx';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
-
+import {NativeGeocoder} from '@ionic-native/native-geocoder/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -21,7 +21,7 @@ import { ImagePicker } from '@ionic-native/image-picker/ngx';
   providers: [
     Camera,
     ImagePicker,
-  
+    NativeGeocoder,
     Base64,
     File,
     FilePath,

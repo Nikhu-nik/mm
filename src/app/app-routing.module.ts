@@ -7,6 +7,14 @@ const routes: Routes = [
     loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
   },
   {
+    path: 'admindashboard',
+    loadChildren: () => import('./admindashboard/admindashboard.module').then( m => m.AdmindashboardPageModule)
+  },
+  {
+    path: 'all-users',
+    loadChildren: () => import('./all-users/all-users.module').then( m => m.AllUsersPageModule)
+  },
+  {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },

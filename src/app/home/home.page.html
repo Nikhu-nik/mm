@@ -1,0 +1,300 @@
+<ion-header style="background-color: #27ae60;">
+  <!-- <div style="height: 50px;" [myScrollVanish]="scrollArea" > -->
+  <ion-row align-items-center>
+
+    <!------Location------>
+    <ion-col size="9" [routerLink]="['/mapmodel']" routerDirection="forward">
+      <ion-input class="loc">
+        {{address}}
+      </ion-input>
+    </ion-col>
+
+    <!-----Language------>
+
+    <!-- <ion-col size="3">
+      <ion-item class="language-item">
+
+        <ion-select style="margin-left: -15px;" [(ngModel)]="language" [value]="language" placeholder="Language"
+          (ionChange)="changeLanguage()">
+          <ion-select-option value="en">English</ion-select-option>
+
+          <ion-select-option value="Kan">Kannada</ion-select-option>
+          <ion-select-option value="hi">Hindi</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-col> -->
+
+  </ion-row>
+  <!-- </div> -->
+</ion-header>
+
+<ion-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div>
+          <ion-searchbar (ionInput)="getItems($event)" placeholder="Search.. "></ion-searchbar>
+        </div>
+      </ion-col>
+
+      <!-- <ion-col >
+        <ion-icon style="font-size: 23px;
+        color: white;
+        /* margin: 0 auto; */
+        padding: 11px; "class="ion-margin-start" name="notifications"></ion-icon>
+        <ion-badge color="primary">0</ion-badge>
+      </ion-col> -->
+    </ion-row>
+  </ion-grid>
+
+</ion-toolbar>
+
+
+
+
+
+<ion-content #scrollArea scrollEvents="true">
+
+  <ion-slides [options]="slideOptions" autoplay="2000" pager="true" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)">
+    <ion-slide>
+      <img src="../../assets/mic/slide4.jpg">
+      <p class="myoverlay">We have solutions for agri need</p>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="../../assets/mic/slide00.jpg">
+      <p class="myoverlay">Heart of Perfect Farming</p>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="../../assets/mic/slide2.jpg">
+      <p class="myoverlay">Adding green to the Customers</p>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="../../assets/mic/slide0.jpg">
+      <p class="myoverlay">Field is Futures.</p>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="../../assets/mic/slide13.jpg">
+      <p class="myoverlay">Shaping your Need</p>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="../../assets/mic/slide8.jpg">
+      <p class="myoverlay">The agricultural commodity experts</p>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="../../assets/mic/slide5.jpg">
+      <p class="myoverlay">We farm, You eat.</p>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="../../assets/mic/slide11.jpg">
+      <p class="myoverlay">Grow naturally, Live natural</p>
+    </ion-slide>
+
+  </ion-slides>
+  <!------------------Category heading------------------>
+  <!-- <ion-grid class="Category-pop">
+      <ion-row class="ion-justify-content-evenly">
+        <ion-col>
+          <p class="ion-margin-start">Catergory</p>
+        </ion-col>
+        <ion-col size="3">
+          <p (click)="show = !show" color="danger">See All</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid> -->
+
+
+
+  <!-------View Categories---------------->
+
+  <!-- <ion-grid class="catergory_title">
+      <ion-row class="ion-justify-content-between">
+        <ion-col class="ion-margin-start" size="3">
+          <img id="cat1" src="../../assets/mic/food.png" height="40px" width="40px">
+  
+          <p class="ion-no-margin">Vegetables</p>
+        </ion-col>
+        <ion-col size="3">
+          <img id="cat2" src="../../assets/mic/fruits.png" height="40px" width="40px">
+          <p class="ion-no-margin ">Fruits</p>
+        </ion-col>
+        <ion-col size="2">
+          <img id="cat3" src="../../assets/mic/nut.png" height="40px" width="40px">
+          <p class="ion-no-margin">Nuts</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid> -->
+
+  <!----Animated Category-------------->
+  <!-- <div *ngIf="show" [@enterAnimation]>
+  
+      <ion-grid class="catergory_title">
+        <ion-row class="ion-justify-content-between">
+          <ion-col class="ion-margin-start" size="3">
+            <img id="cat4" src="../../assets/mic/soil.png" height="40px" width="40px">
+            <p class="ion-no-margin">Seeds</p>
+          </ion-col>
+          <ion-col size="3">
+            <img id="cat5" src="../../assets/mic/flower (1).png" height="40px" width="40px">
+            <p class="ion-no-margin "> Flowers</p>
+          </ion-col>
+          <ion-col size="2">
+            <img id="cat6" src="../../assets/mic/edibleoil.png" height="40px" width="40px">
+            <p class="ion-no-margin">Edible OIl</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  
+  
+      <ion-grid class="catergory_title">
+        <ion-row class="ion-justify-content-between">
+          <ion-col class="ion-margin-start" size="3">
+            <img id="cat7" src="../../assets/mic/salad.png" height="40px" width="40px">
+            <p class="ion-no-margin">Bevarages</p>
+          </ion-col>
+          <ion-col size="3">
+            <img id="cat2" src="../../assets/mic/herbs.png" height="40px" width="40px">
+            <p class="ion-no-margin ">Herbs</p>
+          </ion-col>
+          <ion-col size="2">
+            <img id="cat9" src="../../assets/mic/seed (1).png" height="40px" width="40px">
+            <p class="ion-no-margin">Fertilizers</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div> -->
+  <!-- <ion-card class="ion-padding">
+    <ion-card-header>
+      With Params
+    </ion-card-header>
+    <ion-card-content>
+      <h1>{{ product_name }}</h1>
+      <p>{{ product_description }}</p>
+    </ion-card-content>
+  </ion-card> -->
+
+
+  <!-- Posted Of Admin -->
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let l of products" size="12">
+        <ion-card mode='ios'>
+          <img class="pro-image" src="http://ec2-54-179-100-147.ap-southeast-1.compute.amazonaws.com:3000/{{l.imgbase}}">
+          <p class="ion-text-center product_text">NAme:{{l.name}}</p>
+          <p class="ion-text-center product_text">Quantity {{l.quant}}</p>
+          <p class="ion-text-center ion-no-margin product_text">{{l.name}}</p>
+          <p class="ion-text-center product_text">City: {{l.city}}</p>
+          <p class="ion-text-center product_text"> Desc:{{l.desc}}</p>
+          <p class="ion-text-center product_text"> Loc:{{l.location}}</p>
+          <p class="ion-text-center product_text">Personname: {{l.productphone}}</p>
+          <p class="ion-text-center product_text"> personphone:{{l.productfullname}}</p>
+        </ion-card>
+
+        <ion-button [routerLink]="['/product-detail',l.id]" expand="block">View </ion-button>
+
+
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let l of products">
+        <ion-card mode='ios'>
+          <ion-item>
+            <ion-icon class="icon" name="location"></ion-icon>
+            <ion-label color="light">{{l.location}}</ion-label>
+            <span>View</span>
+          </ion-item>
+
+          <ion-card-header>
+            <ion-card-subtitle>{{l.productfullname}}</ion-card-subtitle>
+            <!-- <ion-card-title>{{l.name}}</ion-card-title> -->
+          </ion-card-header>
+          <ion-card-content>
+            <ion-slides (ionSlidesDidLoad)="load(slider)" zoom>
+              <ion-slide *ngFor="let fig of l.imgbase.split(',')">
+                <p class="more">1 more +</p>
+    <img class="pro-image" src="http://ec2-54-179-100-147.ap-southeast-1.compute.amazonaws.com:3000/{{fig}}"/>
+              </ion-slide>
+            </ion-slides>
+
+            <p class="pro-content">{{l.name}}</p>
+            <p class="pro-content">Price &#8377;{{l.price}}</p>
+            <p style="text-align: start;
+            font-size: 12px;" class="pro-content">Description: &nbsp;{{l.desc}}</p>
+            <p style="font-size: 12px;" class="pro-content">Quantity: {{l.quant}}</p>
+            <p style="font-size: 12px;" class="pro-content">City: {{l.city}}</p>
+            <p style="font-size: 12px;" class="pro-content">
+              Contact: {{l.productphone}}</p>
+            <ion-badge color="dark">Enquire</ion-badge>
+
+
+            <div class="ion-text-end">
+              <ion-button fill="solid" [routerLink]="['/product-detail',l.id]">View </ion-button>
+            </div>
+          </ion-card-content>
+</ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let a of postadd" >
+        <ion-card mode='ios'>
+          <ion-item>
+            <ion-icon class="icon" name="location"></ion-icon>
+            <ion-label color="light">{{a.location}}</ion-label>
+            <span>View</span>
+          </ion-item>
+
+          <ion-card-header>
+            <ion-card-subtitle>{{a.advfullname}}</ion-card-subtitle>
+       
+          </ion-card-header>
+          <ion-card-content>
+          <ion-slides (ionSlidesDidLoad)="load(slider)" zoom>
+          <ion-slide *ngFor="let figs of a.advimgbase.split(',')">
+            <p class="more">1 more +</p>
+            <img class="pro-image" src="http://localhost:3000/{{figs}}" />
+           </ion-slide>
+           </ion-slides>
+
+            <p class="pro-content">{{a.advname}}</p>
+            <p class="pro-content">Price &#8377;{{a.advprice}}</p>
+            <p class="pro-content">Description: &nbsp;{{a.advdesc}}</p>
+            <p style="font-size: 12px;" class="pro-content">Quantity: {{a.advquant}}</p>
+            <p style="font-size: 12px;" class="pro-content">City: {{a.advcity}}</p>
+            <p style="font-size: 12px;" class="pro-content">
+              Contact: {{a.advphone}}</p>
+            <ion-badge (click)="callNow(productphone)" color="dark">Enquire</ion-badge>
+
+
+            <div class="ion-text-end">
+              <ion-button fill="solid" [routerLink]="['/product-detail',a.id]">View </ion-button>
+            </div>
+          </ion-card-content>
+
+
+
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+
+
+ 
+
+
+
+</ion-content>

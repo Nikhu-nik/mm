@@ -1,0 +1,69 @@
+<ion-header class="ion-no-border">
+  <div class="login-header">
+    <img class="logo-img extra " src="../../assets/icon/Artboard 2.png">
+  </div>
+</ion-header>
+
+<ion-content class="background">
+  <form [formGroup]="formcontrol">
+
+    <!--------Heading and positioning----->
+    <div class="me">
+      <div heading-column-lr>
+        <h1 big-heading>Sign Up</h1>
+
+      </div>
+
+      <!-------Register Fullname-------->
+      <ion-item transparent>
+        <img icon-small src="../../assets/icon/fullname.png">
+        <ion-input clearInput formControlName="fullname" type="text" placeholder="Fullname"></ion-input>
+      </ion-item>
+
+      <!---------Validate Fullname----- -->
+      <p class="error" *ngIf="isSubmitted && errorControl.fullname.errors?.required">
+        Name is required.
+      </p>
+      <p class="error" *ngIf="isSubmitted && errorControl.fullname.errors?.minlength">
+        Name must be at least 5 characters long.
+      </p>
+      <p class="error" *ngIf="isSubmitted && errorControl.fullname.errors?.pattern">
+        Name must contain only letters.
+      </p>
+      <p class="error" *ngIf="isSubmitted && errorControl.fullname.errors?.maxlength">
+        Name cannot be more than 20 characters long.
+      </p>
+
+
+
+      <!--------Number ---------->
+      <ion-item transparent>
+        <img icon-small src="../../assets/icon/phone.png">
+        <ion-input type="number" clearInput placeholder="Phone Number" minlength="10" maxlength="10"
+          formControlName="number" required></ion-input>
+      </ion-item>
+
+      <!-----Validate Number ------->
+      <p class="error" *ngIf="isSubmitted && errorControl.number.errors?.required">
+        Phone number is required.
+
+      </p>
+      <p class="error" *ngIf="isSubmitted && errorControl.number.errors?.minlength">
+        Please enter 10 digit Mobile number.
+      </p>
+      <p class="error" *ngIf="isSubmitted && errorControl.number.errors?.pattern">
+        <!-- Please enter a valid number. -->
+        Please enter a valid number.
+      </p>
+
+      <div linespace></div>
+
+      <ion-button size="small" (click)="getregister()" slot="fixed" expand="block" fill="solid">Sign Up</ion-button>
+      
+    </div>
+  
+
+  </form>
+  <ion-label class="ion-text-center ion-margin-top">Already have an account? &nbsp;<a routerLink="/login">Login</a>
+  </ion-label>
+</ion-content>

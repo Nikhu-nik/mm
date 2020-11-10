@@ -1,0 +1,141 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">
+      My Profile
+    </ion-title>
+    <ion-icon name="power" slot="end" style="padding:0px 12px; font-size: 24px; color: white;" (click)="logout()">
+    </ion-icon>
+  </ion-toolbar>
+<!-- <div [myScrollVanish]="scrollArea" class="d-flex flex-column align-items-center"> -->
+
+    <div>
+      <ion-avatar>
+        <!-- <img *ngIf="" [src]="imageResponse"> -->
+        <img [src]="profilePhoto" alt="">
+      </ion-avatar>
+    </div>
+    <!-- 
+      <div>
+        <p  style="color:#FFFF;text-align: center;text-decoration: underline;" 
+        class="ion-margin-top">{{name | titlecase}}</p>
+      </div> -->
+
+  <!-- </div> -->
+
+  <div>
+    <p style="color:#FFFF;text-align: center;">{{name | titlecase}}</p>
+    <p routerLink="/edit-profile" routerDirection="forward"
+      style="color:#FFFF;text-align: center;text-decoration: underline;">View Profile</p>
+  </div>
+
+</ion-header>
+
+<ion-content #scrollArea scrollEvents="true">
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div>
+          <h4 class="tag">Personal</h4>
+          <ion-card mode="md">
+            
+            <ion-item lines="none" color="none">
+              <ion-label class="my-info">Full Name : {{ name | titlecase }}</ion-label>
+               <ion-icon class="my-info-icon" name="pencil" slot="end" routerLink="/edit-profile"
+                routerDirection="forward"></ion-icon>
+            </ion-item>
+
+            <ion-item lines="none" color="none">
+              <ion-label class="my-info">Mobile Number : {{ number | titlecase }}</ion-label>
+              <ion-icon class="my-info-icon" name="pencil" slot="end" routerLink="/update-mob-number"
+                routerDirection="forward"></ion-icon>
+            </ion-item>
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item-group>
+
+          <!-- Packages -->
+          <ion-item routerLink="/package">
+            <ion-row>
+              <ion-col col-12>
+
+                <ion-label class="heading">Buy Packages & My Orders</ion-label>
+                <p id="tagline" class="ion-no-margin">Packages,orders,billing and invoices</p>
+              </ion-col>
+            </ion-row>
+            <ion-icon class="end-icons" name="chevron-forward-outline" slot="end"></ion-icon>
+          </ion-item>
+
+
+          <!-- Settings -->
+
+          <ion-item routerLink="/settings">
+            <ion-row>
+              <ion-col col-12>
+
+                <ion-label class="heading">Settings</ion-label>
+                <p id="tagline" class="ion-no-margin">Privacy and logout</p>
+              </ion-col>
+            </ion-row>
+            <ion-icon class="end-icons" name="chevron-forward-outline" slot="end"></ion-icon>
+          </ion-item>
+
+
+          <!-- Help Support -->
+          <ion-item routerLink="/support">
+            <ion-row>
+              <ion-col col-12>
+
+                <ion-label class="heading">Help & Support</ion-label>
+                <p id="tagline" class="ion-no-margin">Help center and legal terms</p>
+              </ion-col>
+            </ion-row>
+            <ion-icon class="end-icons" name="chevron-forward-outline" slot="end"></ion-icon>
+          </ion-item>
+
+          <ion-item routerLink="/language">
+            <ion-row>
+              <ion-col col-12>
+
+                <ion-label class="heading">Partner With Us</ion-label>
+                <p id="tagline" class="ion-no-margin">Share thoughts</p>
+              </ion-col>
+            </ion-row>
+            <ion-icon class="end-icons" name="chevron-forward-outline" slot="end"></ion-icon>
+          </ion-item>
+
+          <!-- Languages -->
+          <ion-item routerLink="/language">
+            <ion-row>
+              <ion-col col-12>
+
+                <ion-label class="heading">Select Language</ion-label>
+                <p id="tagline" class="ion-no-margin">English</p>
+              </ion-col>
+            </ion-row>
+            <ion-icon class="end-icons" name="chevron-forward-outline" slot="end"></ion-icon>
+          </ion-item>
+
+
+        </ion-item-group>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

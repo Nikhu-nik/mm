@@ -1,0 +1,65 @@
+<ion-header class="ion-no-border">
+  <div class="login-header">
+    <img class="logo-img extra " src="../../assets/icon/Artboard 2.png">
+
+  </div>
+</ion-header>
+
+<ion-content slot="fixed" padding>
+
+  <form [formGroup]="formcontrol">
+    <div class="me">
+      <div heading-column-lr>
+        <h3 big-heading>Login</h3>
+      </div>
+      <ion-item clearInput slot="fixed" transparent>
+        <img icon-small src="../../assets/icon/fullname.png">
+        <ion-input  placeholder="FullName(Optional)" type="text"></ion-input>
+      </ion-item>
+
+     
+
+      
+
+     
+
+      <ion-item clearInput slot="fixed" transparent>
+        <img icon-small src="../../assets/icon/phone.png">
+        <ion-input formControlName="number" placeholder="Mobile Number" type="number"></ion-input>
+      </ion-item>
+
+<!-----Validate Number ------->
+<p class="error" *ngIf="isSubmitted && errorControl.number.errors?.required">
+  Phone number is required.
+
+</p>
+<p class="error" *ngIf="isSubmitted && errorControl.number.errors?.minlength">
+  Please enter 10 digit Mobile number.
+</p>
+<p class="error" *ngIf="isSubmitted && errorControl.number.errors?.pattern">
+  <!-- Please enter a valid number. -->
+  Please enter a valid number.
+</p>
+
+    
+
+
+      <div>
+        <p style="margin-top: -31px;" class="no-margin forgot-password" slot="fixed" routerLink="/forgot">Forgot
+          Password?</p>
+      </div>
+      <div linespace></div>
+      
+      <ion-button size="small" slot="fixed" expand="block" fill="solid" (click)="login()">Login</ion-button>
+      <ion-label slot="fixed" expand="block" class="ion-text-center ion-margin-top">Dont have an account? &nbsp;<a
+          routerLink="/register">Sign
+          up</a>
+      </ion-label>
+
+    </div>
+
+
+
+  </form>
+
+</ion-content>

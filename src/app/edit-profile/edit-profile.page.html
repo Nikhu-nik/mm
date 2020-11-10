@@ -1,0 +1,74 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-back-button color="light" defaultHref="/dashboard/account" routerDirection="backward" slot="start">
+    </ion-back-button>
+    <ion-title color="light">Edit Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="formcontrol">
+    <div class="top-head">
+      <ion-avatar (click)="PresentActionsheet()">
+    
+          <img [src]="base64temp">
+        
+      
+       <!-- <div *ngIf="!base64temp">
+          <img src={{defaultimageshow}}>
+        </div> -->
+      </ion-avatar>
+
+        <!-- <ion-icon type="file" (click)="PresentActionsheet()"
+         class="camera-icon" name="camera"></ion-icon> -->
+      
+
+    </div>
+
+
+    <div class="center">
+
+      <ion-item transparent>
+        <img icon-small src="../../assets/icon/fullname.png">
+        <ion-input formControlName="fullname" [(ngModel)]="name" placeholder="Fullname" type="text"></ion-input>
+        <ion-icon name="pencil"></ion-icon>
+      </ion-item>
+      <div *ngIf="valid">
+        <p class="error_msg" no-margin *ngIf="formcontrol.get('fullname').hasError('required')">Name required </p>
+      </div>
+
+
+
+      <ion-item transparent>
+        <img icon-small src="../../assets/icon/phone.png">
+        <ion-input formControlName="number" [(ngModel)]="number" placeholder="Phone Number" type="number"></ion-input>
+        <ion-icon name="pencil"></ion-icon>
+      </ion-item>
+      <div *ngIf="valid">
+        <p no-margin *ngIf="formcontrol.get('number').hasError('required')">Phone required </p>
+      </div>
+
+
+
+      <ion-button class="ion-margin-top" expand="block" (click)="update()">Update</ion-button>
+    </div>
+
+
+
+
+
+
+
+
+
+    
+  </form>
+
+</ion-content> 
+
+
+
+<!-- <ion-button (click)="uploadFile()"> Upload & Preview </ion-button>
+<img [src]="imageURL ? imageURL : 'assets/icon/user-avatar.png'" class="rounded mx-auto d-block img-thumbnail" alt="HA">
+<input type="file" *ngIf="!imageURL" (change)="fileChanged($event)" 
+accept="image/*" class="filebtn" #fileButton  /> -->

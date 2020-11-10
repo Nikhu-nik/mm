@@ -1,0 +1,50 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="light">MY ADS</ion-title>
+    
+  </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-segment [(ngModel)]="selectTabs">
+    <ion-segment-button value="ADS">
+      <ion-label>ADS</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="FAVOURITES">
+      <ion-label>FAVOURITES</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="selectTabs == 'ADS'">
+<ion-grid>
+  <ion-row>
+   <ion-col>
+     <p style="margin-top:11em;" class="ion-margin-top ion-text-center">You haven't listed anything yet</p>
+     <ion-button routerLink="/offerings"  expand="block">Post</ion-button>
+   </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+  </div>
+
+  <div *ngIf="selectTabs == 'FAVOURITES'">
+    <ion-grid>
+      <ion-row>
+       <ion-col>
+         <p style="margin-top:11em;" class="ion-margin-top ion-text-center">No Favourites</p>
+         
+       </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+
+</ion-content>
+
+

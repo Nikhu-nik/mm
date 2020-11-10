@@ -40,13 +40,13 @@ export class LoginPage implements OnInit {
    }
 
   ngOnInit() {
-    
+    this.navi();
     this.login();
   }
   get errorControl() {
     return this.formcontrol.controls;
   }
-
+ 
   async showLoader(){
     const loading = this.loadingCtrl.create({
         message:'Please wait',

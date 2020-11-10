@@ -159,7 +159,7 @@ public AdminMenuItems = [
   }
 
   initializeApp() {
-    this.getuserprofiles();
+   
     this.platform.ready().then(() => {
       // if (window.location.pathname === "/"){
       //   this.route.navigateByUrl('addpro');
@@ -169,15 +169,22 @@ public AdminMenuItems = [
     });
   }
 
-  doRefresh(event) {
+  ngOnInit() {
+    this.navi();
     this.getuserprofiles();
-   setTimeout(() => { 
-      //console.log('Async operation has ended');
-     event.target.complete();
-   }, 2000);
- }
-
-
+  }
+  
+ navi(){
+  if(this.rest.getRole()=="ADMIN"){
+    this.route.navigate(['/admindashboard']);
+  }
+  else if(this.rest.getRole()=="USER"){
+    this.route.navigate(['/dashboard/home']);
+  }
+  else{
+    this.route.navigate(['/login']);
+  }
+}
 
 
 
@@ -195,7 +202,6 @@ public AdminMenuItems = [
       this.name = this.userid.fullname;
       console.log(this.userid.name);
       this.profilePhoto = "http://localhost:3000/"+this.userid.profilephoto;
-      console.log(this.profilePhoto);
       this.rest.sendId(this.userid.id);
     
        /* to get role of user */

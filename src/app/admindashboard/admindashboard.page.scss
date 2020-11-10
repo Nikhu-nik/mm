@@ -1,0 +1,47 @@
+ion-icon {
+    font-size: 3em;
+    color:whitesmoke;
+}
+*{ 
+    font-family: 'Lato', sans-serif!important;
+    font-style: normal;
+}
+p,h4{
+   
+    font-weight:bold;
+}
+ion-item{
+font-size: 14px;
+    font-weight: 600;
+    font-style: normal;
+}
+
+ion-menu-button{
+    color:darkblue;
+}
+ion-toggle.toggle-checked {
+    --handle-border-radius: 4px 14px 14px 4px;
+  }
+  ion-toggle {
+    --handle-border-radius: 14px 4px 4px 14px;
+  }
+  ion-toggle {
+    --background:  var(--ion-color-primary);
+    --background:  var(--ion-color-primary);
+  
+    --handle-background: rgb(70, 223, 70);
+    --handle-background-checked:rgb(74, 74, 228);
+  }
+  ion-toggle::before {
+    position: absolute;
+  
+    top: 16px;
+    left: 10px;
+  
+  
+  
+    color: white;
+    font-size: 8px;
+  
+    z-index: 1;
+  }

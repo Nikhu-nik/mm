@@ -6,11 +6,11 @@ import { AppComponent } from '../app.component';
 //import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, Subject, merge } from 'rxjs'
 import { RestService } from '../Service/rest.service';
+
 // import { AppRate } from '@ionic-native/app-rate/ngx';
 import { debounceTime, distinctUntilChanged, filter, map } from 'rxjs/operators';
 import { Register, Product, PostAdd } from '../Model/class';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-
 import { Geolocation, Geoposition ,GeolocationOptions } from '@ionic-native/geolocation/ngx';
 // import { style, state, animate, transition, trigger } from '@angular/animations';
 import {NgZone} from '@angular/core';
@@ -103,11 +103,11 @@ slideOptions = {
   };
 
   ngOnInit() {
-    //this.getuserprofile();
+    this.getuserprofile();
     this.ret();
     this.adminpostedgetproduct();
    this.retrieval();
-   //this.getuserprofile();
+ 
   this.latlong();
   
    
@@ -257,40 +257,40 @@ ret(){
 
 
 
-  // getuserprofile() {
-  //   this.rest.userprofile().subscribe((result) => {
-  //     if (result === undefined) {
-  //       console.log(result);
-  //       this.errmsg = true;
-  //     }
-  //     else {
-  //       /* to get userdetails */
-  //       this.arr = Object.entries(result).map(([type, value]) => ({ type, value }));
-  //       this.userid = this.arr[1].value;
-  //    //   this.photo = this.userid.photo;
-  //       this.rest.sendId(this.userid.id);
-  //       //  console.log(this.userid.photo);
-  //       /* to get role of user */
-  //       this.ar = Object.entries(this.userid.roles).map(([type, value]) => ({ type, value }));
-  //       this.role = this.ar[0].value;
-  //       this.rest.sendRole(this.role.name);
-  //       /* Role Differntiation */
-  //       if (this.rest.getRole() == "ADMIN") {
-  //         //this.test.getuserprofiles();
-  //         // this.test.getuserDetails();
-  //         this.myRoute.navigate(['/admindashboard']);
-  //       }
-  //       else {
-  //         //this.test.getuserprofiles();
-  //         // this.test.getuserDetails();
-  //         this.myRoute.navigate(['/dashboard/home']);
-  //       }
-  //     }
-  //   }, (err) => {
-  //     console.log(err);
+  getuserprofile() {
+    this.rest.userprofile().subscribe((result) => {
+      if (result === undefined) {
+        console.log(result);
+        this.errmsg = true;
+      }
+      else {
+        /* to get userdetails */
+        this.arr = Object.entries(result).map(([type, value]) => ({ type, value }));
+        this.userid = this.arr[1].value;
+     //   this.photo = this.userid.photo;
+        this.rest.sendId(this.userid.id);
+        //  console.log(this.userid.photo);
+        /* to get role of user */
+        this.ar = Object.entries(this.userid.roles).map(([type, value]) => ({ type, value }));
+        this.role = this.ar[0].value;
+        this.rest.sendRole(this.role.name);
+        /* Role Differntiation */
+        if (this.rest.getRole() == "ADMIN") {
+        this.test.getuserprofiles();
+          // this.test.getuserDetails();
+          this.myRoute.navigate(['/admindashboard']);
+        }
+        else {
+          //this.test.getuserprofiles();
+          // this.test.getuserDetails();
+          this.myRoute.navigate(['/dashboard/home']);
+        }
+      }
+    }, (err) => {
+      console.log(err);
 
-  //   });
-  // }
+    });
+  }
 
 //Localising Language
   

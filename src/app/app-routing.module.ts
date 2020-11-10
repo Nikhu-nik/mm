@@ -11,6 +11,10 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
+    path: 'admindashboard',
+    loadChildren: () => import('./admindashboard/admindashboard.module').then( m => m.AdmindashboardPageModule)
+  },
+  {
     path: 'mapmodel',
     loadChildren: () => import('./mapmodel/mapmodel.module').then( m => m.MapmodelPageModule)
   },
@@ -42,14 +46,7 @@ const routes: Routes = [
     path: 'product-detail/:id',
     loadChildren: () => import('./product-detail/product-detail.module').then( m => m.ProductDetailPageModule)
   },
-  {
-    path: 'product-list',
-    loadChildren: () => import('./product-list/product-list.module').then( m => m.ProductListPageModule)
-  },
-  {
-    path: 'all-users',
-    loadChildren: () => import('./all-users/all-users.module').then( m => m.AllUsersPageModule)
-  },
+  
   {
     path: 'edit-profile',
     loadChildren: () => import('./edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)

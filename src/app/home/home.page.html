@@ -233,7 +233,7 @@
             <p style="font-size: 12px;" class="pro-content">City: {{l.city}}</p>
             <p style="font-size: 12px;" class="pro-content">
               Contact: {{l.productphone}}</p>
-            <ion-badge color="dark">Enquire</ion-badge>
+            <ion-badge (click)="callNow(l.productphone)" color="dark">Enquire</ion-badge>
 
 
             <div class="ion-text-end">

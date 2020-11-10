@@ -1,0 +1,72 @@
+
+<ion-header class="ion-no-border">
+  <ion-toolbar >
+    <ion-buttons>
+       <ion-menu-button>
+          
+        </ion-menu-button> 
+      </ion-buttons>
+      
+       <ion-title class="ion-text-center" color="primary">Dashboard</ion-title>
+     
+      
+     
+       <ion-buttons slot="end">
+          <ion-toggle [(ngModel)]="dark" (ionChange)="updateDarkMode()"></ion-toggle>
+   </ion-buttons>
+      
+      </ion-toolbar>
+ </ion-header> 
+
+
+
+
+ <ion-content>
+  <!-- <section text-center margin-bottom>
+    <ion-icon name="person"></ion-icon>
+    <h1 style="font-size:1.4em" no-margin>Welcome, <br>
+      Mr. John Doe</h1>
+  </section> -->
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col col-6>
+        <ion-card routerLink="/product-list" text-center padding color="success">
+         
+          <ion-icon class="ion-margin-start ion-margin-top " text-center name="cart"></ion-icon>
+          <p class="ion-text-center">Products</p>
+        </ion-card>
+      </ion-col>
+      
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <ion-card  routerLink="/registeruser"  text-center padding color="success">
+          <ion-icon class="ion-margin-start ion-margin-top"  name="people"></ion-icon>
+          <p class="ion-text-center">Register Users</p>
+        </ion-card>
+      </ion-col>
+      <ion-col col-6>
+        <ion-card text-center padding color="success">
+          <ion-icon class="ion-margin-start ion-margin-top" name="images"></ion-icon>
+         <p class="ion-text-center">Earn</p>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row class="ion-justify-content-center">
+      <ion-col col-6>
+        <ion-card text-center padding color="success">
+          <ion-icon class="ion-margin-start ion-margin-top" text-center name="cash"></ion-icon>
+          <p class="ion-text-center">Revenue</p>
+        </ion-card>
+      </ion-col>
+      
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<!-- <ion-col col-6>
+        <ion-card text-center padding color="primary">
+          <ion-icon class="ion-margin-start" name="cash"></ion-icon>
+          <p class="ion-text-center">Revenue</p>
+        </ion-card>
+      </ion-col> -->

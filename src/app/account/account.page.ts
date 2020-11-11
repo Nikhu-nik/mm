@@ -26,7 +26,8 @@ export class AccountPage implements OnInit {
   ar;
   admin: boolean = false;
 user: boolean = false;
-profilePhoto:string="assets/icon/user-avatar.png";
+base:string="assets/icon/user-avatar.png";
+profilePhoto;
   public data: Register = new Register();
   constructor(private route:Router,public alertController: AlertController,
     private myRoute: Router,
@@ -35,6 +36,14 @@ profilePhoto:string="assets/icon/user-avatar.png";
   ngOnInit() {
     this.getuserprofiles();
   }
+  doRefresh(event) {
+this.getuserprofiles();
+console.log('Begin async operation');
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
+  }
   goto(){
     this.route.navigate(['/dashboard/edit-profile']);
   }
@@ -42,7 +51,7 @@ profilePhoto:string="assets/icon/user-avatar.png";
   async logout() {
     this.alertController.create({
       header: 'Confirm Alert',
-     mode:'ios',
+     mode:'md',
       message: 'Are you sure? you want to logout',
       buttons: [
        

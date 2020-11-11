@@ -8,7 +8,7 @@
 <ion-content padding>
   <ion-col  size="12">
     <ion-label  class="address">
-   <ion-icon class="location_icon" slot="icon-only"  color="danger" name="location" ></ion-icon>
+   <ion-icon class="location_icon" slot="icon-only"  color="primary" name="locate" ></ion-icon>
   {{address}}
 </ion-label>
 </ion-col>
@@ -136,10 +136,10 @@
           </span>
          </div>   -->
     
-         <ion-card  *ngIf="advimage" mode="ios">
+         <ion-card  *ngIf="images" mode="ios">
           <ion-card-content>
           <ion-row>
-            <ion-col *ngFor="let img of advimage">
+            <ion-col *ngFor="let img of images">
             <img  src={{img}}>
            </ion-col>
     
@@ -150,7 +150,7 @@
       <!-- Gallery Buttons of Choosing  -->
       <ion-row>
         <ion-col size="6">
-          <ion-button (click)="PickFile()">Choose Image&nbsp;
+          <ion-button (click)="PickfromGallery()">Choose Image&nbsp;
             <ion-icon name="folder"></ion-icon>
           </ion-button>
         </ion-col>

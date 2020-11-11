@@ -14,12 +14,18 @@ import { FilePath } from '@ionic-native/file-path/ngx';
 import { File } from '@ionic-native/File/ngx';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import {NativeGeocoder} from '@ionic-native/native-geocoder/ngx';
+import { FileChooser } from '@ionic-native/file-chooser/ngx';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [HttpClientModule,BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [HttpClientModule, SocketIoModule.forRoot(config),
+    BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule],
   providers: [
     Camera,
+    FileChooser,
     ImagePicker,
     NativeGeocoder,
     Base64,

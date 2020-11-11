@@ -13,17 +13,13 @@
 
     <div>
       <ion-avatar>
-        <!-- <img *ngIf="" [src]="imageResponse"> -->
+        
         <img [src]="profilePhoto" alt="">
       </ion-avatar>
     </div>
-    <!-- 
-      <div>
-        <p  style="color:#FFFF;text-align: center;text-decoration: underline;" 
-        class="ion-margin-top">{{name | titlecase}}</p>
-      </div> -->
 
-  <!-- </div> -->
+    
+
 
   <div>
     <p style="color:#FFFF;text-align: center;">{{name | titlecase}}</p>
@@ -33,8 +29,15 @@
 
 </ion-header>
 
-<ion-content #scrollArea scrollEvents="true">
-
+<ion-content >
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+     
+      pullingText="Pull to refresh"
+      refreshingSpinner="crescent"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
 
   <ion-grid>
     <ion-row>

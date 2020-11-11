@@ -3,7 +3,7 @@
   <ion-row align-items-center>
 
     <!------Location------>
-    <ion-col size="9" [routerLink]="['/mapmodel']" routerDirection="forward">
+    <ion-col size="12" [routerLink]="['/mapmodel']" routerDirection="forward">
       <ion-input class="loc">
         {{address}}
       </ion-input>
@@ -11,7 +11,7 @@
 
     <!-----Language------>
 
-    <ion-col size="3">
+    <!-- <ion-col size="3">
       <ion-item class="language-item">
 
         <ion-select  [(ngModel)]="language" [value]="language" placeholder="Language"
@@ -22,7 +22,7 @@
           <ion-select-option value="hi">Hindi</ion-select-option>
         </ion-select>
       </ion-item>
-    </ion-col>
+    </ion-col> -->
 
   </ion-row>
   <!-- </div> -->
@@ -53,7 +53,16 @@
 
 
 
-<ion-content #scrollArea scrollEvents="true">
+<ion-content >
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+     
+      pullingText="Pull to refresh"
+      refreshingSpinner="crescent"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
 
   <ion-slides [options]="slideOptions" autoplay="2000" pager="true" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)">
     <ion-slide>
@@ -221,7 +230,7 @@
             <ion-slides (ionSlidesDidLoad)="load(slider)" zoom>
               <ion-slide *ngFor="let fig of l.imgbase.split(',')">
                 <p class="more">1 more +</p>
-    <img class="pro-image" src="http://localhost:3000/{{fig}}"/>
+    <img class="pro-image" src="http://ec2-18-141-56-81.ap-southeast-1.compute.amazonaws.com:4000/{{fig}}"/>
               </ion-slide>
             </ion-slides>
 
@@ -260,7 +269,7 @@
             <ion-card-subtitle>{{a.advfullname}}</ion-card-subtitle>
        
           </ion-card-header>
-          <ion-card-content>     
+          <ion-card-content>       
           <ion-slides (ionSlidesDidLoad)="load(slider)" zoom>
           <ion-slide *ngFor="let figs of a.advimgbase.split(',')">
             <p class="more">1 more +</p>

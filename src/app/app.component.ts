@@ -24,7 +24,7 @@ export class AppComponent {
     {
       title: 'Post Advertisement',
       icon: 'document',
-      url:'/dashboard/home'
+      url:'/addpro'
     },
     {
       title: '  Buy Package',
@@ -44,18 +44,18 @@ export class AppComponent {
       children  :[
         {
           title: 'Help Center',
-          icon: 'call',
-          url:'/addpro'
+          icon: 'call'
+          
         },
         {
           title: 'Rate us',
-          icon: 'person',
-          url:'/addpro'
+          icon: 'person'
+         
         },
         {
           title: 'Invite friends',
-          icon: 'person',
-          url:'/addpro'
+          icon: 'person'
+        
         },
       ]
     },
@@ -65,18 +65,18 @@ export class AppComponent {
       children  :[
         {
           title: 'Version',
-          icon: 'shield-checkmark',
-          url:'/addpro'
+          icon: 'shield-checkmark'
+          
         },
         {
           title: 'Deactivate',
-          icon: 'person',
-          url:'/addpro'
+          icon: 'person'
+        
         },
         {
           title: 'Become a Partner',
           icon: 'hand-left',
-          url:'/addpro'
+          url:'/partner'
         },
       ]
     },
@@ -87,12 +87,12 @@ public AdminMenuItems = [
   {
     title: 'Dashboard',
     icon: 'home',
-    url:'/addpro'
+    url:'/admindashboard'
   },
   {
     title: 'View Users',
     icon: 'eye',
-    url:'/addpro'
+    url:'/all-users'
   },
   {
     title: 'Add Product',
@@ -102,17 +102,17 @@ public AdminMenuItems = [
   {
     title: 'All Product',
     icon: 'eye',
-    url:'/addpro'
+    url:'/product-list'
   },
   {
     title: 'All Advertisement',
     icon: 'pricetags',
-    url:'/addpro'
+    url:'/product-list'
   },
   {
     title: 'Dark/Light',
-    icon: 'bulb',
-    url:'/addpro'
+    icon: 'bulb'
+    
   }
   
 ];
@@ -148,8 +148,8 @@ public AdminMenuItems = [
 // }, 2000);
 //     });
     platform.ready().then(() => {
-      this.statusBar.backgroundColorByHexString('#27ae60');
-      this.statusBar.hide();
+      this.statusBar.backgroundColorByHexString('#44cc7d');
+ 
      
       });
      

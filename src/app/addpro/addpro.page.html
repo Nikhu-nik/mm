@@ -1,8 +1,10 @@
 <ion-header>
-  <ion-toolbar >
-    <!-- <ion-title class="ion-text-right">addpro</ion-title> -->
-    <ion-back-button color="light" defaultHref="/dashboard/home" slot="start"></ion-back-button>
-    <ion-title color="light"> Upload Add</ion-title>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="light">Admin upload</ion-title>
+    
   </ion-toolbar>
 </ion-header>
 
@@ -191,7 +193,7 @@
 <!-- Gallery Buttons of Choosing  -->
 <ion-row>
   <ion-col size="6">
-    <ion-button (click)="PickFile()">Choose Image&nbsp;
+    <ion-button (click)="PickfromGallery()">Choose Image&nbsp;
       <ion-icon name="folder"></ion-icon>
     </ion-button>
   </ion-col>

@@ -401,3 +401,33 @@ html, body { height: 100%; }
   color: white;
   margin: 20px;
 }
+
+
+.logout-alert{
+  .alert-message{
+    font-size: 14px;
+    font-weight: bold;
+    color: green;
+    text-align: center;
+}
+.alert-title{
+  font-size: 13px;
+    color: green;
+}
+
+.alert-button{
+  font-size: 11px;
+  display: block;
+ // margin: 0 auto;
+  height: 34px;
+  text-transform: capitalize;
+  margin-bottom: 16px;
+ 
+  border-radius: 7px;
+  
+  //background: #a6ff89;
+  color: black;
+  font-weight: bold;
+  display: block;
+}
+}

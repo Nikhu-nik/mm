@@ -48,11 +48,17 @@ console.log('Begin async operation');
  
   async logout() {
     this.alertController.create({
-      header: 'Confirm Alert',
-     mode:'md',
-      message: 'Are you sure? you want to logout',
+      header: 'Mobile Mandi',
+      cssClass: 'logout-alert',
+      message: 'Are you sure you want to exit?',
       buttons: [
-       
+      
+        {
+          text: 'Cancel',
+          handler: () => {
+            console.log('Confirm Okay');
+          }
+        },
         {
           text: 'okay',
           handler: () => {
@@ -61,6 +67,7 @@ console.log('Begin async operation');
            console.log('Loggedout');
           }
         },
+        
        
       ]
     }).then(res => {

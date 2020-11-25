@@ -1,9 +1,30 @@
 <ion-app>
   <ion-menu class="custom" contentId="main-content" side="start" type="overlay">
     <ion-header no-border>
-      <ion-avatar>
+
+
+      <!-- <ion-avatar>
         <img [src]="profilePhoto" alt="">
-      </ion-avatar>
+      </ion-avatar> -->
+
+<div *ngIf="!profilePhoto">
+  <ion-avatar >
+    <img [src]="defaultimageshow">
+     </ion-avatar>
+</div>
+     
+    
+    
+        
+        
+           <div *ngIf="profilePhoto">
+             <ion-avatar>
+           <img [src]="profilePhoto">
+            </ion-avatar>
+            </div>
+
+
+
       <ion-item routerLink="/dashboard/account" routerDirection="forward" lines="none" color="none">
         <ion-label>
           <b style="color: green;margin-left: 64px;font-size: 12px">{{name | titlecase }}</b><br>

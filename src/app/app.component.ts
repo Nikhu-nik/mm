@@ -15,6 +15,7 @@ import { LoginPage } from './login/login.page';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  public defaultimageshow: string = '../../assets/icon/user-avatar.png';
   public UserMenuItems = [
     {
       title: 'Home',
@@ -211,7 +212,8 @@ public AdminMenuItems = [
       this.userid = this.arr[1].value;
       this.name = this.userid.fullname;
       console.log(this.userid.name);
-      this.profilePhoto = "http://ec2-18-141-56-81.ap-southeast-1.compute.amazonaws.com:4000/"+this.userid.profilephoto;
+      this.profilePhoto = "http://ec2-18-141-56-81.ap-southeast-1.compute.amazonaws.com:4000/"
+      +this.userid.profilephoto;
       this.rest.sendId(this.userid.id);
     
        /* to get role of user */

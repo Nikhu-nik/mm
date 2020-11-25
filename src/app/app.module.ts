@@ -17,6 +17,7 @@ import {NativeGeocoder} from '@ionic-native/native-geocoder/ngx';
 import { FileChooser } from '@ionic-native/file-chooser/ngx';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { HTTP } from '@ionic-native/http/ngx';
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 @NgModule({
   declarations: [AppComponent],
@@ -31,6 +32,7 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     Base64,
     File,
     FilePath,
+    HTTP ,
     Geolocation,
     StatusBar,
     SplashScreen,

@@ -11,10 +11,9 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./account.page.scss'],
 })
 export class AccountPage implements OnInit {
+  public defaultimageshow: string = '../../assets/icon/user-avatar.png';
   fullname;
   number;
-  bean;
-  profilephoto;
   errmsg:boolean=false;
   array;
   role;
@@ -26,7 +25,6 @@ export class AccountPage implements OnInit {
   ar;
   admin: boolean = false;
 user: boolean = false;
-base:string="assets/icon/user-avatar.png";
 profilePhoto;
   public data: Register = new Register();
   constructor(private route:Router,public alertController: AlertController,
@@ -86,10 +84,9 @@ console.log('Begin async operation');
        console.log(this.userid.name);
         this.number = this.userid.number;
       console.log(this.userid.number);
-      this.profilePhoto = "http://localhost:3000/"+this.userid.profilephoto;
-      // this.bean = this.userid.profilephoto;
-      // console.log(this.userid.profilephoto);
-        /* to get role of user */
+      this.profilePhoto = "http://ec2-18-141-56-81.ap-southeast-1.compute.amazonaws.com:4000/"
+      +this.userid.profilephoto;
+       /* to get role of user */
         this.ar = Object.entries(this.userid.roles).map(([type, value]) => ({ type, value }));
         this.role = this.ar[0].value;
         this.rest.sendRole(this.role.name);

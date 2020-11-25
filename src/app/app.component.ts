@@ -27,9 +27,9 @@ export class AppComponent {
       url:'/addpro'
     },
     {
-      title: '  Buy Package',
-      icon: 'pricetag',
-      url:'/dashboard/home'
+      title: 'Buy Package',
+      icon: 'pricetag'
+      
     },
     {
       title: 'Notifications',
@@ -89,6 +89,7 @@ public AdminMenuItems = [
     icon: 'home',
     url:'/admindashboard'
   },
+  
   {
     title: 'View Users',
     icon: 'eye',
@@ -100,15 +101,16 @@ public AdminMenuItems = [
     url:'/addpro'
   },
   {
-    title: 'All Product',
-    icon: 'eye',
-    url:'/product-list'
-  },
-  {
     title: 'All Advertisement',
     icon: 'pricetags',
     url:'/product-list'
   },
+  {
+    title: 'Delete Product',
+    icon: 'trash',
+    url:'/prod-del'
+  },
+ 
   {
     title: 'Dark/Light',
     icon: 'bulb'
@@ -162,7 +164,7 @@ public AdminMenuItems = [
    
     this.platform.ready().then(() => {
       // if (window.location.pathname === "/"){
-      //   this.route.navigateByUrl('addpro');
+      //   this.route.navigateByUrl('postad');
       // }
       this.statusBar.styleDefault();
       this.splashScreen.hide();
@@ -173,7 +175,14 @@ public AdminMenuItems = [
     this.navi();
     this.getuserprofiles();
   }
-  
+  doRefresh(event) {
+    this.getuserprofiles();
+    console.log('Begin async operation');
+        setTimeout(() => {
+          console.log('Async operation has ended');
+          event.target.complete();
+        }, 2000);
+      }
  navi(){
   if(this.rest.getRole()=="ADMIN"){
     this.route.navigate(['/admindashboard']);
@@ -182,7 +191,8 @@ public AdminMenuItems = [
     this.route.navigate(['/dashboard/home']);
   }
   else{
-    this.route.navigate(['/login']);
+    // this.route.navigate(['/login']);
+    console.log('Bad Request');
   }
 }
 
@@ -201,7 +211,7 @@ public AdminMenuItems = [
       this.userid = this.arr[1].value;
       this.name = this.userid.fullname;
       console.log(this.userid.name);
-      this.profilePhoto = "http://localhost:3000/"+this.userid.profilephoto;
+      this.profilePhoto = "http://ec2-18-141-56-81.ap-southeast-1.compute.amazonaws.com:4000/"+this.userid.profilephoto;
       this.rest.sendId(this.userid.id);
     
        /* to get role of user */

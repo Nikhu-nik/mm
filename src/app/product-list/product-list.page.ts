@@ -1,6 +1,7 @@
 import { Component, OnInit ,ViewChild,} from '@angular/core';
 import { RestService } from '../Service/rest.service';
 import { MatTableDataSource } from '@angular/material/table';
+import {NgxDatatableModule} from '@swimlane/ngx-datatable';
 import {style, state, animate, transition, trigger} from '@angular/animations';
 @Component({
   selector: 'app-product-list',
@@ -31,8 +32,7 @@ export class ProductListPage implements OnInit {
   show = false;
   listData;
  //listData: MatTableDataSource<any>;
-  displayedColumns: string[] = [  'userId' ,'category','name', 'price', 'quant', 'desc', 
-  'productphone','productfullname','city','edit'];
+  displayedColumns: string[] = [ 'userId' ,'name','desc' ,'price','quant','category'];
   content: any;
   constructor(public rest: RestService) { }
  
@@ -56,10 +56,10 @@ export class ProductListPage implements OnInit {
  switchStyle(){
   if(this.tableStyle=='dark'){
     this.tableStyle='bootstrap';
-console.log("kjkjkjkj");
+
   }else{
     this.tableStyle='dark';
-  //  console.log("kjkjkjkj");  
+  
   }
 }
 
@@ -72,8 +72,7 @@ if (val && val.trim() != ''){
   this.isItemAvailable = false;
 this.listDatas= this.listData.filter((item => {
     return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
-    }
-    )
+    })
   )
 
 }
@@ -82,7 +81,6 @@ else{
   this.isItemAvailables=false;
 }
 }
-
 
 
   getuserDetails() {
@@ -121,7 +119,21 @@ else{
       console.log(err);
     });
   }
- 
+  
+  delete(id) {
+    this.rest.deleteProduct(id).subscribe((result) => {
+      if (result == undefined) {
+        console.log(result);
+      }
+      else {
+      this.getuserDetails();
+      this.retrieval();
+        //console.log(result);
+      }
+    }, (err) => {
+      console.log(err);
+    });
+  }
 
 
   doRefresh(event) {

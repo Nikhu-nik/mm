@@ -1,6 +1,22 @@
 #table td, #table th{
-  border: 1px solid #7dce46;
-  padding:8px;
+  border: 1px solid #aff77e;
+  padding: 4px; 
+  font-weight: bold;
+   
+  color: black;
+  font-size: 11px;
+}
+*{
+font-family:  'Montserrat';
+}
+
+tr{
+  height: 2px!important;
+}
+ion-col{
+  font-size: 10px;
+    font-weight: bold;
+    color: green;
 }
 #table  tr:nth-child(even) {background-color: #f2f2f2;}
 

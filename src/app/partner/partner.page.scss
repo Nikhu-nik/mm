@@ -1,0 +1,67 @@
+ion-item{
+  --highlight-color-focused:transparent;
+  --highlight-height:0;
+  --highlight-color-invalid:#000;
+  --highlight-color-valid:#ddd;
+  --min-height:65px;
+ // --padding-start:0;
+  --padding-start: 3%;
+}
+.select-text{
+  font-size: 12px;
+}
+
+.aadhar{
+  position: absolute;
+    /* --background: red; */
+    --background: #f3eeee;
+    /* position: inherit; */
+    top: 30px;
+   
+}
+page-partner{
+  
+  ion-input {
+    background-color: #f3eeee;
+    padding-left: 10px;
+    color: #6c6c6c;
+}
+
+}
+
+ion-input{
+  color: green;
+  font-size:14px;
+ 
+}
+ion-toolbar{
+  --background:#27ae60;
+  }
+ion-select {
+  /* Applies to the value and placeholder color */
+  color: green;
+
+  /* Set a different placeholder color */
+  --placeholder-color: #971e49;
+
+  /* Set full opacity on the placeholder */
+  --placeholder-opacity: 1;
+}
+
+.me{
+  position: relative;
+     left: 4%;
+    width: 90%;
+  }
+  ion-label {
+    font-style: inherit;
+    color:green;
+    display: flex !important;
+    align-items: center;
+  }
+  
+  ion-label ion-icon {
+    height: 100%;
+    color: green;
+    margin-right: 5px;
+  }

@@ -178,39 +178,7 @@
         </ion-row>
       </ion-grid>
     </div> -->
-  <!-- <ion-card class="ion-padding">
-    <ion-card-header>
-      With Params
-    </ion-card-header>
-    <ion-card-content>
-      <h1>{{ product_name }}</h1>
-      <p>{{ product_description }}</p>
-    </ion-card-content>
-  </ion-card> -->
-
-
-  <!-- Posted Of Admin -->
-  <!-- <ion-grid>
-    <ion-row>
-      <ion-col *ngFor="let l of products" size="12">
-        <ion-card mode='ios'>
-          <img class="pro-image" src="http://ec2-54-179-100-147.ap-southeast-1.compute.amazonaws.com:3000/{{l.imgbase}}">
-          <p class="ion-text-center product_text">NAme:{{l.name}}</p>
-          <p class="ion-text-center product_text">Quantity {{l.quant}}</p>
-          <p class="ion-text-center ion-no-margin product_text">{{l.name}}</p>
-          <p class="ion-text-center product_text">City: {{l.city}}</p>
-          <p class="ion-text-center product_text"> Desc:{{l.desc}}</p>
-          <p class="ion-text-center product_text"> Loc:{{l.location}}</p>
-          <p class="ion-text-center product_text">Personname: {{l.productphone}}</p>
-          <p class="ion-text-center product_text"> personphone:{{l.productfullname}}</p>
-        </ion-card>
-
-        <ion-button [routerLink]="['/product-detail',l.id]" expand="block">View </ion-button>
-
-
-      </ion-col>
-    </ion-row>
-  </ion-grid> -->
+  
 
   <ion-grid>
     <ion-row>
@@ -229,11 +197,11 @@
           <ion-card-content>
             <ion-slides (ionSlidesDidLoad)="load(slider)" zoom>
               <ion-slide *ngFor="let fig of l.imgbase.split(',')">
-                <p class="more">1 more +</p>
+                <p class="more" >1 more +</p>
     <img class="pro-image" src="http://ec2-18-141-56-81.ap-southeast-1.compute.amazonaws.com:4000/{{fig}}"/>
               </ion-slide>
             </ion-slides>
-
+<div [routerLink]="['/product-detail',l.id]">
             <p class="pro-content">{{l.name}}</p>
             <p class="pro-content">Price &#8377;{{l.price}}</p>
             <p style="text-align: start;
@@ -242,7 +210,8 @@
             <p style="font-size: 12px;" class="pro-content">City: {{l.city}}</p>
             <p style="font-size: 12px;" class="pro-content">
               Contact: {{l.productphone}}</p>
-            <ion-badge (click)="callNow(l.productphone)" color="dark">Enquire</ion-badge>
+            </div>
+            <ion-badge  color="dark">Enquire</ion-badge>
 
 
             <div class="ion-text-end">
@@ -270,10 +239,11 @@
        
           </ion-card-header>
           <ion-card-content>       
-          <ion-slides (ionSlidesDidLoad)="load(slider)" zoom>
-          <ion-slide *ngFor="let figs of a.advimgbase.split(',')">
+          <ion-slides (ionSlidesDidLoad)="load(slider)" zoom>  
+           
+          <ion-slide *ngFor="let user of a.advimgbase.split(',')">
             <p class="more">1 more +</p>
-            <img class="pro-image" src="http://localhost:3000/{{figs}}" />
+            <img class="pro-image" src="http://localhost:3000/{{user}}"/>
            </ion-slide>
            </ion-slides>
 
@@ -284,7 +254,7 @@
             <p style="font-size: 12px;" class="pro-content">City: {{a.advcity}}</p>
             <p style="font-size: 12px;" class="pro-content">
               Contact: {{a.advphone}}</p>
-            <ion-badge (click)="callNow(productphone)" color="dark">Enquire</ion-badge>
+            <ion-badge  color="dark">Enquire</ion-badge>
 
 
             <div class="ion-text-end">

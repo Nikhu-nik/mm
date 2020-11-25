@@ -5,5 +5,19 @@
 </ion-header>
 
 <ion-content>
+  <div class="ion-padding">
 
+    <!-- Theme classes dark, material, bootstrap -->
+    <ngx-datatable 
+    class="material"
+    [limit]="8" 
+    [rows]="rows" 
+    [rowHeight]="50" 
+    [columns]="columns"
+    [columnMode]="'force'" 
+    [sortType]="'multi'" 
+    [headerHeight]="50" 
+    [footerHeight]="50">
+  </ngx-datatable>
+  </div>
 </ion-content>

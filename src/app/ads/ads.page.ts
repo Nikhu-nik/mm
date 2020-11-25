@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { RestService } from '../Service/rest.service';
+import { Register, Product, PostAdd } from '../Model/class';
 @Component({
   selector: 'app-ads',
   templateUrl: './ads.page.html',
@@ -8,11 +9,35 @@ import { Component, OnInit } from '@angular/core';
 export class AdsPage implements OnInit {
   selectTabs = 'ADS';
   myphoto: any;
-  constructor() { }
+  products: Product[] = [];
+  imgbase;
+  public data: Register = new Register();
+  constructor(  public rest: RestService,) { }
 
   ngOnInit() {
+    this.retrieval();
   }
+  ionViewWillEnter(){
+    this.retrieval();
+  }
+  retrieval() {
+    this.rest.getproductOfAdmin().subscribe((Product) => {
+     if (Product === undefined) {
+        console.log(Product);
+      }
+      else {
+        console.log(Product.product);
+        this.products = Product.product;
+        
+      }
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+
   doRefresh(event) {
+    this.retrieval();
     console.log('Begin async operation');
 
     setTimeout(() => {

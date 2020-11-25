@@ -9,18 +9,19 @@
 <ion-content [fullscreen]="true">
   <form [formGroup]="formcontrol">
     <div class="top-head">
-      <ion-avatar (click)="PresentActionsheet()">
-    
-          <img [src]="base64temp">
-        
-      
-       <!-- <div *ngIf="!base64temp">
-          <img src={{defaultimageshow}}>
-        </div> -->
-      </ion-avatar>
 
-        <!-- <ion-icon type="file" (click)="PresentActionsheet()"
-         class="camera-icon" name="camera"></ion-icon> -->
+      <ion-avatar *ngIf="!myprofile">
+        <img [src]="defaultimageshow">
+         </ion-avatar>
+       
+       <div *ngIf="myprofile">
+       <ion-avatar (click)="PresentActionsheet()">
+      <img [src]="base64temp">
+       </ion-avatar>
+       </div>
+
+        <ion-icon type="file" (click)="PresentActionsheet()"
+         class="camera-icon" name="camera"></ion-icon>
       
 
     </div>

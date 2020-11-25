@@ -154,69 +154,135 @@ export class PostadPage implements OnInit {
   //   });
   }
 
-  uploadmyadd() {
-    this.isSubmitted = true;
+  // uploadmyadd() {
+  //   this.isSubmitted = true;
+  //   this.data["filename"] = undefined;
+  //   console.log(this.data["filename"]);
+  //   for(var k = 0;k<this.images.length;k++)
+  //   {
+  //    if(this.data["filename"] == undefined){
+  //     this.data["filename"] =  "user-products/"+ Date.now().toString() +k.toString()+ ".png";
+  //     }
+  //     else{
+  //       this.data["filename"] += 
+  //        ",user-products/"+ Date.now().toString()+k.toString()+ ".png";
+  //     }
+  //   }
+  //   for(var i = 0;i<this.images.length;i++)
+  //   {
+  //   this.formcontrol.get("advname").setValidators(Validators.required);
+  //   this.formcontrol.get("advname").updateValueAndValidity();
+  //   this.formcontrol.get("advprice").setValidators(Validators.required);
+  //   this.formcontrol.get("advprice").updateValueAndValidity();
+  //   this.formcontrol.get("advdesc").setValidators(Validators.required);
+  //   this.formcontrol.get("advdesc").updateValueAndValidity();
+  //   this.formcontrol.get("advquant").setValidators(Validators.required);
+  //   this.formcontrol.get("advquant").updateValueAndValidity();
+  //   this.formcontrol.get("advfullname").setValidators(Validators.required);
+  //   this.formcontrol.get("advfullname").updateValueAndValidity();
+  //   this.formcontrol.get("advphone").setValidators(Validators.required);
+  //   this.formcontrol.get("advphone").updateValueAndValidity();
+  //   this.formcontrol.get("advcategory").setValidators(Validators.required);
+  //   this.formcontrol.get("advcategory").updateValueAndValidity();
+  //   this.formcontrol.get("advcity").setValidators(Validators.required);
+  //   this.formcontrol.get("advcity").updateValueAndValidity();
+  //   if (this.formcontrol.valid) {
+  //     alert('Form values are passed');
+  //     }
+  //     else {
+  //      console.log('Form Valid')
+  //       this.valid = true;
+  //       }
+  //   Object.assign(this.data, this.formcontrol.value);
+  //   console.log(this.images);
+  //   this.data["advimgbase"] = this.images[i];
+  //   this.data["location"] = this.address;
+  //   this.data["count"] = i.toString()
+  //   console.log(this.data);
+  //   //if (this.formcontrol.valid) {
+  // this.rest.postadvertisement(this.data).subscribe((result) => {
+  //       console.log(result);
+  //       if (result === undefined) {
+  //         console.log(result);
+  //       }
+  //       else {
+  //         this.alertservice.productpostedsucccessfully();
+         
+  //       }
+  //       this.router.navigate(['dashboard/home']);
+  //     }, (err) => {
+  //       alert(JSON.stringify(err)); 
+  //     });
+  //   }
+  //   }
+
+    add(){
+      this.isSubmitted = true;
     this.data["filename"] = undefined;
-    console.log(this.data["filename"]);
-    for(var k = 0;k<this.images.length;k++)
-    {
-     if(this.data["filename"] == undefined){
-      this.data["filename"] =  "user-products/"+ Date.now().toString() +k.toString()+ ".png";
+      console.log(this.data["filename"]);
+      for(var k = 0;k<this.images.length;k++)
+      {
+      if(this.data["filename"] == undefined){
+        this.data["filename"] =  "user-products/"+ Date.now().toString() +k.toString()+ ".png";
       }
       else{
-        this.data["filename"] += 
-         ",user-products/"+ Date.now().toString()+k.toString()+ ".png";
+        this.data["filename"] +=  ",user-products/"+ Date.now().toString()+k.toString()+ ".png";
       }
-    }
-    for(var i = 0;i<this.images.length;i++)
-    {
-    this.formcontrol.get("advname").setValidators(Validators.required);
-    this.formcontrol.get("advname").updateValueAndValidity();
-    this.formcontrol.get("advprice").setValidators(Validators.required);
-    this.formcontrol.get("advprice").updateValueAndValidity();
-    this.formcontrol.get("advdesc").setValidators(Validators.required);
-    this.formcontrol.get("advdesc").updateValueAndValidity();
-    this.formcontrol.get("advquant").setValidators(Validators.required);
-    this.formcontrol.get("advquant").updateValueAndValidity();
-    this.formcontrol.get("advfullname").setValidators(Validators.required);
-    this.formcontrol.get("advfullname").updateValueAndValidity();
-    this.formcontrol.get("advphone").setValidators(Validators.required);
-    this.formcontrol.get("advphone").updateValueAndValidity();
-    this.formcontrol.get("advcategory").setValidators(Validators.required);
-    this.formcontrol.get("advcategory").updateValueAndValidity();
-    this.formcontrol.get("advcity").setValidators(Validators.required);
-    this.formcontrol.get("advcity").updateValueAndValidity();
-    if (this.formcontrol.valid) {
+      }
+     for(var i = 0;i<this.images.length;i++)
+      {
+        this.formcontrol.get("advname").setValidators(Validators.required);
+          this.formcontrol.get("advname").updateValueAndValidity();
+          this.formcontrol.get("advprice").setValidators(Validators.required);
+          this.formcontrol.get("advprice").updateValueAndValidity();
+          this.formcontrol.get("advdesc").setValidators(Validators.required);
+          this.formcontrol.get("advdesc").updateValueAndValidity();
+          this.formcontrol.get("advquant").setValidators(Validators.required);
+          this.formcontrol.get("advquant").updateValueAndValidity();
+          this.formcontrol.get("advfullname").setValidators(Validators.required);
+          this.formcontrol.get("advfullname").updateValueAndValidity();
+          this.formcontrol.get("advphone").setValidators(Validators.required);
+          this.formcontrol.get("advphone").updateValueAndValidity();
+          this.formcontrol.get("advcategory").setValidators(Validators.required);
+          this.formcontrol.get("advcategory").updateValueAndValidity();
+          this.formcontrol.get("advcity").setValidators(Validators.required);
+          this.formcontrol.get("advcity").updateValueAndValidity();
+     if (this.formcontrol.valid) {
       alert('Form values are passed');
       }
+    
       else {
-       console.log('Form Valid')
+      
+      console.log('Form Valid')
         this.valid = true;
-        }
+      }
     Object.assign(this.data, this.formcontrol.value);
     console.log(this.images);
     this.data["advimgbase"] = this.images[i];
     this.data["location"] = this.address;
     this.data["count"] = i.toString()
+    
     console.log(this.data);
+    
     //if (this.formcontrol.valid) {
-  this.rest.postadvertisement(this.data).subscribe((result) => {
-        console.log(result);
-        if (result === undefined) {
+     // alert(i);
+   
+    this.rest.postadvertisement(this.data).subscribe((result) => {
+      
+       console.log(result);
+      if (result === undefined) {
           console.log(result);
-        }
+         }
         else {
-          this.alertservice.productpostedsucccessfully();
-         
-        }
-        this.router.navigate(['dashboard/home']);
+      this.alertservice.productpostedsucccessfully();
+     
+      }
+      this.router.navigate(['dashboard/home']);
       }, (err) => {
         alert(JSON.stringify(err)); 
       });
     }
     }
-
-
 
 
   

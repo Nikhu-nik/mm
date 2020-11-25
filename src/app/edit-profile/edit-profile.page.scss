@@ -64,7 +64,7 @@ ion-item.sc-ion-input-md-h:not(.item-label), ion-item:not(.item-label) .sc-ion-i
   background: #42d77d;
   border-radius: 64%;
   position: relative;
-  margin: 14px 0px 0px -12px;
+  margin: -30px 0px 0px -14px;
 }
 @media(min-height:320px){ 
   .center{
@@ -75,6 +75,7 @@ ion-item.sc-ion-input-md-h:not(.item-label), ion-item:not(.item-label) .sc-ion-i
     width: 90%;
   
   }
+  
    
 }
 @media(min-height:735px){

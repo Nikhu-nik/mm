@@ -1,12 +1,12 @@
 <ion-app>
-  <ion-menu class="custom" contentId="main-content" type="overlay">
+  <ion-menu class="custom" contentId="main-content" side="start" type="overlay">
     <ion-header no-border>
       <ion-avatar>
         <img [src]="profilePhoto" alt="">
       </ion-avatar>
       <ion-item routerLink="/dashboard/account" routerDirection="forward" lines="none" color="none">
         <ion-label>
-          <b style="color: green;margin-left: 77px;font-size: 12px">{{name | titlecase }}</b><br>
+          <b style="color: green;margin-left: 64px;font-size: 12px">{{name | titlecase }}</b><br>
         </ion-label>
       </ion-item>
     </ion-header>
@@ -14,7 +14,10 @@
     <ion-content padding>
 
       <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+        <ion-refresher-content
+         pullingIcon="arrow-dropdown" 
+         pullingText="Pull to refresh" 
+         refreshingSpinner="cresent"
           refreshingText="Refreshing...">
 
         </ion-refresher-content>
@@ -103,7 +106,7 @@
       <ion-toolbar (click)="logout()">
         <ion-row>
           <ion-col style="text-align: center;">
-            <ion-label style="color:white;font-size:15px;" class="items">LogOut</ion-label>
+            <ion-label style="color:white!important;font-size:15px;" class="items">LogOut</ion-label>
           </ion-col>
         </ion-row>
       </ion-toolbar>

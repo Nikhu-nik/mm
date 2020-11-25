@@ -29,15 +29,29 @@
   </ion-segment>
 
   <div *ngIf="selectTabs == 'ADS'">
-<ion-grid>
+<!-- <ion-grid>
   <ion-row>
    <ion-col>
      <p style="margin-top:11em;" class="ion-margin-top ion-text-center">You haven't listed anything yet</p>
      <ion-button routerLink="/offerings"  expand="block">Post</ion-button>
    </ion-col>
   </ion-row>
-</ion-grid>
+</ion-grid> -->
 
+<h3 color="success" class="ion-text-center ion-margin-top">Your Advertisements </h3>
+
+
+<ion-card class="card" *ngFor="let l of products" >
+<ion-list lines="none" >
+  <!-- <ion-item>{{l.location}}</ion-item> -->
+  <ion-item>ProductName :{{l.productfullname}}</ion-item>
+  <ion-item>Price :{{l.price}}</ion-item>
+  <ion-item>Description:{{l.desc}}</ion-item>
+  <ion-item>Quantity:{{l.quant}}</ion-item>
+  
+</ion-list>
+<ion-icon name="heart" ></ion-icon>
+</ion-card>
 
   </div>
 

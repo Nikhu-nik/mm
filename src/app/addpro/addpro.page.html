@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
-    <ion-title color="light">Admin upload</ion-title>
+    <ion-title color="light">Post Product</ion-title>
     
   </ion-toolbar>
 </ion-header>
@@ -81,8 +81,8 @@
         <ion-col>
           <ion-item>
             <ion-label color="success" placeholder="kgs" position="floating">Product Quantity</ion-label>
-            <ion-input formControlName="quant" (keypress)="keyPress($event)"
-            class="ion-margin-top" type="number"></ion-input>
+            <ion-input formControlName="quant" 
+            class="ion-margin-top" type="text"></ion-input>
           </ion-item>
           <p class="error" *ngIf="isSubmitted && errorControl.quant.errors?.required">
             quant required.
@@ -177,8 +177,11 @@
   </ion-row>
 
 </ion-grid>
-       
-<ion-card  *ngIf="images" mode="ios">
+
+
+<!-- DISPLAYING -->
+<div *ngIf="images"> 
+<ion-card   mode="ios">
       <ion-card-content>
       <ion-row>
         <ion-col *ngFor="let img of images">
@@ -189,11 +192,17 @@
       </ion-row>
       </ion-card-content>
     </ion-card>
+</div>
+<!-- NOT DISPLAYING -->
+
+    
+
+<div *ngIf="!images == images">Please Choose Images</div>
 
 <!-- Gallery Buttons of Choosing  -->
 <ion-row>
   <ion-col size="6">
-    <ion-button (click)="PickfromGallery()">Choose Image&nbsp;
+    <ion-button (click)="PickFile()">Choose Image&nbsp;
       <ion-icon name="folder"></ion-icon>
     </ion-button>
   </ion-col>

@@ -339,40 +339,33 @@
 
 
 
-.login-alert{
+.login-failure{
   .alert-message{
-    color: green;
-    font-weight: 700;
-    text-align: center;
-}
-
-.alert-button{
-  font-size: 11px;
-    display: block;
-   
-    height: 34px;
-    text-transform: capitalize;
-    margin-bottom: 16px;
-   
-    border-radius: 7px;
-    
-    background: #a6ff89;
-    color: green;
+    font-size: 14px;
     font-weight: bold;
-    display: block;
+    color: green;
+    text-align: center;
 }
 .alert-title{
   color: green;
-  text-align: center;
-  font-size: 17px;
+    font-weight: bold;
+    
 }
-.alert-sub-title{
-  font-size: 12px;
-    text-transform: capitalize;
-    color: green;
-    text-align: center;
+.alert-button{
+  font-size: 11px;
+  display: block;
+  height: 30px;
+  text-transform: capitalize;
+  margin-bottom: 16px;
+  border-radius: 7px;
+  background: #a6ff89;
+  color: green;
+  font-weight: bold;
+  display: block;
+  width: 45px;
+  padding: 14px;
 }
-  }
+}
 
 
 html, body { height: 100%; }

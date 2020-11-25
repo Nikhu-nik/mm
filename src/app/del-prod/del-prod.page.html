@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-buttons>
+      <ion-menu-button></ion-menu-button> 
+    </ion-buttons>
+    </ion-toolbar>
+<ion-searchbar></ion-searchbar>
+</ion-header>
+
+<ion-content>
+
+    <!------ Refresher ------->
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content pullingIcon="arrow-dropdown"
+       pullingText="Pull to refresh" refreshingSpinner="circles"
+        refreshingText="Refreshing...">
+      </ion-refresher-content>
+    </ion-refresher>
+
+<ion-list *ngFor="let arr of list">
+  <ion-item>
+    <ion-label>{{arr.userId}}</ion-label>
+    <ion-label>{{arr.name}}</ion-label>
+  </ion-item>
+</ion-list>
+
+</ion-content>

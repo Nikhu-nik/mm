@@ -45,7 +45,7 @@ export class Product {
   advphone:Number;
   advfullname:String;
   advimage:string;
-  roles: String[];
+  
   advimgbase: string;
   
 }

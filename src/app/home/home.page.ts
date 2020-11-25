@@ -87,7 +87,12 @@ export class HomePage implements OnInit {
       
   }
  
-
+  ionViewDidEnter(){
+    this.retrieval();
+    this.adminpostedgetproduct();
+    this.ret();
+    this.userpostedgetproduct();
+  }
   SlideChanged() {
   }
   ionViewDidLoad() {
@@ -103,10 +108,11 @@ slideOptions = {
   };
 
   ngOnInit() {
-    this.getuserprofile();
+   // this.getuserprofile();
+   this.retrieval();
     this.ret();
     this.adminpostedgetproduct();
-   this.retrieval();
+
  
   this.latlong();
   
@@ -134,11 +140,7 @@ else{
    }
 
 
-  //  callNow(productphone: string) {
-  //   this.callNumber.callNumber(productphone, true)
-  //     .then(res => console.log('Launched dialer!', res))
-  //     .catch(err => console.log('Error launching dialer', err));
-  // }
+  
   
   
 
@@ -249,8 +251,7 @@ enableHighAccuracy:true
   }
 ret(){
   this.rest.getproductOfUser().subscribe((PostAdd) => {
-
-    if(PostAdd === undefined) {
+   if(PostAdd === undefined) {
       console.log(PostAdd);
     }
     else {
@@ -264,40 +265,40 @@ ret(){
 
 
 
-  getuserprofile() {
-    this.rest.userprofile().subscribe((result) => {
-      if (result === undefined) {
-        console.log(result);
-        this.errmsg = true;
-      }
-      else {
-        /* to get userdetails */
-        this.arr = Object.entries(result).map(([type, value]) => ({ type, value }));
-        this.userid = this.arr[1].value;
-     //   this.photo = this.userid.photo;
-        this.rest.sendId(this.userid.id);
-        //  console.log(this.userid.photo);
-        /* to get role of user */
-        this.ar = Object.entries(this.userid.roles).map(([type, value]) => ({ type, value }));
-        this.role = this.ar[0].value;
-        this.rest.sendRole(this.role.name);
-        /* Role Differntiation */
-        if (this.rest.getRole() == "ADMIN") {
-        this.test.getuserprofiles();
-          // this.test.getuserDetails();
-          this.myRoute.navigate(['/admindashboard']);
-        }
-        else {
-          //this.test.getuserprofiles();
-          // this.test.getuserDetails();
-          this.myRoute.navigate(['/dashboard/home']);
-        }
-      }
-    }, (err) => {
-      console.log(err);
+  // getuserprofile() {
+  //   this.rest.userprofile().subscribe((result) => {
+  //     if (result === undefined) {
+  //       console.log(result);
+  //       this.errmsg = true;
+  //     }
+  //     else {
+  //       /* to get userdetails */
+  //       this.arr = Object.entries(result).map(([type, value]) => ({ type, value }));
+  //       this.userid = this.arr[1].value;
+  //    //   this.photo = this.userid.photo;
+  //       this.rest.sendId(this.userid.id);
+  //       //  console.log(this.userid.photo);
+  //       /* to get role of user */
+  //       this.ar = Object.entries(this.userid.roles).map(([type, value]) => ({ type, value }));
+  //       this.role = this.ar[0].value;
+  //       this.rest.sendRole(this.role.name);
+  //       /* Role Differntiation */
+  //       if (this.rest.getRole() == "ADMIN") {
+  //       this.test.getuserprofiles();
+  //         // this.test.getuserDetails();
+  //         this.myRoute.navigate(['/admindashboard']);
+  //       }
+  //       else {
+  //         //this.test.getuserprofiles();
+  //         // this.test.getuserDetails();
+  //         this.myRoute.navigate(['/dashboard/home']);
+  //       }
+  //     }
+  //   }, (err) => {
+  //     console.log(err);
 
-    });
-  }
+  //   });
+  // }
 
 //Localising Language
   

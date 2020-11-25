@@ -1,0 +1,127 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="light">PARTNER</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true"  (ionScroll)="onScroll($event)">
+
+<div class="me">
+
+
+ 
+<ion-list>
+  <ion-item>
+    <ion-label position="floating"><ion-icon name="person"></ion-icon>Candidate Name</ion-label>
+    <ion-input clearInput></ion-input>
+  </ion-item>
+
+ 
+  <ion-item>
+    <ion-label position="floating"><ion-icon name="person"></ion-icon>Father Name</ion-label>
+    <ion-input clearInput></ion-input>
+  </ion-item>
+  
+
+  <ion-item (click)="openCalendar()">
+    <ion-label position="floating"><ion-icon name="calendar"></ion-icon>Date of birth</ion-label>
+    <ion-input clearInput></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating"><ion-icon name="mail"></ion-icon>E-mail</ion-label>
+ <ion-input autofocus="on" clearInput="true"></ion-input>
+ </ion-item>
+
+
+ 
+
+
+  <ion-item>
+    <ion-label position="floating"><ion-icon name="card"></ion-icon>Aadhaar Number</ion-label>
+    <ion-input   class="aadhar" ></ion-input>
+  </ion-item>
+
+
+
+
+  <ion-item>
+    <ion-label position="floating"><ion-icon name="school"></ion-icon>Qualification</ion-label>
+    <ion-input clearInput></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating"><ion-icon name="book"></ion-icon>SSLC Percentage</ion-label>
+    <ion-input clearInput></ion-input>
+  </ion-item>
+
+
+  
+
+
+  <ion-item>
+    <ion-label position="floating"><ion-icon name="book"></ion-icon>PUC Percentage</ion-label>
+    <ion-input clearInput></ion-input>
+  </ion-item>
+
+
+
+ <ion-item>
+  <ion-label position="floating"><ion-icon name="school"></ion-icon>State</ion-label>
+    <ion-select [(ngModel)] = "stateSelected">
+      <ion-select-option *ngFor = "let s of stateData" value="{{s.id}}">{{s.name}}</ion-select-option>
+  </ion-select>
+  </ion-item> 
+
+
+  <ion-item>
+    <ion-label>District</ion-label>
+    <ion-select [(ngModel)] = "districtSelected">
+      <ion-select-option *ngFor = "let d of districtData" value="{{d.id}}">{{d.name}}</ion-select-option>
+  </ion-select>
+  </ion-item> 
+
+
+
+  <ion-item>
+    <ion-label>Taluk</ion-label>
+    <ion-select >
+      <ion-select-option value="bird">Bird</ion-select-option>
+      <ion-select-option value="cat">Cat</ion-select-option>
+      <ion-select-option value="dog">Dog</ion-select-option>
+      <ion-select-option value="honeybadger">Honey Badger</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+
+  
+ 
+  <ion-item>
+    <ion-label position="floating"><ion-icon name="trail-sign"></ion-icon>City/Village</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="floating"><ion-icon name="create"></ion-icon>Address</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-button class="mybutton" >jdhhdfjdf</ion-button>
+
+</ion-list>
+</div>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+  <ion-fab-button (click)="scrolltop()">
+    <ion-icon name="arrow-up"></ion-icon>
+  </ion-fab-button>
+
+</ion-fab>
+
+<ion-fab vertical="bottom" horizontal="end"  slot="fixed" *ngIf="offsetTop > 200">
+  <ion-fab-button color= "success" (click)="scrollbuttom()">
+    <ion-icon name="arrow-down"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+</ion-content>

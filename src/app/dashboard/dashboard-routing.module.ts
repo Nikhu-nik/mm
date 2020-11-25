@@ -17,6 +17,10 @@ const routes: Routes = [
         path: 'home',
         loadChildren: ()  => import('../home/home.module').then( m => m.HomePageModule)
       },
+      {
+        path: 'postad',
+        loadChildren: ()  => import('../postad/postad.module').then( m => m.PostadPageModule)
+      },
      
       {
         path: 'ads',
@@ -29,6 +33,10 @@ const routes: Routes = [
       {
         path: 'chat',
         loadChildren: () => import('../chat/chat.module').then( m => m.ChatPageModule)
+      },
+      {
+        path: 'test',
+        loadChildren: () => import('../test/test.module').then( m => m.TestPageModule)
       },
       {
         path: 'account',

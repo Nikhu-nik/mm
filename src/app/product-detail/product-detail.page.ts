@@ -5,6 +5,7 @@ import { RestService } from '../Service/rest.service';
 // import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { Register, Product } from '../Model/class';
 // import { CallNumber } from '@ionic-native/call-number/ngx';
+import { HTTP } from '@ionic-native/http/ngx';
 import { AlertController, ModalController, ToastController, IonSlides } from '@ionic/angular';
 @Component({
   selector: 'app-product-detail',

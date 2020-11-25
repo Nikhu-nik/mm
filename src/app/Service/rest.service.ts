@@ -3,19 +3,19 @@ import { Observable} from 'rxjs';
 import {  Router } from '@angular/router';
 import { Register, Login,Forgot ,Product,AddtoCart, PostAdd} from '../Model/class';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpRequest,HttpEvent } from '@angular/common/http';
-
+import { HTTP } from '@ionic-native/http/ngx';
 const endpoint = 'http://ec2-18-141-56-81.ap-southeast-1.compute.amazonaws.com:4000/';
 //const endpoint = 'http://localhost:3000/'
  const agentid=1; 
 
 @Injectable({ 
   providedIn: 'root'
-})
+})  
 
 export class RestService {
   httpOptions:any;
 favorites:Array<any> = [];
-  constructor(private http: HttpClient, private myRoute: Router) { }
+  constructor(private http: HttpClient, private http1: HTTP,private myRoute: Router) { }
   private extractData(res: Response) {
     let body = res;
     return body || { };
@@ -75,7 +75,8 @@ logout() {
  
  
 
-  login(data: Login): Observable<any> {
+
+ login(data: Login): Observable<any> {
   this.httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
@@ -105,8 +106,25 @@ userprofile(): Observable<any> {
 
   return this.http.get<any>(endpoint + 'api/userview', this.httpOptions);
 }
+deleteProduct(id){
+  this.httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      'x-access-token': this.getToken()
+        })
+  };
+  return this.http.delete<Product>(endpoint + 'api/destroyProduct/'+id, this.httpOptions);
+}
 
-
+deleteuser(id){
+  this.httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      'x-access-token': this.getToken()
+        })
+  };
+  return this.http.delete<Register>(endpoint + 'api/destroyUser/'+id, this.httpOptions);
+}
  //View All Users
 getuserlist(): Observable<any> {
   this.httpOptions = {
@@ -129,15 +147,7 @@ isFavourite(id:number):boolean{
   return this.favorites.some(el => el === id);
   
 }
-removefromlist(id){
-  this.httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      'x-access-token': this.getToken()
-        })
-  };
-  return this.http.delete<Register>(endpoint + 'api/destroyUser/'+id, this.httpOptions);
-}
+
 
 
 //Admin Upload Product to UserDashboard

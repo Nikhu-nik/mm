@@ -63,11 +63,11 @@ const alert = await this.alertController.create({
       // Login ALert
        async loginfailurealert() {
         const alert = await this.alertController.create({
-          cssClass: 'login-alert',
+          cssClass: 'login-failure',
           
-          header: 'Sorry! Incorrect Credentials..!',
-          subHeader: 'Records not found',
-         message: '',
+          header: 'Failed',
+         
+         message: 'Please signup and login',
           buttons: ['OK']
         });
         await alert.present(); 

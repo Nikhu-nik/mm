@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  //{ path: '', redirectTo: 'login', pathMatch: 'full' },
-  {
-    path: '',
-    loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
-  },
+ { path: '', redirectTo: 'login', pathMatch: 'full' },
+ {
+  path: '',
+  loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
+},
   {
     path: 'admindashboard',
     loadChildren: () => import('./admindashboard/admindashboard.module').then( m => m.AdmindashboardPageModule)
@@ -44,6 +44,10 @@ const routes: Routes = [
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
   {
+    path: 'partner',
+    loadChildren: () => import('./partner/partner.module').then( m => m.PartnerPageModule)
+  },
+  {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
@@ -64,6 +68,14 @@ const routes: Routes = [
   {
     path: 'edit-profile',
     loadChildren: () => import('./edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
+  },
+  {
+    path: 'del-prod',
+    loadChildren: () => import('./del-prod/del-prod.module').then( m => m.DelProdPageModule)
+  },
+  {
+    path: 'prod-del',
+    loadChildren: () => import('./prod-del/prod-del.module').then( m => m.ProdDelPageModule)
   },
 ];
 @NgModule({

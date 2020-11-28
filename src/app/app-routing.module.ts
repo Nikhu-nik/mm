@@ -69,10 +69,7 @@ const routes: Routes = [
     path: 'edit-profile',
     loadChildren: () => import('./edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
   },
-  {
-    path: 'del-prod',
-    loadChildren: () => import('./del-prod/del-prod.module').then( m => m.DelProdPageModule)
-  },
+ 
   {
     path: 'prod-del',
     loadChildren: () => import('./prod-del/prod-del.module').then( m => m.ProdDelPageModule)

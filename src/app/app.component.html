@@ -63,7 +63,7 @@
 
 
 
-          <ion-item button *ngIf="p.children?.length > 0" (click)="p.open =!p.open" [class.active.parent]="p.open"
+          <ion-item style="padding: 4px;" button *ngIf="p.children?.length > 0" (click)="p.open =!p.open" [class.active.parent]="p.open"
             detail="false">
             <ion-icon slot="end" name="chevron-forward-outline" *ngIf="!p.open"></ion-icon>
             <ion-icon slot="end" name="chevron-down-outline" *ngIf="p.open"></ion-icon>

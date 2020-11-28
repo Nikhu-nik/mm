@@ -11,18 +11,27 @@
   </ion-toolbar>
 <!-- <div [myScrollVanish]="scrollArea" class="d-flex flex-column align-items-center"> -->
 
-  <ion-avatar *ngIf="!myprofile">
+  <!-- <ion-avatar *ngIf="!myprofile">
     <img [src]="defaultimageshow">
-     </ion-avatar>
+     </ion-avatar> -->
 
 
+    <div *ngIf="profilePhoto">
+      <ion-avatar>
+        <img [src]="profilePhoto">
+      </ion-avatar>
+    </div>
     
-    
-       <div *ngIf="myprofile">
-         <ion-avatar>
+    <div *ngIf="!profilePhoto">
+      <ion-avatar>
+        <img [src]="defaultimageshow">
+      </ion-avatar>
+    </div>
+      
+         <!-- <ion-avatar *ngIf="myprofile">
        <img [src]="myprofile">
-        </ion-avatar>
-        </div>
+        </ion-avatar> -->
+       
  
 
 

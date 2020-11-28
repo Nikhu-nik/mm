@@ -32,11 +32,7 @@ export class AppComponent {
       icon: 'pricetag'
       
     },
-    {
-      title: 'Notifications',
-      icon: 'notifications',
-      url:'/dashboard/home'
-    },
+   
    
    
     {

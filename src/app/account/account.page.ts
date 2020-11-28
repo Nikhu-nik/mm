@@ -74,7 +74,9 @@ console.log('Begin async operation');
       res.present();
     });
   }
-  
+  ionViewWillEnter(){
+    this.getuserprofiles();
+  }
   getuserprofiles() {
     this.rest.userprofile().subscribe((result) => {
       console.log(result);

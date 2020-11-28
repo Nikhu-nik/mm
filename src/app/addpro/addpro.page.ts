@@ -40,7 +40,7 @@ export class AddproPage implements OnInit {
   showToolbar = false;
   image;
   base64temp:string="";
- 
+
   images:string[]=[];
   cameraphotos:any=[];
   constructor(public alertservice:AlertService,private base64: Base64,private fb: FormBuilder, private rest: RestService,

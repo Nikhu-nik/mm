@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Camera, CameraOptions, DestinationType } from '@ionic-native/camera/ngx';
 import { File } from '@ionic-native/File/ngx';
 @Component({
@@ -8,7 +9,7 @@ import { File } from '@ionic-native/File/ngx';
 })
 export class DashboardPage implements OnInit {
   images:string[]=[];
-  constructor( private camera: Camera,private file:File,) { }
+  constructor( private camera: Camera,private file:File, private myRoute: Router) { }
 
   ngOnInit() {
   }
@@ -25,6 +26,7 @@ export class DashboardPage implements OnInit {
       let path = imagedata.substring(0,imagedata.lastIndexOf('/')+1);
       this.file.readAsDataURL(path,filename).then((base64data) => {
         this.images.push(base64data);
+        this.myRoute.navigate(['addpro']);
       })
     })
   }

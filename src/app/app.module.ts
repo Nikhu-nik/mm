@@ -18,9 +18,11 @@ import { FileChooser } from '@ionic-native/file-chooser/ngx';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { HTTP } from '@ionic-native/http/ngx';
+import { CallNumber } from '@ionic-native/call-number/ngx';
+import { ScrollVanishDirective } from './directives/scroll-vanish.directive';
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ScrollVanishDirective],
   entryComponents: [],
   imports: [HttpClientModule, SocketIoModule.forRoot(config),
     BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule],
@@ -33,6 +35,7 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     File,
     FilePath,
     HTTP ,
+    CallNumber,
     Geolocation,
     StatusBar,
     SplashScreen,

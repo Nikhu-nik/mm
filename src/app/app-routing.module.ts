@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
- { path: '', redirectTo: 'login', pathMatch: 'full' },
+ //{ path: '', redirectTo: 'login', pathMatch: 'full' },
  {
   path: '',
   loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
@@ -11,6 +11,7 @@ const routes: Routes = [
     path: 'admindashboard',
     loadChildren: () => import('./admindashboard/admindashboard.module').then( m => m.AdmindashboardPageModule)
   },
+  
   {
     path: 'all-users',
     loadChildren: () => import('./all-users/all-users.module').then( m => m.AllUsersPageModule)
@@ -73,6 +74,14 @@ const routes: Routes = [
   {
     path: 'prod-del',
     loadChildren: () => import('./prod-del/prod-del.module').then( m => m.ProdDelPageModule)
+  },
+  {
+    path: 'enquire',
+    loadChildren: () => import('./enquire/enquire.module').then( m => m.EnquirePageModule)
+  },
+  {
+    path: 'langpop',
+    loadChildren: () => import('./langpop/langpop.module').then( m => m.LangpopPageModule)
   },
 ];
 @NgModule({

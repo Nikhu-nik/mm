@@ -2,6 +2,7 @@ import { Component, OnInit ,ViewChild} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RestService } from '../Service/rest.service';
+import { CallNumber } from '@ionic-native/call-number/ngx';
 // import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { Register, Product } from '../Model/class';
 // import { CallNumber } from '@ionic-native/call-number/ngx';
@@ -50,7 +51,7 @@ export class ProductDetailPage implements OnInit {
  
   @ViewChild(IonSlides, { static: false }) slides: IonSlides
   products: Product[] = [];
-  constructor(private rest: RestService, private fb: FormBuilder,
+  constructor(private call: CallNumber,private rest: RestService, private fb: FormBuilder,
      private myRoute: Router, private route: ActivatedRoute) {
        this.favorite = this.productid
     this.route.params.subscribe(params => this.doSearch(params));
@@ -80,13 +81,13 @@ export class ProductDetailPage implements OnInit {
   //   }
   
   // }
-// call(productphone){
-//   this.callNumber.callNumber(productphone,true).then((data) => {
-//     alert(JSON.stringify(data));
-//   },(err) => {
-//     alert(JSON.stringify(err));
-//   })
-// }
+  callnow(productphone){
+ 
+    this.call.callNumber(productphone, true)
+    .then(res => console.log('Launched dialer!', res))
+    .catch(err => console.log('Error launching dialer', err));
+  
+  }
 
   ngOnInit() {
     this.getProducts();

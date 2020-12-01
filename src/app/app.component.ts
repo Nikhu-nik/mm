@@ -147,7 +147,7 @@ public AdminMenuItems = [
 // }, 2000);
 //     });
     platform.ready().then(() => {
-      this.statusBar.backgroundColorByHexString('#44cc7d');
+      this.statusBar.backgroundColorByHexString('#27ae60');
  
      
       });

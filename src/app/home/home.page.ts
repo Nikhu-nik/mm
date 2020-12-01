@@ -1,23 +1,26 @@
 import { Component, OnInit, Input,ElementRef , ViewChild } from '@angular/core';
-import {   IonSlides } from '@ionic/angular';
+import { IonSlides} from '@ionic/angular';
 import { AlertController,NavController, PopoverController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
 //import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, Subject, merge } from 'rxjs'
 import { RestService } from '../Service/rest.service';
-
+import { CallNumber } from '@ionic-native/call-number/ngx';
 // import { AppRate } from '@ionic-native/app-rate/ngx';
 import { debounceTime, distinctUntilChanged, filter, map } from 'rxjs/operators';
 import { Register, Product, PostAdd } from '../Model/class';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { Geolocation, Geoposition ,GeolocationOptions } from '@ionic-native/geolocation/ngx';
+import { ModalController } from '@ionic/angular';
 // import { style, state, animate, transition, trigger } from '@angular/animations';
 import {NgZone} from '@angular/core';
 // import { TranslateService } from '@ngx-translate/core';
 // import { ActivatedRoute } from '@angular/router';
 import { Platform } from '@ionic/angular';
-// import { CallNumber } from '@ionic-native/call-number/ngx';
+import { EnquirePage } from '../enquire/enquire.page';
+import { LangpopPage } from '../langpop/langpop.page';
+
 declare var google;
  
 @Component({
@@ -41,6 +44,7 @@ declare var google;
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  langdata:any[]=[];
   @ViewChild('map', { static: false }) mapElement: ElementRef;
   address: string;       // Users Address
   latitude: number;     //Users latitiude
@@ -72,21 +76,59 @@ export class HomePage implements OnInit {
   states:any;
   isItemAvailable:boolean=false;
   isItemAvailables:boolean=false;
- 
+  selectedVal:Number=1;
+
   toggleDisplay() {
     this.isDisplay = !this.isDisplay;
   }
-  
+  OnChange(event) {
+    alert('you selected language = '+event.target.value);
+  }
   @ViewChild(IonSlides, { static: false }) slides: IonSlides;
-  constructor(public popoverCtrl: PopoverController,public navCtrl: NavController,
- private sanitizer: DomSanitizer,
-    public zone: NgZone,public platform: Platform, private test: AppComponent,   
+  constructor(public modalController: ModalController, private call: CallNumber,
+    public popoverCtrl: PopoverController,public navCtrl: NavController,
+    private sanitizer: DomSanitizer,public zone: NgZone,public platform: Platform, 
+    private test: AppComponent, 
     public rest: RestService,
      private myRoute: Router,private geolocation:Geolocation
     ) {
-      
+      this.platform.ready().then(() => {
+this.langdata  = [
+  {
+    id:1,
+    data:"English",
+
+  },
+  {
+    id:1,
+    data:"Kannada",
+
+  },
+  {
+    id:1,
+    data:"Hindi",
+
   }
- 
+]
+      })
+  }
+  async enquire() {
+    const modal = await this.modalController.create({
+      component: EnquirePage,
+      cssClass: 'my-custom-class'
+    });
+    return await modal.present();
+  }
+  async langpop(ev: any) {
+    const popover = await this.popoverCtrl.create({
+      component: LangpopPage,
+      cssClass: 'my-popover-class',
+      event: ev,
+      translucent: true
+    });
+    return await popover.present();
+  }
+
   ionViewDidEnter(){
     this.retrieval();
     this.adminpostedgetproduct();
@@ -198,7 +240,12 @@ enableHighAccuracy:true
      console.log('Error getting location', err);
   })  
 } 
+callnow(productphone){
+ this.call.callNumber(productphone, true)
+  .then(res => console.log('Launched dialer!', res))
+  .catch(err => console.log('Error launching dialer', err));
 
+}
 
 //Mapping Products Posted by Admin
   adminpostedgetproduct() {

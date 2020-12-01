@@ -11,7 +11,8 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./account.page.scss'],
 })
 export class AccountPage implements OnInit {
-  public defaultimageshow: string = '../../assets/icon/user-avatar.png';
+  //public defaultimageshow: string = '../../assets/icon/user-avatar.png';
+  public profilePhoto: string = '../../assets/icon/user-avatar.png';
   fullname;
   number;
   errmsg:boolean=false;
@@ -23,9 +24,10 @@ export class AccountPage implements OnInit {
   selectedFile: FileList;
   currentFileUpload: File;
   ar;
+  public ishidden = false;
   admin: boolean = false;
 user: boolean = false;
-profilePhoto;
+//profilePhoto;
   public data: Register = new Register();
   constructor(private route:Router,public alertController: AlertController,
     private myRoute: Router,

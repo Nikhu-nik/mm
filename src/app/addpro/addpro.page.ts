@@ -212,6 +212,8 @@ PickfromCamera(){
   })
 }
 
+y
+
 
 add(){
   this.isSubmitted = true;

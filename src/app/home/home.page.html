@@ -1,13 +1,29 @@
 <ion-header style="background-color: #27ae60;">
-  <!-- <div style="height: 50px;" [myScrollVanish]="scrollArea" > -->
+  <!-- <div style="height: 50px;" [appScrollVanish]="scrollArea" > -->
   <ion-row align-items-center>
 
     <!------Location------>
-    <ion-col size="12" [routerLink]="['/mapmodel']" routerDirection="forward">
+    <ion-col size="9" [routerLink]="['/mapmodel']" routerDirection="forward">
       <ion-input class="loc">
         {{address}}
       </ion-input>
     </ion-col>
+    <!-- <ion-col (click)="langpop()" size="1">
+      <ion-icon class="language-icon
+      " color="light" name="ellipsis-vertical"></ion-icon>
+    </ion-col> -->
+   
+    <ion-col size="3">
+
+      
+       
+        <ion-select [(ngModal)]= "selectedVal" (ionChange)="OnChange($event)" interface="action-sheets">
+         
+    <ion-select-option *ngFor="let item of langdata" [value]="item.id">{{item.data}}</ion-select-option>
+         
+        </ion-select>
+      
+      </ion-col>
 
     <!-----Language------>
 
@@ -201,17 +217,22 @@
     <img class="pro-image" src="http://ec2-18-141-56-81.ap-southeast-1.compute.amazonaws.com:4000/{{fig}}"/>
               </ion-slide>
             </ion-slides>
-<div [routerLink]="['/product-detail',l.id]">
+<div >
             <p class="pro-content">{{l.name}}</p>
             <p class="pro-content">Price &#8377;{{l.price}}</p>
             <p style="text-align: start;
             font-size: 12px;" class="pro-content">Description: &nbsp;{{l.desc}}</p>
             <p style="font-size: 12px;" class="pro-content">Quantity: {{l.quant}}</p>
             <p style="font-size: 12px;" class="pro-content">City: {{l.city}}</p>
-            <p style="font-size: 12px;" class="pro-content">
-              Contact: {{l.productphone}}</p>
+            <ion-col size="10">
+              <p style="font-size: 12px;" class="pro-content">
+                Contact: {{l.productphone}}</p>
+            </ion-col>
+            <ion-col size="2">
+              <ion-badge  color="dark" (click)="callnow(l.productphone)">Enquire</ion-badge>
+            </ion-col>
             </div>
-            <ion-badge  color="dark">Enquire</ion-badge>
+            
 
 
             <div class="ion-text-end">

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../Service/rest.service';
 import { Register, Product, PostAdd } from '../Model/class';
+import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-ads',
   templateUrl: './ads.page.html',
@@ -12,13 +13,21 @@ export class AdsPage implements OnInit {
   products: Product[] = [];
   imgbase;
   public data: Register = new Register();
-  constructor(  public rest: RestService,) { }
+  constructor( private menu: MenuController, public rest: RestService,) { }
 
   ngOnInit() {
     this.retrieval();
   }
+  openMenu(){
+    this.menu.enable(true, 'first');
+    this.menu.open('first');
+  }
   ionViewWillEnter(){
     this.retrieval();
+    this.show();
+  }
+  show(){
+    console.log('Fired');
   }
   retrieval() {
     this.rest.getproductOfAdmin().subscribe((Product) => {

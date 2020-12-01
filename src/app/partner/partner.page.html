@@ -1,5 +1,6 @@
 <ion-header>
   <ion-toolbar>
+    <ion-back-button color="light" slot="start" defaultHref="/"></ion-back-button>
     <ion-title color="light">PARTNER</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -85,12 +86,12 @@
 
   <ion-item>
     <ion-label>Taluk</ion-label>
-    <ion-select >
+    <!-- <ion-select >
       <ion-select-option value="bird">Bird</ion-select-option>
       <ion-select-option value="cat">Cat</ion-select-option>
       <ion-select-option value="dog">Dog</ion-select-option>
       <ion-select-option value="honeybadger">Honey Badger</ion-select-option>
-    </ion-select>
+    </ion-select> -->
   </ion-item>
 
 
@@ -106,13 +107,13 @@
     <ion-input></ion-input>
   </ion-item>
 
-  <ion-button class="mybutton" >jdhhdfjdf</ion-button>
+  <ion-button expand="block" class="mybutton" >Send</ion-button>
 
 </ion-list>
 </div>
 
 <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
-  <ion-fab-button (click)="scrolltop()">
+  <ion-fab-button color="success" (click)="scrolltop()">
     <ion-icon name="arrow-up"></ion-icon>
   </ion-fab-button>
 

@@ -10,7 +10,9 @@ ion-item{
 .select-text{
   font-size: 12px;
 }
-
+ion-button{
+  --background:#27ae60;
+}
 .aadhar{
   position: absolute;
     /* --background: red; */
@@ -28,6 +30,7 @@ page-partner{
 }
 
 }
+
 
 ion-input{
   color: green;

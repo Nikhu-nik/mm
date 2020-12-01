@@ -401,7 +401,12 @@ html, body { height: 100%; }
   color: white;
   margin: 20px;
 }
-
+.my-popover-class{
+  .popover-content {
+    height: 12em;
+    width: 14em;
+  }
+}
 
 .logout-alert{
   .alert-message{

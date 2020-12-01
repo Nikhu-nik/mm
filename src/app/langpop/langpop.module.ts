@@ -4,18 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HomePageRoutingModule } from './home-routing.module';
+import { LangpopPageRoutingModule } from './langpop-routing.module';
 
-import { HomePage } from './home.page';
-
+import { LangpopPage } from './langpop.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    LangpopPageRoutingModule
   ],
-  declarations: [HomePage]
+  declarations: [LangpopPage]
 })
-export class HomePageModule {}
+export class LangpopPageModule {}

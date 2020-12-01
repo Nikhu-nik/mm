@@ -8,6 +8,11 @@ img{
     object-fit: cover;
     border: 1px solid #baffba;
 }
+ion-menu-button{
+  --color-hover:#FFFFFF;
+  --background-hover:#baffba;
+  display:block!important;
+}
 
 .more{
   position: fixed;

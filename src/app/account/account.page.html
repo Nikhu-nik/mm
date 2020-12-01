@@ -11,28 +11,29 @@
   </ion-toolbar>
 <!-- <div [myScrollVanish]="scrollArea" class="d-flex flex-column align-items-center"> -->
 
-  <!-- <ion-avatar *ngIf="!myprofile">
-    <img [src]="defaultimageshow">
-     </ion-avatar> -->
-
-
-    <div *ngIf="profilePhoto">
-      <ion-avatar>
+     <ion-avatar *ngIf="!profilePhoto ">
+      <img [src]="defaultimageshow">
+    </ion-avatar>
+ 
+      <ion-avatar *ngIf="profilePhoto">
         <img [src]="profilePhoto">
       </ion-avatar>
-    </div>
+      
+  
     
-    <div *ngIf="!profilePhoto">
-      <ion-avatar>
-        <img [src]="defaultimageshow">
-      </ion-avatar>
-    </div>
+    
+     
+     
       
          <!-- <ion-avatar *ngIf="myprofile">
        <img [src]="myprofile">
         </ion-avatar> -->
        
  
+<!-- <ion-button (click)="uploadFile()"> Upload & Preview </ion-button>
+<img [src]="imageURL ? imageURL : 'assets/icon/user-avatar.png'" class="rounded mx-auto d-block img-thumbnail" alt="HA">
+<input type="file" *ngIf="!imageURL" (change)="fileChanged($event)" 
+accept="image/*" class="filebtn" #fileButton  /> -->
 
 
   <div>

@@ -7,21 +7,17 @@
         <img [src]="profilePhoto" alt="">
       </ion-avatar> -->
 
-<div *ngIf="!profilePhoto">
-  <ion-avatar >
-    <img [src]="defaultimageshow">
-     </ion-avatar>
-</div>
-     
-    
-    
-        
-        
-           <div *ngIf="profilePhoto">
-             <ion-avatar>
-           <img [src]="profilePhoto">
-            </ion-avatar>
-            </div>
+      <div *ngIf="profilePhoto">
+        <ion-avatar>
+          <img [src]="profilePhoto">
+        </ion-avatar>
+      </div>
+      
+      <div *ngIf="!profilePhoto">
+        <ion-avatar>
+          <img [src]="defaultimageshow">
+        </ion-avatar>
+      </div>
 
 
 

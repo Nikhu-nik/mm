@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~10.0.0",
     "@angular/router": "~10.0.0",
     "@ionic-native/base64": "^5.29.0",
+    "@ionic-native/call-number": "^5.30.0",
     "@ionic-native/camera": "^5.30.0",
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/file": "^5.29.0",
@@ -36,8 +37,10 @@
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^5.0.0",
     "@swimlane/ngx-datatable": "^18.0.0",
+    "call-number": "^1.0.1",
     "com-badrit-base64": "^0.2.0",
-    "cordova-android": "^8.1.0",
+    "cordova-android": "^9.0.0",
+    "cordova-android-support-gradle-release": "^3.0.1",
     "cordova-browser": "6.0.0",
     "cordova-plugin-add-swift-support": "^2.0.2",
     "cordova-plugin-advanced-http": "^3.1.0",
@@ -101,7 +104,11 @@
       "cordova-plugin-nativegeocoder": {},
       "cordova-plugin-filechooser": {},
       "cordova-plugin-advanced-http": {},
-      "cordova-plugin-camera": {}
+      "cordova-plugin-camera": {},
+      "cordova-android-support-gradle-release": {
+        "ANDROID_SUPPORT_VERSION": "27.+"
+      },
+      "mx.ferreyra.callnumber": {}
     },
     "platforms": [
       "browser",

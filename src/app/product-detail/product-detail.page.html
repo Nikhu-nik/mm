@@ -64,12 +64,24 @@
     color: green;">Address: {{location}}</ion-item>
   </ion-list>
 
+</ion-content>
 
 
 
 
+<ion-toolbar id="enquiry">
+  <ion-grid>
+    <ion-row>
 
 
+      <ion-col>
+        <ion-button expand="block"  (click)="callnow(productphone)">CONTACT</ion-button>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+</ion-toolbar>
 
 
   <!-- <ion-grid>
@@ -128,7 +140,7 @@
 
 
 
-</ion-content>
+
 
 
 
@@ -146,16 +158,3 @@
 </ion-fab> -->
 
 
-<ion-toolbar id="enquiry">
-  <ion-grid>
-    <ion-row>
-
-
-      <ion-col>
-        <ion-button expand="full">Enquire by Calling</ion-button>
-      </ion-col>
-
-    </ion-row>
-  </ion-grid>
-
-</ion-toolbar>

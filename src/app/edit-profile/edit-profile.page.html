@@ -37,10 +37,7 @@
       <div *ngIf="valid">
         <p class="error_msg" no-margin *ngIf="formcontrol.get('fullname').hasError('required')">Name required </p>
       </div>
-
-
-
-      <ion-item transparent>
+     <ion-item transparent>
         <img icon-small src="../../assets/icon/phone.png">
         <ion-input formControlName="number" [(ngModel)]="number" placeholder="Phone Number" type="number"></ion-input>
         <ion-icon name="pencil"></ion-icon>
@@ -49,27 +46,16 @@
         <p no-margin *ngIf="formcontrol.get('number').hasError('required')">Phone required </p>
       </div>
 
-
-
-      <ion-button style="position: fixed;
-      bottom: -16em;
-      width: 100%;
-      font-weight: 900;" class="ion-margin-top" expand="block" (click)="update()">Update</ion-button>
     </div>
-
-
-
-
-
-
-
-
-
-    
-  </form>
+</form>
 
 </ion-content> 
+<ion-footer>
+  
 
+  <ion-button 
+   class="ion-margin-top" expand="block" (click)="update()">Update</ion-button>
+</ion-footer>
 
 
 <!-- <ion-button (click)="uploadFile()"> Upload & Preview </ion-button>

@@ -1,0 +1,39 @@
+
+ion-toolbar{
+  height: 4em!important;
+}
+
+.location{
+ 
+  background:#0b833c;
+  color: #ffffff;
+  
+  font-size:12px;
+  width: fit-content;
+}
+ion-item{
+  --background: #0b833c;
+}
+
+p{
+  font-size: 10px;
+  color:#FFF;
+  padding: 13px 2px 2px 2px;
+}
+.cartbadge ion-badge{
+  padding:2px 5px;
+  background: #f1060e;
+}
+  .toolbar{
+    min-height: 60px;
+  }
+ 
+  ion-button{
+    --background:#9C0202;
+  }
+  ion-toolbar{
+    --background: #0b833c;
+    
+  }
+
+  

@@ -3,11 +3,9 @@ import { IonSlides} from '@ionic/angular';
 import { AlertController,NavController, PopoverController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
-//import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, Subject, merge } from 'rxjs'
 import { RestService } from '../Service/rest.service';
 import { CallNumber } from '@ionic-native/call-number/ngx';
-// import { AppRate } from '@ionic-native/app-rate/ngx';
 import { debounceTime, distinctUntilChanged, filter, map } from 'rxjs/operators';
 import { Register, Product, PostAdd } from '../Model/class';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
@@ -25,27 +23,13 @@ declare var google;
  
 @Component({
   selector: 'app-home',
-  // animations: [
-  //   trigger(
-  //     'enterAnimation', [
-
-  //     transition(':enter', [
-  //       style({ transform: 'translateX(0)', opacity: 0 }),
-  //       animate('300ms ease-out', style({ opacity: 1 })),
-  //     ]),
-  //     transition(':leave', [
-  //       style({ transform: 'translateX(0)', opacity: 1 }),
-  //       animate('300ms ease-out', style({ opacity: 0 })),
-  //     ])
-  //   ]
-  //   )
-  // ],
-  templateUrl: './home.page.html',
+ templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
   langdata:any[]=[];
   @ViewChild('map', { static: false }) mapElement: ElementRef;
+  public categoryFullData: any;
   address: string;       // Users Address
   latitude: number;     //Users latitiude
   longitude: number;  //Users longitiude
@@ -76,16 +60,105 @@ export class HomePage implements OnInit {
   states:any;
   isItemAvailable:boolean=false;
   isItemAvailables:boolean=false;
-  selectedVal:Number=1;
+  selectedVal;
+  
+  languages=[
+    {   
+      "id":"1",
+      "lngtype":"English"
+    },
+    {   
+      "id":"2",
+      "lngtype":"Hindi"
+    },
+    {   
+      "id":"3",
+      "lngtype":"Kannada"
+    }
+  ]
+  group = [
+    { 
+     catimg : '../../assets/mic/herbs.png', 
+      catname: 'HERBS'
+   },
+   { 
+    catimg : '../../assets/mic/fruit (1).png', 
+     catname: 'Fruits'
+ },
+ { 
+  catimg : '../../assets/mic/harvest.png', 
+   catname: 'VEGETABLES'
+},
+    { 
+      catimg : '../../assets/mic/nut.png', 
+      catname: 'NUTS'
+},
+    { 
+      catimg : '../../assets/mic/coffee.png', 
+      catname: 'COFFEE'
+  },
+  { 
+    catimg : '../../assets/mic/flower (1).png', 
+     catname: 'FLOWERS'
+  },
 
-  toggleDisplay() {
-    this.isDisplay = !this.isDisplay;
+    { 
+   catimg : '../../assets/mic/vegan.png', 
+      catname: 'VEGAN'
+  },
+    { 
+     catimg : '../../assets/mic/edibleoil.png', 
+      catname: 'OILS'
+  },
+    { 
+     catimg : '../../assets/mic/soil.png', 
+      catname: 'FETILIZERS'
   }
-  OnChange(event) {
-    alert('you selected language = '+event.target.value);
+   ]
+  public bannerFullData = [
+    {
+      id:'1',
+      banner : '../../assets/mic/slide5.jpg', 
+    },
+    {
+      id:'1',
+      banner : '../../assets/mic/slide5.jpg', 
+    },
+    {
+      id:'1',
+      banner : '../../assets/mic/slide5.jpg', 
+    },
+    {
+      id:'1',
+      banner : '../../assets/mic/slide5.jpg', 
+    },
+    {
+      id:'1',
+      banner : '../../assets/mic/slide5.jpg', 
+    },
+    {
+      id:'1',
+      banner : '../../assets/mic/slide6.jpg', 
+    },
+    {
+      id:'1',
+      banner : '../../assets/mic/slide4.jpg', 
+    },
+
+  ]
+
+  // toggleDisplay() {
+  //   this.isDisplay = !this.isDisplay;
+  // }
+  slideOptions = {
+    initialSlide: 1,
+    speed: 400,
+  };
+  slidesDidLoad(slides: IonSlides) {
+    slides.startAutoplay();
   }
-  @ViewChild(IonSlides, { static: false }) slides: IonSlides;
-  constructor(public modalController: ModalController, private call: CallNumber,
+
+ constructor(public modalController: ModalController, private call: CallNumber,
     public popoverCtrl: PopoverController,public navCtrl: NavController,
     private sanitizer: DomSanitizer,public zone: NgZone,public platform: Platform, 
     private test: AppComponent, 
@@ -93,24 +166,27 @@ export class HomePage implements OnInit {
      private myRoute: Router,private geolocation:Geolocation
     ) {
       this.platform.ready().then(() => {
-this.langdata  = [
-  {
-    id:1,
-    data:"English",
+})
+      this.categoryFullData = [
+        {
+          id:1,
+          catimg : '../../assets/mic/food.png', 
+          catname: 'Vegetables'
+        },
 
-  },
-  {
-    id:1,
-    data:"Kannada",
+        {
+          id:2,
+          catimg : '../../assets/mic/food.png', 
+          catname: 'Fruits'
+        },
+        {
+          id:3,
+          catimg : '../../assets/mic/food.png', 
+          catname: 'Dry Fruits'
+        }
 
-  },
-  {
-    id:1,
-    data:"Hindi",
 
-  }
-]
-      })
+      ]
   }
   async enquire() {
     const modal = await this.modalController.create({
@@ -119,15 +195,7 @@ this.langdata  = [
     });
     return await modal.present();
   }
-  async langpop(ev: any) {
-    const popover = await this.popoverCtrl.create({
-      component: LangpopPage,
-      cssClass: 'my-popover-class',
-      event: ev,
-      translucent: true
-    });
-    return await popover.present();
-  }
+
 
   ionViewDidEnter(){
     this.retrieval();
@@ -135,34 +203,19 @@ this.langdata  = [
     this.ret();
     this.userpostedgetproduct();
   }
-  SlideChanged() {
-  }
-  ionViewDidLoad() {
-    setTimeout(() =>
-      this.slides.slideTo(5, 10000), 1000);
-  }
-load(slidess) {
-    slidess.stopAutoplay();
-  }
-slideOptions = {
-    initialSlide: 1,
-    speed: 400,
-  };
+
+  
 
   ngOnInit() {
    // this.getuserprofile();
    this.retrieval();
     this.ret();
     this.adminpostedgetproduct();
-
- 
-  this.latlong();
+    this.latlong();
   
    
    }
-   slidesDidLoad(slides: IonSlides) {
-  slides.stopAutoplay();
-   }
+  
 
    getItems(ev: any) {
   this.products=this.states;

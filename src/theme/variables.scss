@@ -435,4 +435,16 @@ html, body { height: 100%; }
   font-weight: bold;
   display: block;
 }
+
+.my-loader{
+  .loading-wrapper {
+    color:green!important
+  }
+  .loading-spinner {
+    color: green!important;
+  }
+  ion-spinner{
+    color: green!important;
+  }
+}
 }

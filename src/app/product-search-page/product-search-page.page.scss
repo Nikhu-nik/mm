@@ -1,0 +1,74 @@
+ion-toolbar{
+  --background: #0b833c;
+  
+}
+.searchcl ion-icon {
+  color:#9C0202;
+  font-weight: 500;
+}
+.searchbar-input-container {
+  border-radius: 7px;
+    height: 100%;
+}
+.searchproduct {
+  width: 95%;
+  padding: 0;
+  margin: 0;
+  column-count: 1;
+  column-fill: auto;
+}
+
+.searchproduct .col{
+  padding: 0;
+}
+
+.searchproduct .card {
+  width: 100%;
+  margin: 10px 10px 0px 10px;
+  display: inline-block;
+  padding:0;
+}
+
+.searchproduct .card-header {
+  padding: 2px;
+}
+
+.searchproduct .card-content {
+  padding: 0;
+}
+
+.searchproduct .p-2 {
+  float: left;
+  height: 12rem;
+  width: 12rem;
+  padding: 1.5rem 0.8rem;
+  object-fit: scale-down;
+}
+
+.searchproduct .text-center {
+  text-align: left;
+  font-weight: 500;
+  font-size: 1.6rem;
+}
+
+.searchproduct .quantity {
+  margin-top: 10px;
+  color: #444444;
+  font-weight: 500;
+  display: contents;
+}
+
+.searchproduct .price {
+  color: #fd4449;
+  font-weight: 500;
+  display: contents;
+}
+
+.searchproduct .button {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  padding: 1.5rem;
+  background:#9C0202;
+  color:#ffffff;
+  font-weight: bold;
+}

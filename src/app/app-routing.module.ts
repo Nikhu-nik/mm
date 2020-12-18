@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
- //{ path: '', redirectTo: 'login', pathMatch: 'full' },
+ { path: '', redirectTo: 'dashboard/home', pathMatch: 'full' },
  {
   path: '',
   loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
@@ -82,6 +82,18 @@ const routes: Routes = [
   {
     path: 'langpop',
     loadChildren: () => import('./langpop/langpop.module').then( m => m.LangpopPageModule)
+  },
+  {
+    path: 'new',
+    loadChildren: () => import('./new/new.module').then( m => m.NewPageModule)
+  },
+  {
+    path: 'product-search-page',
+    loadChildren: () => import('./product-search-page/product-search-page.module').then( m => m.ProductSearchPagePageModule)
+  },
+  {
+    path: 'category',
+    loadChildren: () => import('./category/category.module').then( m => m.CategoryPageModule)
   },
 ];
 @NgModule({

@@ -1,0 +1,129 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start" color="light" defaultHref="/"></ion-back-button>
+    <ion-title color="light">Search</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="openCartPage()">
+          <ion-icon color="light" mode="ios"  name="cart"></ion-icon>
+        </ion-button>
+  </ion-buttons>
+ </ion-toolbar>
+</ion-header>
+
+<ion-content no-padding>
+  
+
+   
+  <ion-searchbar  (keyup.enter)="searchProduct()" mode="ios" showCancelButton="never"></ion-searchbar>
+ 
+   
+  <div class="searchproduct">
+
+<ion-card  *ngFor="let l of products" >
+ 
+  <ion-grid>
+    <ion-row>
+
+      <ion-col col-4>
+        <div *ngFor="let fig of l.imgbase.split(',')">
+      <img  src="http://ec2-18-141-56-81.ap-southeast-1.compute.amazonaws.com:4000/{{fig}}">
+      </div>
+    </ion-col>
+
+    <ion-col col-8>  
+      <ion-card-header>
+        <h2 class="text-center">{{l.name}}</h2>
+        </ion-card-header>
+
+        <ion-card-content>
+          <div class="quantity">{{l.quant}} </div> / 
+          <div class="price">{{l.price | currency :"Rs. "}}
+            </div>
+
+            <ion-row>
+              <ion-col>
+  <div class="btn-cart">
+   <ion-buttons>
+     <ion-button>
+      <ion-icon name="add-circle"></ion-icon>
+      VIEW
+     </ion-button>
+   </ion-buttons>
+
+    </div>
+
+              </ion-col>
+
+
+
+            </ion-row>
+          </ion-card-content>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-card>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ion-content>

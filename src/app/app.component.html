@@ -1,11 +1,9 @@
 <ion-app>
-  <ion-menu class="custom" contentId="main-content" side="start" type="overlay">
-    <ion-header no-border>
+  <ion-menu class="custom" contentId="main" side="start" type="overlay">
+    <!-- <ion-header no-border>
 
 
-      <!-- <ion-avatar>
-        <img [src]="profilePhoto" alt="">
-      </ion-avatar> -->
+   
 
       <div *ngIf="profilePhoto">
         <ion-avatar>
@@ -21,28 +19,106 @@
 
 
 
+
       <ion-item routerLink="/dashboard/account" routerDirection="forward" lines="none" color="none">
         <ion-label>
           <b style="color: green;margin-left: 64px;font-size: 12px">{{name | titlecase }}</b><br>
         </ion-label>
       </ion-item>
-    </ion-header>
+    </ion-header> -->
 
-    <ion-content padding>
+    <ion-content class="menubar">
 
-      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-        <ion-refresher-content
-         pullingIcon="arrow-dropdown" 
-         pullingText="Pull to refresh" 
-         refreshingSpinner="cresent"
-          refreshingText="Refreshing...">
+      <div class="profile">
+        <ion-row>
+          <ion-col col-4>
+            <img src="../assets/icon/default-editprofile.png" alt=""></ion-col>
+          <ion-col col-4>
+            <p>Hi , {{name }}</p>
+          </ion-col>
 
-        </ion-refresher-content>
-      </ion-refresher>
+          <ion-col col-4>
+            <div class="menuclose">
+          <ion-icon (click)="menuclose()" name="caret-back" ></ion-icon>
+        </div>
+            </ion-col>
+        </ion-row>
+      </div>
+
+
+        
       <!-- USER MENU ITEMS -->
+       <ion-list lines="none"> 
+
+      <ion-item class="menuitem">
+        &nbsp;&nbsp;<p>Home</p>
+      </ion-item>
+
+      <ion-item  class="menuitem">
+       &nbsp;&nbsp;<p>Category</p>
+      </ion-item>
 
 
-      <div *ngIf="user">
+
+      <ion-item  class="menuitem">
+       &nbsp;&nbsp;<p>Offers</p>
+       </ion-item>
+
+      <ion-item  class="menuitem">
+       &nbsp;&nbsp;<p>Post Advertisement</p>
+      </ion-item>
+
+
+      <ion-item  class="menuitem">
+       &nbsp;&nbsp;<p>Buy Package</p>
+      </ion-item>
+
+
+      <ion-item  class="menuitem">
+      &nbsp;&nbsp;<p>Support</p>
+      </ion-item>
+
+
+      <ion-item class="menuitem">
+       &nbsp;&nbsp;<p>Privacy</p>
+     </ion-item>
+
+      <ion-item class="menuitem">
+      &nbsp;&nbsp;<p>Partner</p>
+    </ion-item>
+
+
+    </ion-list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- <div *ngIf="user">
         
 <div *ngFor="let p of UserMenuItems">
           <ion-menu-toggle *ngIf="p.url">
@@ -79,7 +155,7 @@
             </ion-menu-toggle>
           </ion-list>
         </div>
-      </div>
+      </div> -->
 
 
       <!-- ADMIN MENU ITEMS -->
@@ -119,7 +195,7 @@
 
 
     </ion-content>
-    <ion-footer class="ion-no-border">
+    <!-- <ion-footer class="ion-no-border">
       <ion-toolbar (click)="logout()">
         <ion-row>
           <ion-col style="text-align: center;">
@@ -127,9 +203,9 @@
           </ion-col>
         </ion-row>
       </ion-toolbar>
-    </ion-footer>
+    </ion-footer> -->
 
   </ion-menu>
-  <ion-router-outlet id="main-content" main></ion-router-outlet>
+  <ion-router-outlet id="main"></ion-router-outlet>
 
 </ion-app>

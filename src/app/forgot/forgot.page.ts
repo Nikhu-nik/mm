@@ -23,9 +23,9 @@ export class ForgotPage implements OnInit {
   user: boolean = false;
   constructor(public menuCtrl: MenuController,public fb: FormBuilder,public loadingController: LoadingController,
     private alertCtrl: AlertController,public rest: RestService, private myRoute: Router,private modalCtrl:ModalController) { 
-      this.formcontrol = this.fb.group({
-        fullname: ["", [Validators.required]]
-       });
+      // this.formcontrol = this.fb.group({
+      //   fullname: ["", [Validators.required]]
+      //  });
   }
   ionViewWillEnter() {
     this.menuCtrl.enable(false);

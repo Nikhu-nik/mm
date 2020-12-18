@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 import { ModalController, Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -7,6 +8,7 @@ import {Register} from './Model/class';
 import { RestService } from './Service/rest.service';
 import { Router } from '@angular/router';
 import { LoginPage } from './login/login.page';
+import {Subject} from 'rxjs';
 //import { Network } from '@ionic-native/network/ngx';
 //import { Dialogs } from '@ionic-native/dialogs/ngx';
 @Component({
@@ -15,109 +17,12 @@ import { LoginPage } from './login/login.page';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+
+  name = "Guest";
   public defaultimageshow: string = '../../assets/icon/user-avatar.png';
-  public UserMenuItems = [
-    {
-      title: 'Home',
-      icon: 'home',
-      url:'/dashboard/home'
-    },
-    {
-      title: 'Post Advertisement',
-      icon: 'document',
-      url:'/addpro'
-    },
-    {
-      title: 'Buy Package',
-      icon: 'pricetag'
-      
-    },
-   
-   
-   
-    {
-      title: 'Support',
-      icon:'call',
-      children  :[
-        {
-          title: 'Help Center',
-          icon: 'call'
-          
-        },
-        {
-          title: 'Rate us',
-          icon: 'person'
-         
-        },
-        {
-          title: 'Invite friends',
-          icon: 'person'
-        
-        },
-      ]
-    },
-    {
-      title: 'Privacy',
-      icon:'shield-checkmark',
-      children  :[
-        {
-          title: 'Version',
-          icon: 'shield-checkmark'
-          
-        },
-        {
-          title: 'Deactivate',
-          icon: 'person'
-        
-        },
-        {
-          title: 'Become a Partner',
-          icon: 'hand-left',
-          url:'/partner'
-        },
-      ]
-    },
-    
-    
-    ];
-public AdminMenuItems = [
-  {
-    title: 'Dashboard',
-    icon: 'home',
-    url:'/admindashboard'
-  },
-  
-  {
-    title: 'View Users',
-    icon: 'eye',
-    url:'/all-users'
-  },
-  {
-    title: 'Add Product',
-    icon: 'basket',
-    url:'/addpro'
-  },
-  {
-    title: 'All Advertisement',
-    icon: 'pricetags',
-    url:'/product-list'
-  },
-  {
-    title: 'Delete Product',
-    icon: 'trash',
-    url:'/prod-del'
-  },
- 
-  {
-    title: 'Dark/Light',
-    icon: 'bulb'
-    
-  }
-  
-];
   profilePhoto;
   rootPage:any = LoginPage;
-  name;
+  //name;
   userid;
   arr;
   ar;
@@ -127,49 +32,43 @@ public AdminMenuItems = [
   admin: boolean = false;
   user: boolean = false;
   public data: Register = new Register();
+  apptoken = {"token":""};
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private rest: RestService,
     private route: Router,
-    private modalController:ModalController
+    private menu: MenuController,
+    
+   private modalController:ModalController
   ) {
-//     this.network.onDisconnect().subscribe(() => 
-//     {
-//       this.dialogs.alert('Please Connect your Internet')
-
-//     });
-//     this.network.onConnect().subscribe(() => {
-// setTimeout(() =>
-//  {
-//   this.dialogs.alert('Connected to '+this.network.type+' connection');
-// }, 2000);
-//     });
+    this.initializeApp(); 
+    this.apptoken.token = rest.getToken();
+  localStorage.setItem('appconfig',JSON.stringify(this.apptoken));
+Object.assign('userinfo',(user)=>{
+  this.name = user;
+})
     platform.ready().then(() => {
       this.statusBar.backgroundColorByHexString('#27ae60');
- 
-     
-      });
-     
-    
-   
-    this.initializeApp();
+ });
+     }
+  menuclose(){
+    this.menu.close();
   }
-
   initializeApp() {
    
     this.platform.ready().then(() => {
-      // if (window.location.pathname === "/"){
-      //   this.route.navigateByUrl('postad');
-      // }
+      if (window.location.pathname === "/"){
+        this.route.navigateByUrl('login');
+      }
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
   }
 
   ngOnInit() {
-    this.navi();
+    //this.navi();
     this.getuserprofiles();
   }
   doRefresh(event) {
@@ -180,18 +79,18 @@ public AdminMenuItems = [
           event.target.complete();
         }, 2000);
       }
- navi(){
-  if(this.rest.getRole()=="ADMIN"){
-    this.route.navigate(['/admindashboard']);
-  }
-  else if(this.rest.getRole()=="USER"){
-    this.route.navigate(['/dashboard/home']);
-  }
-  else{
-    // this.route.navigate(['/login']);
-    console.log('Bad Request');
-  }
-}
+//  navi(){
+//   if(this.rest.getRole()=="ADMIN"){
+//     this.route.navigate(['/admindashboard']);
+//   }
+//   else if(this.rest.getRole()=="USER"){
+//     this.route.navigate(['/dashboard/home']);
+//   }
+//   else{
+//     // this.route.navigate(['/login']);
+//     console.log('Bad Request');
+//   }
+// }
 
 
 

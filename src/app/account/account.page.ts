@@ -11,7 +11,7 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./account.page.scss'],
 })
 export class AccountPage implements OnInit {
-  //public defaultimageshow: string = '../../assets/icon/user-avatar.png';
+  public defaultimageshow: string = '../../assets/icon/user-avatar.png';
   public profilePhoto: string = '../../assets/icon/user-avatar.png';
   fullname;
   number;

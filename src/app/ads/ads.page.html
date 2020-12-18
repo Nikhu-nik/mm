@@ -1,7 +1,7 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start" >
-      <ion-menu-button style="display:block"  mode ="ios"  color="light"></ion-menu-button>
+      <ion-menu-button (click)="openFirst()" class="my-custom-menu" color="light"></ion-menu-button>
     </ion-buttons>
 
     <ion-buttons slot="end" >
@@ -35,21 +35,14 @@
   </ion-segment>
 
   <div *ngIf="selectTabs == 'ADS'">
-<!-- <ion-grid>
-  <ion-row>
-   <ion-col>
-     <p style="margin-top:11em;" class="ion-margin-top ion-text-center">You haven't listed anything yet</p>
-     <ion-button routerLink="/offerings"  expand="block">Post</ion-button>
-   </ion-col>
-  </ion-row>
-</ion-grid> -->
+
 
 <h3 color="success" class="ion-text-center ion-margin-top">Your Advertisements </h3>
 
 
 <ion-card class="card" *ngFor="let l of products" >
 <ion-list lines="none" >
-  <!-- <ion-item>{{l.location}}</ion-item> -->
+
   <ion-item>ProductName :{{l.productfullname}}</ion-item>
   <ion-item>Price :{{l.price}}</ion-item>
   <ion-item>Description:{{l.desc}}</ion-item>

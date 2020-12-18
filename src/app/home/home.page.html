@@ -1,202 +1,119 @@
-<ion-header style="background-color: #27ae60;">
-  <!-- <div style="height: 50px;" [appScrollVanish]="scrollArea" > -->
-  <ion-row align-items-center>
+<ion-header>
+  <ion-toolbar no-border-bottom>
 
-    <!------Location------>
-    <ion-col size="9" [routerLink]="['/mapmodel']" routerDirection="forward">
-      <ion-input class="loc">
-        {{address}}
-      </ion-input>
-    </ion-col>
-    <!-- <ion-col (click)="langpop()" size="1">
-      <ion-icon class="language-icon
-      " color="light" name="ellipsis-vertical"></ion-icon>
-    </ion-col> -->
+  
+      <ion-buttons  slot="start">
+        <ion-menu-button color="light" ></ion-menu-button>
+      </ion-buttons>
+  
+      <div class="ion-text-start">  
+      <span class="address">{{address}}</span>
+       </div>
+  
+  
    
-    <ion-col size="3">
-
+  <ion-buttons slot="end"> 
+    <ion-button  routerDirection="forward" (click)="gotoSearch()" class="search_icon">
+      <ion-icon color="light" slot="icon-only" mode="ios" name="search"></ion-icon>
+    </ion-button>
+    </ion-buttons>
+   
       
-       
-        <ion-select [(ngModal)]= "selectedVal" (ionChange)="OnChange($event)" interface="action-sheets">
-         
-    <ion-select-option *ngFor="let item of langdata" [value]="item.id">{{item.data}}</ion-select-option>
-         
-        </ion-select>
+  
+  <ion-select slot="end" class="location" interface="popover" [(ngModel)]="lng">
+  <ng-container *ngFor="let l of languages;  let i = index;">
+   <ion-select-option [value]="l.languages" selected="true">{{l.lngtype}}</ion-select-option>
+  </ng-container>
+    </ion-select>
       
-      </ion-col>
-
-    <!-----Language------>
-
-    <!-- <ion-col size="3">
-      <ion-item class="language-item">
-
-        <ion-select  [(ngModel)]="language" [value]="language" placeholder="Language"
-          (ionChange)="changeLanguage()">
-          <ion-select-option value="en">English</ion-select-option>
-
-          <ion-select-option value="Kan">Kannada</ion-select-option>
-          <ion-select-option value="hi">Hindi</ion-select-option>
-        </ion-select>
-      </ion-item>
-    </ion-col> -->
-
-  </ion-row>
-  <!-- </div> -->
-</ion-header>
-
-<ion-toolbar>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <div>
-          <ion-searchbar (ionInput)="getItems($event)" placeholder="Search.. "></ion-searchbar>
-        </div>
-      </ion-col>
-
-      <!-- <ion-col >
-        <ion-icon style="font-size: 23px;
-        color: white;
-        /* margin: 0 auto; */
-        padding: 11px; "class="ion-margin-start" name="notifications"></ion-icon>
-        <ion-badge color="primary">0</ion-badge>
-      </ion-col> -->
-    </ion-row>
-  </ion-grid>
-
 </ion-toolbar>
+  </ion-header>
+
+
+<ion-content no-padding>
 
 
 
+ 
+ 
 
 
-<ion-content >
-  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content
-     
-      pullingText="Pull to refresh"
-      refreshingSpinner="crescent"
-      refreshingText="Refreshing...">
-    </ion-refresher-content>
-  </ion-refresher>
+ 
 
 
-  <ion-slides [options]="slideOptions" autoplay="2000" pager="true" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)">
+ 
+
+  <div class="slides1" >
+
+  <ion-slides [options]="slideOptions" autoplay="2000"  pager="true" #slider 
+  (ionSlidesDidLoad)="slidesDidLoad(slider)">
     <ion-slide>
-      <img src="../../assets/mic/slide4.jpg">
-      <p class="myoverlay">We have solutions for agri need</p>
+      <img src="../../assets/mic/slide11.jpg">
     </ion-slide>
 
-    <ion-slide>
-      <img src="../../assets/mic/slide00.jpg">
-      <p class="myoverlay">Heart of Perfect Farming</p>
-    </ion-slide>
-
+   
     <ion-slide>
       <img src="../../assets/mic/slide2.jpg">
-      <p class="myoverlay">Adding green to the Customers</p>
+    
     </ion-slide>
 
     <ion-slide>
       <img src="../../assets/mic/slide0.jpg">
-      <p class="myoverlay">Field is Futures.</p>
+    
     </ion-slide>
 
     <ion-slide>
       <img src="../../assets/mic/slide13.jpg">
-      <p class="myoverlay">Shaping your Need</p>
+     
     </ion-slide>
 
     <ion-slide>
       <img src="../../assets/mic/slide8.jpg">
-      <p class="myoverlay">The agricultural commodity experts</p>
+    
     </ion-slide>
 
     <ion-slide>
       <img src="../../assets/mic/slide5.jpg">
-      <p class="myoverlay">We farm, You eat.</p>
+     
     </ion-slide>
 
     <ion-slide>
       <img src="../../assets/mic/slide11.jpg">
-      <p class="myoverlay">Grow naturally, Live natural</p>
+    
     </ion-slide>
-
+    <img src="../../assets/mic/slide4.jpg">
   </ion-slides>
-  <!------------------Category heading------------------>
-  <!-- <ion-grid class="Category-pop">
-      <ion-row class="ion-justify-content-evenly">
-        <ion-col>
-          <p class="ion-margin-start">Catergory</p>
-        </ion-col>
-        <ion-col size="3">
-          <p (click)="show = !show" color="danger">See All</p>
-        </ion-col>
-      </ion-row>
-    </ion-grid> -->
+</div>
 
+  <div class="ss">
+    <span class="ion-text-start" class="category">Category</span>
+    <span class="viewall ion-text-end" (click)="opencategory()">Viewall</span>
+  </div>
 
-
-  <!-------View Categories---------------->
-
-  <!-- <ion-grid class="catergory_title">
-      <ion-row class="ion-justify-content-between">
-        <ion-col class="ion-margin-start" size="3">
-          <img id="cat1" src="../../assets/mic/food.png" height="40px" width="40px">
-  
-          <p class="ion-no-margin">Vegetables</p>
-        </ion-col>
-        <ion-col size="3">
-          <img id="cat2" src="../../assets/mic/fruits.png" height="40px" width="40px">
-          <p class="ion-no-margin ">Fruits</p>
-        </ion-col>
-        <ion-col size="2">
-          <img id="cat3" src="../../assets/mic/nut.png" height="40px" width="40px">
-          <p class="ion-no-margin">Nuts</p>
-        </ion-col>
-      </ion-row>
-    </ion-grid> -->
-
-  <!----Animated Category-------------->
-  <!-- <div *ngIf="show" [@enterAnimation]>
-  
-      <ion-grid class="catergory_title">
-        <ion-row class="ion-justify-content-between">
-          <ion-col class="ion-margin-start" size="3">
-            <img id="cat4" src="../../assets/mic/soil.png" height="40px" width="40px">
-            <p class="ion-no-margin">Seeds</p>
-          </ion-col>
-          <ion-col size="3">
-            <img id="cat5" src="../../assets/mic/flower (1).png" height="40px" width="40px">
-            <p class="ion-no-margin "> Flowers</p>
-          </ion-col>
-          <ion-col size="2">
-            <img id="cat6" src="../../assets/mic/edibleoil.png" height="40px" width="40px">
-            <p class="ion-no-margin">Edible OIl</p>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
   
   
-      <ion-grid class="catergory_title">
-        <ion-row class="ion-justify-content-between">
-          <ion-col class="ion-margin-start" size="3">
-            <img id="cat7" src="../../assets/mic/salad.png" height="40px" width="40px">
-            <p class="ion-no-margin">Bevarages</p>
-          </ion-col>
-          <ion-col size="3">
-            <img id="cat2" src="../../assets/mic/herbs.png" height="40px" width="40px">
-            <p class="ion-no-margin ">Herbs</p>
-          </ion-col>
-          <ion-col size="2">
-            <img id="cat9" src="../../assets/mic/seed (1).png" height="40px" width="40px">
-            <p class="ion-no-margin">Fertilizers</p>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div> -->
+
+  <div class="thumnails">
+    <div class="list-thumbnail">
+      <div class="img-thumb" [class.selected-img]="g.selected" 
+      *ngFor="let g of group" (click)="onThumbnailClick(g)">
+        <img class="category_img" [src]="g.catimg">
+        <p>{{g.catname}}</p>
+      </div>
+    </div>
+  </div>
   
 
-  <ion-grid>
+</ion-content>
+ 
+  
+
+
+
+
+  
+
+  <!-- <ion-grid>
     <ion-row>
       <ion-col *ngFor="let l of products">
         <ion-card mode='ios'>
@@ -208,7 +125,7 @@
 
           <ion-card-header>
             <ion-card-subtitle>{{l.productfullname}}</ion-card-subtitle>
-            <!-- <ion-card-title>{{l.name}}</ion-card-title> -->
+          
           </ion-card-header>
           <ion-card-content>
             <ion-slides (ionSlidesDidLoad)="load(slider)" zoom>
@@ -242,7 +159,7 @@
          </ion-card>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid> -->
 
 
   <ion-grid>
@@ -297,4 +214,3 @@
 
 
 
-</ion-content>

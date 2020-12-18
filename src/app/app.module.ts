@@ -20,11 +20,13 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { HTTP } from '@ionic-native/http/ngx';
 import { CallNumber } from '@ionic-native/call-number/ngx';
 import { ScrollVanishDirective } from './directives/scroll-vanish.directive';
-const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
+// const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
+
+
 @NgModule({
   declarations: [AppComponent, ScrollVanishDirective],
   entryComponents: [],
-  imports: [HttpClientModule, SocketIoModule.forRoot(config),
+  imports: [HttpClientModule, 
     BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule],
   providers: [
     Camera,

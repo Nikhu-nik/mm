@@ -1,0 +1,71 @@
+<ion-header>
+<ion-toolbar no-border-bottom>
+    <ion-buttons  slot="start">
+      <ion-menu-button color="light" ></ion-menu-button>
+    </ion-buttons>
+
+    <div class="ion-text-start">  
+<p>{{address}}</p>
+     </div>
+
+
+ 
+      <ion-buttons slot="end"> 
+        <ion-button  routerDirection="forward" (click)="gotoSearch()" class="search_icon">
+          <ion-icon color="light" slot="icon-only" mode="ios" name="search"></ion-icon>
+        </ion-button>
+       </ion-buttons>
+ 
+    
+
+<ion-select slot="end" class="location" interface="popover" [(ngModel)]="lng">
+<ng-container *ngFor="let l of languages;  let i = index;">
+ <ion-select-option [value]="l.languages" selected="true">{{l.lngtype}}</ion-select-option>
+</ng-container>
+        </ion-select>
+    
+     
+
+
+  
+
+
+       
+
+     
+
+      
+         
+         
+
+
+    
+
+
+  
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ion-content no-padding>
+
+</ion-content>

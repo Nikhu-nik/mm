@@ -1,67 +1,36 @@
-ion-title{
-    text-transform: uppercase;
-}
-ion-toolbar{
-    --background:#42d77d;
- 
-   }
-   ion-item{
-    --padding-end: 21px;
-    --background-hover: red;
-   }
-   .search-icon{
-     color:white;
-     font-size:20px;
-   }
-   .content{
-    font-size: 9px;
-    font-weight: bold;
-  color:white;
-  }
-  #footer {
-    position: fixed;
-    bottom: -1%;
-    width: 100%;
-    justify-content: center;
-    background:#42d77d;
-    height:48px;
-    }
-   
-.tagline{
-    font-size: 13px;
-    font-weight: 500;
-    padding: 43px;
- 
-}
+
 img{
     height: 2em;
     width: auto;
-    // position: absolute;
-    // left: 41%;
-    // top: 25%;
-}
-ion-toolbar
-  {
     
-    --background: #27ae60;
+}
+page-offerings {
+  
+  .container div{
+      border-bottom: 1px solid #f1f1f1;
   }
 
-ion-card{
-  box-sizing:border-box;
-background: #b5ffb5;
-cursor: pointer;
-display:inline-block; 
-transition:all 0.8s, color 0.3s 0.3s;
-//box-shadow: none;
-border-radius: 7%;
+  .col:nth-child(1){
+      text-align: center;
+  }
 
+  .container div img{
+      width: 8rem;
+  }
+
+  .col{
+      padding: 5px;
+  }
+
+  .col p:nth-child(2){
+      font-size: 1.2rem;
+      color:#9C0202;
+  }
 }
-.item{
-font-size: 12px;
-  color: green;
+
+ion-toolbar{
+  --background: #0b833c;
 }
-// ion-card:focus{box-shadow: 0 80px 0 0  rgba(0,0,0,0.25) inset, 0 -80px 0 0  rgba(0,0,0,0.25) inset;}
-ion-icon{
-    font-size:14px;
-    
-}
+
+
+

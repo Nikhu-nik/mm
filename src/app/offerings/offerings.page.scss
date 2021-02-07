@@ -1,35 +1,30 @@
 
-img{
-    height: 2em;
-    width: auto;
-    
-}
-page-offerings {
-  
-  .container div{
-      border-bottom: 1px solid #f1f1f1;
-  }
-
-  .col:nth-child(1){
-      text-align: center;
-  }
-
-  .container div img{
-      width: 8rem;
-  }
-
-  .col{
-      padding: 5px;
-  }
-
-  .col p:nth-child(2){
-      font-size: 1.2rem;
-      color:#9C0202;
-  }
-}
+// img{
+//     height: 2em;
+//     width: auto;
+// }
 
 ion-toolbar{
   --background: #0b833c;
+}
+
+
+
+.col:nth-child(1){
+    text-align: center;
+}
+
+.container div img{
+    width: 8rem;
+}
+
+.col{
+    padding: 5px;
+}
+
+.col p:nth-child(2){
+    font-size: 1.2rem;
+    color:#9C0202;
 }
 
 

@@ -10,7 +10,7 @@
     </ion-icon>
   </ion-toolbar>
 <!-- <div [myScrollVanish]="scrollArea" class="d-flex flex-column align-items-center"> -->
-
+<!-- 
      <ion-avatar *ngIf="!profilePhoto ">
       <img [src]="defaultimageshow">
     </ion-avatar>
@@ -18,7 +18,7 @@
       <ion-avatar *ngIf="profilePhoto">
         <img [src]="profilePhoto">
       </ion-avatar>
-      
+       -->
   
     
     
@@ -59,16 +59,19 @@ accept="image/*" class="filebtn" #fileButton  /> -->
       <ion-col>
         <div>
           <h4 class="tag">Personal</h4>
+
+
+          
           <ion-card mode="md">
             
             <ion-item lines="none" color="none">
-              <ion-label class="my-info">Full Name : {{ name | titlecase }}</ion-label>
+    <ion-label class="my-info">{{'accountpage_fullname' | translate }} : {{ name | titlecase }}</ion-label>
                <ion-icon class="my-info-icon" name="pencil" slot="end" routerLink="/edit-profile"
                 routerDirection="forward"></ion-icon>
             </ion-item>
 
             <ion-item lines="none" color="none">
-              <ion-label class="my-info">Mobile Number : {{ number | titlecase }}</ion-label>
+              <ion-label class="my-info"> {{'accountpage_mobile' | translate }}: {{ number | titlecase }}</ion-label>
               <ion-icon class="my-info-icon" name="pencil" slot="end" routerLink="/update-mob-number"
                 routerDirection="forward"></ion-icon>
             </ion-item>

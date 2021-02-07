@@ -1,0 +1,46 @@
+
+
+
+
+
+
+
+
+
+
+
+
+{
+
+
+  "Homepage_category":"वर्ग",
+"Homepage_category_all" : "View All",
+  "Homepage_offers":"प्रस्तावों",
+  "Homepage_products":"उत्पादों",
+
+  
+
+
+
+
+  
+
+
+
+"postadvert_country":"देश दर्ज करें",
+"postadvert_choosecountry":"अपना देश चुनो",
+"postadvert_date":"दर्ज की गई तारीख",
+"postadvert_category":"वर्ग चुने",
+"postadvert_images":"छवियां जोड़ें",
+"postadvert_addimage":"छवि जोड़ें",
+"postadvert_info":"आपकी विज्ञापन जानकारी",
+"postadvert_productname":"उत्पाद का नाम",
+"postadvert_fewlines":"अपने उत्पाद के बारे में कुछ पंक्तियाँ लिखें",
+"postadvert_productprice":"उत्पाद की कीमत",
+"postadvert_productquantity":"उत्पाद की मात्रा",
+"postadvert_infoheading":"आपकी व्यक्तिगत जानकारी",
+"postadvert_personalinfo":"आपकी व्यक्तिगत जानकारी आपको खरीदार प्राप्त करने में मदद करेगी",
+"postadvert_fullname":"आपका पूरा नाम",
+"postadvert_contact":"संपर्क संख्या",
+"postadvert_postbtn":"पद"
+}

@@ -1,5 +1,9 @@
 <ion-app>
-  <ion-menu class="custom" contentId="main" side="start" type="overlay">
+  <ion-menu class="custom"
+   contentId="main" side="start" type="overlay">
+
+
+   
     <!-- <ion-header no-border>
 
 
@@ -32,9 +36,9 @@
       <div class="profile">
         <ion-row>
           <ion-col col-4>
-            <img src="../assets/icon/default-editprofile.png" alt=""></ion-col>
+            <img src="../assets/imgs/avatar.png" alt=""></ion-col>
           <ion-col col-4>
-            <p>Hi , {{name }}</p>
+            <p>{{'Hi'| translate }} {{name }}</p>
           </ion-col>
 
           <ion-col col-4>
@@ -51,48 +55,73 @@
        <ion-list lines="none"> 
 
       <ion-item class="menuitem">
-        &nbsp;&nbsp;<p>Home</p>
+        &nbsp;&nbsp;<p>{{ 'Home_menu' | translate }}</p>
       </ion-item>
 
       <ion-item  class="menuitem">
-       &nbsp;&nbsp;<p>Category</p>
+       &nbsp;&nbsp;<p>{{ 'Category_menu' | translate }}</p>
       </ion-item>
 
 
 
       <ion-item  class="menuitem">
-       &nbsp;&nbsp;<p>Offers</p>
+       &nbsp;&nbsp;<p>{{'Offers_menu'  | translate }}</p>
        </ion-item>
 
-      <ion-item  class="menuitem">
-       &nbsp;&nbsp;<p>Post Advertisement</p>
+      <ion-item routerLink="/postadvert" routerDirection="forward" class="menuitem">
+       &nbsp;&nbsp;<p>{{ 'Post Advertisement_menu' | translate }}</p>
       </ion-item>
 
 
       <ion-item  class="menuitem">
-       &nbsp;&nbsp;<p>Buy Package</p>
+       &nbsp;&nbsp;<p>{{ 'Buy Package_menu' | translate }}</p>
       </ion-item>
 
 
       <ion-item  class="menuitem">
-      &nbsp;&nbsp;<p>Support</p>
+      &nbsp;&nbsp;<p>{{ 'Support_menu' | translate }}</p>
       </ion-item>
 
 
       <ion-item class="menuitem">
-       &nbsp;&nbsp;<p>Privacy</p>
+       &nbsp;&nbsp;<p>{{ 'Privacy_menu' | translate }}</p>
      </ion-item>
 
       <ion-item class="menuitem">
-      &nbsp;&nbsp;<p>Partner</p>
+      &nbsp;&nbsp;<p>{{ 'Partner_menu' | translate }}</p>
     </ion-item>
+
 
 
     </ion-list>
 
+    <ion-item-divider></ion-item-divider>
 
+    <ion-list lines="none">
 
+   
+      <ion-item class="menuitem">
+        <ion-icon slot="start" name="book-outline"></ion-icon>
+        <p>About MobileMandi</p>
+      </ion-item>
+    
+      <ion-item class="menuitem">
+        <ion-icon name="newspaper-outline" slot="start"></ion-icon>
+        <p>Terms & Conditions</p>
+        </ion-item>
 
+        <ion-item class="menuitem">
+          <ion-icon slot="start"name="call-outline"></ion-icon> <p>Customer Support</p>
+          </ion-item>
+
+          
+
+          <ion-item class="menuitem">
+            <ion-icon slot="start" name="star-outline"></ion-icon>
+            <p>Rate Mobile Mandi App </p>
+            </ion-item>
+
+          </ion-list>
 
 
 

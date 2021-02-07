@@ -9,7 +9,7 @@
      <ion-icon slot="end"  color="light" name="help"></ion-icon>
    </ion-buttons>
 
-    <ion-title color="light">MY ADS</ion-title>
+    <ion-title color="light">{{'Adspage_title' | translate }}</ion-title>
     
   </ion-toolbar>
 
@@ -40,18 +40,22 @@
 <h3 color="success" class="ion-text-center ion-margin-top">Your Advertisements </h3>
 
 
-<ion-card class="card" *ngFor="let l of products" >
+<div *ngIf="postadds.length == 0">
+  <h3>no ads, please start posting </h3>
+</div>
+<div *ngIf="postadds.length > 0">
+<ion-card  class="card" *ngFor="let l of postadds" >
 <ion-list lines="none" >
 
-  <ion-item>ProductName :{{l.productfullname}}</ion-item>
-  <ion-item>Price :{{l.price}}</ion-item>
-  <ion-item>Description:{{l.desc}}</ion-item>
-  <ion-item>Quantity:{{l.quant}}</ion-item>
+  <ion-item>ProductName :{{l.advname}}</ion-item>
+  <ion-item>Price :{{l.advprice}}</ion-item>
+  <ion-item>Description:{{l.advdesc}}</ion-item>
+  <ion-item>Quantity:{{l.advquant}}</ion-item>
   
 </ion-list>
 <ion-icon name="heart" ></ion-icon>
 </ion-card>
-
+</div>
   </div>
 
   <div *ngIf="selectTabs == 'FAVOURITES'">

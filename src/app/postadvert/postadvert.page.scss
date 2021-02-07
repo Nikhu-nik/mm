@@ -1,0 +1,133 @@
+ion-toolbar{
+  --background: #0b833c;
+  color:white;
+  }
+  *{
+    font-family: Montserrat!important;
+
+  }
+  p{
+    color: red;
+    font-size: 8px;
+    font-weight: 700;
+    
+  }
+  .btn-post{
+    margin: 20px;
+    --background: #0b833c!important;
+    color:white;
+    text-transform: none;
+  }
+  ion-label{
+     
+    --background: #0b833c;
+  }
+.parking-img { 
+  background: white;
+  height: 140px;
+  margin: 0px;
+}
+.input {
+  border: 1px solid gainsboro;
+}
+
+h4,
+h5 {
+  font-weight: bold;
+  color: dimgrey;
+}
+h6,small{
+  color: dimgrey;
+}
+
+ion-label {
+  font-size: 15px !important;
+}
+
+ion-card {
+  background: white;
+}
+.space-value {
+  padding: 0px 15px;
+  margin: 0px 15px;
+  background: white;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+}
+.car-img {
+  width: 80px;
+}
+
+ion-textarea {
+  border: 1px solid darkgrey !important;
+  border-radius: 4px !important;
+  margin-bottom: 20px !important;
+}
+
+.mobile-num {
+  border: 1px solid darkgrey !important;
+  border-radius: 4px !important;
+  margin: 0px 16px !important;
+  margin-bottom: 20px !important;
+}
+
+.main-heading {
+  padding: 10px 24px;
+  text-align: center;
+}
+
+ion-grid {
+  padding: 0px 10px;
+}
+.add-btn {
+  margin-top: 15px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.add-btn {
+  ion-button {
+    color: grey;
+  }
+}
+.sec-1 {
+  padding: 10px 24px;
+  padding-bottom: 25px;
+  background: white;
+}
+.head-tag{
+  font-weight: bold;
+    
+    color: green;
+   
+    padding: 18px 0px 0px 0px;
+    font-size: 14px;
+}
+.sec-3{
+  padding: 10px 24px;
+  padding-bottom: 25px;
+  background: white;
+}
+.parking-type {
+  background: white;
+}
+.space-available {
+  background: white;
+  margin: 20px 0px;
+}
+.vehicle-type {
+  background: white;
+  padding-bottom: 1px;
+}
+.feature-sec {
+  background: white;
+  margin: 20px 0px;
+}
+.text-area {
+  background: white;
+  //margin: 20px 0px;
+  margin: 20px -17px;
+}
+.mobile-num-sec {
+  background: white;
+  padding-bottom: 1px;
+}

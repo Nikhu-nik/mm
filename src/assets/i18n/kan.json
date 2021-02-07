@@ -1,0 +1,90 @@
+{
+"Hi":"ನಮಸ್ತೆ",
+"Home_menu":"ಮನೆ",
+"Category_menu":"ವರ್ಗ",
+"Offers_menu":"ಕೊಡುಗೆಗಳು",
+"Post Advertisement_menu":"ಪೋಸ್ಟ್ ಜಾಹೀರಾತು",
+"Buy Package_menu":"ಪ್ಯಾಕೇಜ್ ಖರೀದಿಸಿ",
+  "Support_menu":"ಬೆಂಬಲ",
+"Privacy_menu":"ಗೌಪ್ಯತೆ",
+"Partner_menu":"ಪಾಲುದಾರ",
+
+
+
+
+
+
+"footer_home":"ಮನೆ",
+"footer_ads":"ಜಾಹೀರಾತುಗಳು",
+"footer_camera":"ಕ್ಯಾಮೆರಾ",
+"footer_chat":"ಚಾಟ್",
+"footer_account":"ಖಾತೆ",
+
+"postadvert_title":"ನಿಮ್ಮ ಜಾಹೀರಾತನ್ನು ಪೋಸ್ಟ್ ಮಾಡಿ",
+"postadvert_country":"ದೇಶವನ್ನು ನಮೂದಿಸಿ",
+"postadvert_choosecountry":"ನಿಮ್ಮ ದೇಶವನ್ನು ಆರಿಸಿ",
+"postadvert_date":"ದಿನಾಂಕವನ್ನು ಪ್ರಕಟಿಸಲಾಗಿದೆ",
+"postadvert_category":"ವರ್ಗವನ್ನು ಆರಿಸಿ",
+"postadvert_images":"ಚಿತ್ರಗಳನ್ನು ಸೇರಿಸಿ",
+"postadvert_addimage":"ಚಿತ್ರವನ್ನು ಸೇರಿಸಿ",
+"postadvert_info":"ನಿಮ್ಮ ಜಾಹೀರಾತು ಮಾಹಿತಿ",
+"postadvert_productname":"ಉತ್ಪನ್ನದ ಹೆಸರು",
+"postadvert_fewlines":"ನಿಮ್ಮ ಉತ್ಪನ್ನದ ಬಗ್ಗೆ ಕೆಲವು ಸಾಲುಗಳನ್ನು ಬರೆಯಿರಿ",
+"postadvert_productprice":"ಉತ್ಪನ್ನದ ಬೆಲೆ",
+"postadvert_productquantity":"ಉತ್ಪನ್ನದ ಪ್ರಮಾಣ",
+"postadvert_infoheading":"ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಮಾಹಿತಿ",
+"postadvert_personalinfo":"ಖರೀದಿದಾರರನ್ನು ಪಡೆಯಲು ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಮಾಹಿತಿಯು ನಿಮಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ",
+"postadvert_fullname":"ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು",
+"postadvert_contact":"ಸಂಪರ್ಕ ಸಂಖ್ಯೆ",
+"postadvert_postbtn":"ಪೋಸ್ಟ್ ಮಾಡಿ",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"accountpage_fullname":"ಪೂರ್ಣ ಹೆಸರು",
+"accountpage_mobile":"ಮೊಬೈಲ್ ನಂಬರ",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"Registerpage_name":"",
+"Registerpage_phone":"",
+"Registerpage_register":"",
+"Registerpage_logintext":"",
+"Registerpage_login":"",
+
+"Adspage_title":"ನನ್ನ ಜಾಹೀರಾತುಗಳು",
+"Adspage_ads":"ಜಾಹೀರಾತುಗಳು",
+"Adspage_favourites":"ಮೆಚ್ಚಿನವುಗಳು",
+"Homepage_category" : "ವರ್ಗ",
+                    
+  "Homepage_category_all":"ಎಲ್ಲಾ ವೀಕ್ಷಿಸಿ",
+  "Homepage_offers":"ಕೊಡುಗೆಗಳು",
+  "Homepage_products":"ಉತ್ಪನ್ನಗಳು"
+}

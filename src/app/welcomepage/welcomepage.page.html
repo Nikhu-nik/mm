@@ -1,0 +1,23 @@
+<ion-header>
+ 
+</ion-header>
+
+<ion-content class="ion-padding ion-text-center">
+  <div class="container">
+    <div class="page-header">
+      <p>Welcome to MobileMandi</p><br><br>
+      <h3>Let's support local farmers</h3>
+    </div>
+
+    <img src="../../assets/gif/gg.gif" />
+      
+    <div class="button-container">
+     <ion-button class="main-button"   (click)="navigateToLogin()"
+       expand="block">Login</ion-button>
+     <ion-button  routerLink="/signup"  expand="block" fill="clear" (click)="navigateTosignup()"
+     color="dark">Signup</ion-button>
+    </div>
+  
+  </div>
+  
+</ion-content>

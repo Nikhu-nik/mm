@@ -1,57 +1,51 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar>
-    <ion-icon class="ion-margin-start login-back" 
-    name="arrow-back" slot="start" color="light"></ion-icon>
-    <ion-title style="color:#fff;" color="light">Login</ion-title>
+<ion-header>
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-button class="backbtn" routerLink="/welcomepage"  routerDirection="backward">
+        <ion-icon color="light" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="light">Login</ion-title>
   </ion-toolbar>
-  </ion-header>
+</ion-header>
 
-<ion-content >
-  <div class="login">
-    <img src="../../assets/icon/Artboard 2.png" alt="">
-   <div class="logininput">
+<ion-content class="ion-padding">
   <form [formGroup]="formcontrol">
 
+  <div class="ion-padding container">
+   <img class="logo" src="../../assets/icon/Artboard 2.png"/>
 
-    <ion-item>
-      <ion-label fixed color="primary"> FullName</ion-label>
-    <ion-input clearInput type="text" ></ion-input>
-  </ion-item>
+    <div class="form-container">
+      <ion-item>
+        <ion-label position="floating">Full Name</ion-label>
+        <ion-input clearInput type="text" ></ion-input>
+      </ion-item>
 
-  <ion-item>
-    <ion-label fixed color="primary"> Phone</ion-label>
-  <ion-input formControlName="number" clearInput type="number" ></ion-input>
-</ion-item>
+      <ion-item>
+        <ion-label position="floating">Mobile Number</ion-label>
+        <ion-input formControlName="number" clearInput type="number" ></ion-input>
+      </ion-item>
 
-    
-<div>
-  <p class="forgot-password" slot="fixed" routerLink="/forgot">Forgot
-    Password?</p>
-</div>
-    
-<!-----Validate Number ------->
+      <!-----Validate Number ------->
 <p class="error" *ngIf="isSubmitted && errorControl.number.errors?.required">
-  Phone number is required.</p>
+ <ion-icon name="alert-circle-outline"></ion-icon> Phone number is required.</p>
 <p class="error" *ngIf="isSubmitted && errorControl.number.errors?.minlength">
-  Please enter 10 digit Mobile number.</p>
+  <ion-icon name="alert-circle-outline"></ion-icon> Please enter 10 digit Mobile number.</p>
 <p class="error" *ngIf="isSubmitted && errorControl.number.errors?.pattern">
- Please enter a valid number.</p>
+  <ion-icon name="alert-circle-outline"></ion-icon>Please enter a valid number.</p>
+
+      <ion-button expand="block" class="main-button"
+       (click)="login()">Log in
+      </ion-button>
 
 
-   
- <div class="btn-login">
-      <ion-button size="small" slot="fixed" expand="block" fill="solid" (click)="login()">Login</ion-button>
-      </div>
-      <ion-label slot="fixed" expand="block" class="ion-text-center ion-margin-top">Dont have an account? &nbsp;<a
-          routerLink="/register">Sign
+      <div class="sign-up">
+        <ion-label slot="fixed" expand="block">Dont have an account? &nbsp;<a
+          routerLink="/signup">Sign
           up</a>
       </ion-label>
-
-</form>
-</div>
-</div>
-
-
-
-
+      </div>
+    </div>
+  </div>
+  </form>
 </ion-content>

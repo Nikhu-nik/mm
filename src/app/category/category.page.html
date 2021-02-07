@@ -6,7 +6,23 @@
 </ion-header>
 
 <ion-content no-padding>
-
+  
+    <div class="category-img">
+        <ion-row *ngFor="let cat of categories">
+          <ion-col col-8>
+            <ion-avatar class="animate-item delay-500ms">
+              <img src="{{cat.categoryimage }}">
+            </ion-avatar>
+            </ion-col>
+          
+          <ion-col col-4>
+            <p>{{cat.name}}</p>
+            </ion-col>
+       
+        </ion-row>
+        </div>
+        
+  
 
 
 

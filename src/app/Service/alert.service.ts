@@ -18,6 +18,7 @@ async succesalert(){
 const alert = await this.alertController.create({
       cssClass: 'sucess-alert',
       message: 'Registered Succesfully',
+      
       buttons: [
         {
           text: 'proceed to login',

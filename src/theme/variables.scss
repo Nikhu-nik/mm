@@ -26,11 +26,11 @@
 
 /** Ionic CSS Variables **/
 :root {
-  --ion-font-family:  'Montserrat';
+ 
 
-  --ion-color-primary: #3880ff;
+  --ion-color-primary:  #0b833c;
   /** primary **/
-  --ion-color-primary: #3880ff;
+  
   --ion-color-primary-rgb: 56, 128, 255;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
@@ -270,6 +270,10 @@
     --spinner-color: #52e452;
     
   }
+  .register-loader .loading-wrapper{
+    width: 16rem;
+    height: 4rem;
+  }
   .register-alert{
     font-weight: bold;
     font-size: 12px;
@@ -374,7 +378,29 @@ html, body { height: 100%; }
 .my-custom-class .popover-content {
   background: #222!important;
 }
+.my-product-action .action-sheet-group {
+  background: #FFFFFF;
+}
 
+.my-product-action .action-sheet-button{
+  width: 64%;
+  height: 41px;
+ 
+  margin: 0 auto;
+  display: block;
+  padding: 2px 2px 2px 2px;
+}
+.my-product-action .my-action-class .action-sheet-title{
+  text-align: center;
+    font-weight: 600;
+    color: green;
+}
+.my-product-action .action-sheet-button{
+  background: #68ba68;
+    color: white;
+    margin-bottom: 8px;
+}
+//////////////////////
 .my-action-class .action-sheet-group {
   background: #FFFFFF;
 }
@@ -401,6 +427,7 @@ html, body { height: 100%; }
   color: white;
   margin: 20px;
 }
+////////////////////
 .my-popover-class{
   .popover-content {
     height: 12em;

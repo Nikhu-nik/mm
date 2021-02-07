@@ -1,0 +1,112 @@
+{
+"Hi":"Hi",
+
+"Home_menu":"Home",
+"Category_menu":"Category",
+"Offers_menu":"Offers",
+"Post Advertisement_menu":"Post Advertisemnt",
+"Buy Package_menu":"Buy Package",
+"Support_menu":"Support",
+"Privacy_menu":"Privacy",
+"Partner_menu":"Partner",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"footer_home":"Home",
+"footer_ads":"Ads",
+"footer_camera":"Camera",
+"footer_chat":"Chat",
+"footer_account":"Account", 
+
+"accountpage_fullname":"Fullname",
+"accountpage_mobile":"Mobile Number",
+
+
+"postadvert_title":"Post Your Advertisement",
+"postadvert_country":"Enter Country",
+"postadvert_choosecountry":"Choose your Country",
+"postadvert_date":"Posted Date",
+"postadvert_category":"Choose Category",
+"postadvert_images":"Add images",
+"postadvert_addimage":"ADD IMAGE",
+"postadvert_info":"Your Advertisement Information",
+"postadvert_productname":"Name of the product",
+"postadvert_fewlines":"Write Few Lines about your product",
+"postadvert_productprice":"Price of the product",
+"postadvert_productquantity":"Quantity of the product",
+"postadvert_infoheading":"Your Personal Information",
+"postadvert_personalinfo":"Your personal information will help you for getting buyers",
+"postadvert_fullname":"Your FullName",
+"postadvert_contact":"Contact Number",
+"postadvert_city": "City",
+"postadvert_postbtn":"Post",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"Registerpage_name":"",
+"Registerpage_phone":"",
+"Registerpage_register":"Register",
+"Registerpage_logintext":"",
+"Registerpage_login":"",
+
+
+"Adspage_title":"MY ADS",
+"Adspage_ads":"ADS",
+"Adspage_favourites":"FAVOURITES",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"Homepage_category" : "Category",
+"Homepage_category_all" : "View All",
+"Homepage_offers":"offers",
+"Homepage_products":"Products"
+
+}

@@ -1,0 +1,84 @@
+{
+
+"Hi":"హాయ్",
+
+
+  "Home_menu":"హోమ్",
+  "Category_menu":"వర్గం",
+  "Offers_menu":"ఆఫర్‌లు",
+  "Post Advertisement_menu":"పోస్ట్ ప్రకటన",
+  "Buy Package_menu":"ప్యాకేజీ కొనండి",
+   "Support_menu":"మద్దతు",
+  "Privacy_menu":"ప్యత",
+  "Partner_menu":"భాగస్వామి",
+
+
+
+  "footer_home":"ఇల్లు",
+  "footer_ads":"ప్రకటనలు",
+  "footer_camera":"కెమెరా",
+  "footer_chat":"చాట్",
+  "footer_account":"ఖాతా",
+
+
+  "accountpage_fullname":"పూర్తి పేరు",
+  "accountpage_mobile":"మొబైల్ సంఖ్య",
+
+
+  "postadvert_title":"మీ ప్రకటనను పోస్ట్ చేయండి",
+  "postadvert_country":"దేశాన్ని నమోదు చేయండి",
+  "postadvert_choosecountry":"మీ దేశాన్ని ఎంచుకోండి",
+  "postadvert_date":"పోస్ట్ చేసిన తేదీ",
+  "postadvert_category":"వర్గాన్ని ఎంచుకోండి",
+  "postadvert_images":"చిత్రాలను జోడించండి",
+  "postadvert_addimage":"చిత్రాన్ని జోడించండి",
+  "postadvert_info":"మీ ప్రకటన సమాచారం",
+  "postadvert_productname":"ఉత్పత్తి పేరు",
+  "postadvert_fewlines":"మీ ఉత్పత్తి గురించి కొన్ని లైన్లు రాయండి",
+  "postadvert_productprice":"ఉత్పత్తి ధర",
+  "postadvert_productquantity":"ఉత్పత్తి యొక్క పరిమాణం",
+  "postadvert_infoheading":"మీ వ్యక్తిగత సమాచారం",
+  "postadvert_personalinfo":"కొనుగోలుదారులను పొందడానికి మీ వ్యక్తిగత సమాచారం మీకు సహాయం చేస్తుంది",
+  "postadvert_fullname":"మీ పూర్తి పేరు",
+  "postadvert_contact":"సంప్రదింపు సంఖ్య",
+  "postadvert_postbtn":"పోస్ట్",
+
+
+
+
+
+
+
+
+"Registerpage_name":"",
+"Registerpage_phone":"",
+"Registerpage_register":"",
+"Registerpage_logintext":"",
+"Registerpage_login":"",
+
+"Adspage_title":"నా ప్రకటనలు",
+"Adspage_ads":"ప్రకటనలు",
+"Adspage_favourites":"ఇష్టమైనవి",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  "Homepage_category" : "వర్గం",
+                     
+   "Homepage_category_all":"అన్నీ చూడండి",
+   "Homepage_offers":"ఆఫర్‌లు",
+   "Homepage_products":"ఉత్పత్తులు"
+}

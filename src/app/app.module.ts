@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { Camera } from '@ionic-native/camera/ngx';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
@@ -15,19 +14,51 @@ import { File } from '@ionic-native/File/ngx';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import {NativeGeocoder} from '@ionic-native/native-geocoder/ngx';
 import { FileChooser } from '@ionic-native/file-chooser/ngx';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { enterAnimation } from './nav-animation';
+// import { BrowserAnimationsModule } from '@angular/-browser/animations';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { HTTP } from '@ionic-native/http/ngx';
 import { CallNumber } from '@ionic-native/call-number/ngx';
-import { ScrollVanishDirective } from './directives/scroll-vanish.directive';
+import {OneSignal} from '@ionic-native/onesignal/ngx';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import{ LanguageService} from './providers/language.service';
+import { ContactmodalPage } from './contactmodal/contactmodal.page';
+
 // const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http,"./assets/i18n/", ".json");
+}
+
 @NgModule({
-  declarations: [AppComponent, ScrollVanishDirective],
-  entryComponents: [],
-  imports: [HttpClientModule, 
-    BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule],
+  declarations: [
+    AppComponent,
+    ContactmodalPage,
+ ],
+  entryComponents: [ContactmodalPage],
+  imports: [
+  BrowserModule, 
+  IonicModule.forRoot({
+    navAnimation: enterAnimation // Animations!!!
+  }), 
+  
+  AppRoutingModule, 
+  // BrowserAnimationsModule,
+  HttpClientModule, 
+  TranslateModule.forRoot({
+    loader: {
+      provide: TranslateLoader,
+      useFactory: (createTranslateLoader),
+      deps: [HttpClient]
+    } 
+  }),
+],
   providers: [
     Camera,
     FileChooser,
@@ -37,10 +68,12 @@ import { ScrollVanishDirective } from './directives/scroll-vanish.directive';
     File,
     FilePath,
     HTTP ,
+    LanguageService,
     CallNumber,
     Geolocation,
     StatusBar,
     SplashScreen,
+    OneSignal,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

@@ -32,7 +32,7 @@ export class AppComponent {
   admin: boolean = false;
   user: boolean = false;
   public data: Register = new Register();
-  apptoken = {"token":""};
+  //apptoken = {"token":""};
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -43,12 +43,8 @@ export class AppComponent {
     
    private modalController:ModalController
   ) {
-    this.initializeApp(); 
-    this.apptoken.token = rest.getToken();
-  localStorage.setItem('appconfig',JSON.stringify(this.apptoken));
-Object.assign('userinfo',(user)=>{
-  this.name = user;
-})
+    this.initializeApp();
+   
     platform.ready().then(() => {
       this.statusBar.backgroundColorByHexString('#27ae60');
  });
@@ -60,7 +56,7 @@ Object.assign('userinfo',(user)=>{
    
     this.platform.ready().then(() => {
       if (window.location.pathname === "/"){
-        this.route.navigateByUrl('login');
+        this.route.navigateByUrl('dashboard/home');
       }
       this.statusBar.styleDefault();
       this.splashScreen.hide();

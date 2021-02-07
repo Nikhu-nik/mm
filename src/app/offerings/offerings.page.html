@@ -1,41 +1,32 @@
 <ion-header>
   <ion-toolbar >
-
-    <ion-title color="light" *ngIf="!isSearchbarOpened" >
-       offerings
-      </ion-title>
-    <ion-searchbar
-    (ionChange)="getItems($event)" *ngIf="isSearchbarOpened" showCancelButton = "true"
-     (ionCancel)="isSearchbarOpened=false"></ion-searchbar>
-    <ion-buttons slot="end" *ngIf="!isSearchbarOpened">
-      <ion-button icon-only (click)="isSearchbarOpened=true">
-        <ion-icon class="search-icon" name="search">  </ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>  
+<ion-searchbar  [(ngModel)]="search" (ionInput)="getItems($event)" ></ion-searchbar>
+ </ion-toolbar>  
 </ion-header>
 
-<ion-content>
- 
-  
-  <div class="container">
-    <div *ngFor="let item of items">
+<ion-content no-padding>
+ <div class="container">
+  <div *ngFor="let item of items">
       <ion-row>
         <ion-col col-4>
-          <img [src]="item.ImageCategory">
+          <ion-avatar class="animate-item delay-500ms">
+            <img [src]="item.catimg">
+          </ion-avatar>
           </ion-col>
-
-          <ion-col col-8>
-      <ion-label  class="item ion-margin-start">{{item.categoryname}}</ion-label>
-      </ion-col>
+        
+        <ion-col col-8>
+          <p>{{item.categoryname}}</p>
+          <p>{{item.categorydesc}}</p>
+       </ion-col>
+     
       </ion-row>
       </div>
-    </div>
+      </div>
+
 
   
     <!-- <ion-list>
-     
-      <ion-item  *ngFor="let item of items" (click)="gotopostadd(item)">
+     <ion-item  *ngFor="let item of items" (click)="gotopostadd(item)">
   <img [src]="item.ImageCategory">
   <ion-label  class="item ion-margin-start">{{item.categoryname}}</ion-label>
   <ion-icon  name="chevron-forward-outline" slot="end"></ion-icon>

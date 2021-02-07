@@ -72,15 +72,7 @@ export class ProductDetailPage implements OnInit {
     speed: 400,
   };
 
-  // addtoFavourites(){
-  //   console.log('Adding to Favourites', this.productid);
-  //   this.favorite = this.rest.addFavourite(this.productid)
-  //   console.log(this.favorite);
-  //   if(this.favorite) {
-  //     return true;
-  //   }
   
-  // }
   callnow(productphone){
  
     this.call.callNumber(productphone, true)
@@ -90,60 +82,16 @@ export class ProductDetailPage implements OnInit {
   }
 
   ngOnInit() {
-    this.getProducts();
+    this.getAdvertised();
   }
 
   doSearch(param) {
     this.id = param.id;
   }
 
-  doRefresh(event) {
+ 
 
-
-    this.getProducts();
-
-    setTimeout(() => {
-      //console.log('Async operation has ended');
-      event.target.complete();
-    }, 2000);
-  }
-
-//   getAdvertised() {
-//     this.rest.getAdvertise(this.id).subscribe((result) => {
-//       console.log(result);
-//       if (result === undefined) {
-//         console.log(result);
-//         this.errmsg = true;
-//       }
-//       else {
-//         this.arr = Object.entries(result).map(([type, value]) => ({ type, value }));
-//         this.userid = this.arr[0].value;
-//         this.advname = this.userid.advname;
-//         this.advprice = this.userid.advprice;
-//         this.advquant = this.userid.advquant;
-//         this.advdesc = this.userid.advdesc;
-//         this.location = this.userid.location;
-//         this.advcity = this.userid.advcity;
-//         this.advphone = this.userid.advphone;
-//         this.advfullname = this.userid.advfullname;
-//         this.advimgbase = this.userid.advimgbase;
-//        this.productid = this.userid.id;
-//        localStorage.setItem("productId", this.userid.id);
-//        localStorage.setItem("advname", this.userid.advname);
-//        localStorage.setItem("advprice", this.userid.advprice);
-//        localStorage.setItem("advimgbase", this.userid.advimgbase);
-//        localStorage.setItem("advcity", this.userid.advcity);
-// localStorage.setItem("advphone", this.userid.advphone);
-// localStorage.setItem("advfullname", this.userid.advfullname);
-       
-
-//       }
-//     }, (err) => {
-//       console.log(err);
-//     });
-//   }
-
-  getProducts() {
+  getAdvertised() {
     this.rest.getProduct(this.id).subscribe((result) => {
       console.log(result);
       if (result === undefined) {
@@ -153,29 +101,65 @@ export class ProductDetailPage implements OnInit {
       else {
         this.arr = Object.entries(result).map(([type, value]) => ({ type, value }));
         this.userid = this.arr[0].value;
-        this.name = this.userid.name;
-        this.price = this.userid.price;
-        this.quant = this.userid.quant;
-        this.desc = this.userid.desc;
+        this.advname = this.userid.advname;
+        this.advquant =  this.userid.advquant;
+        this.advprice = this.userid.advprice;
+        this.advquant = this.userid.advquant;
+        this.advdesc = this.userid.advdesc;
         this.location = this.userid.location;
-        this.city = this.userid.city;
-        this.productphone = this.userid.productphone;
-        this.productfullname = this.userid.productfullname;
-        this.imgbase = this.userid.imgbase;
+        this.advcity = this.userid.advcity;
+        this.advphone = this.userid.advphone;
+        this.advfullname = this.userid.advfullname;
+        this.advimgbase = this.userid.advimgbase;
        this.productid = this.userid.id;
-        localStorage.setItem("productId", this.userid.id);
-        localStorage.setItem("name", this.userid.name);
-        localStorage.setItem("price", this.userid.price);
-        localStorage.setItem("imgbase", this.userid.imgbase);
-        localStorage.setItem("city", this.userid.city);
-localStorage.setItem("productphone", this.userid.productphone);
-localStorage.setItem("productfullname", this.userid.productfullname);
+       localStorage.setItem("productId", this.userid.id);
+       localStorage.setItem("advname", this.userid.advname);
+       localStorage.setItem("advprice", this.userid.advprice);
+       localStorage.setItem("advimgbase", this.userid.advimgbase);
+       localStorage.setItem("advcity", this.userid.advcity);
+localStorage.setItem("advphone", this.userid.advphone);
+localStorage.setItem("advfullname", this.userid.advfullname);
+       
 
       }
     }, (err) => {
       console.log(err);
     });
   }
+
+//   getProducts() {
+//     this.rest.getProduct(this.id).subscribe((result) => {
+//       console.log(result);
+//       if (result === undefined) {
+//         console.log(result);
+//         this.errmsg = true;
+//       }
+//       else {
+//         this.arr = Object.entries(result).map(([type, value]) => ({ type, value }));
+//         this.userid = this.arr[0].value;
+//         this.name = this.userid.name;
+//         this.price = this.userid.price;
+//         this.quant = this.userid.quant;
+//         this.desc = this.userid.desc;
+//         this.location = this.userid.location;
+//         this.city = this.userid.city;
+//         this.productphone = this.userid.productphone;
+//         this.productfullname = this.userid.productfullname;
+//         this.imgbase = this.userid.imgbase;
+//        this.productid = this.userid.id;
+//         localStorage.setItem("productId", this.userid.id);
+//         localStorage.setItem("name", this.userid.name);
+//         localStorage.setItem("price", this.userid.price);
+//         localStorage.setItem("imgbase", this.userid.imgbase);
+//         localStorage.setItem("city", this.userid.city);
+// localStorage.setItem("productphone", this.userid.productphone);
+// localStorage.setItem("productfullname", this.userid.productfullname);
+
+//       }
+//     }, (err) => {
+//       console.log(err);
+//     });
+//   }
 
 
   validation() { 
@@ -191,5 +175,3 @@ localStorage.setItem("productfullname", this.userid.productfullname);
     });
   }
 }
-
-

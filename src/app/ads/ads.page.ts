@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../Service/rest.service';
-import { Register, Product, PostAdd } from '../Model/class';
+import { Register, PostAdd } from '../Model/class';
 import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-ads',
@@ -10,57 +10,47 @@ import { MenuController } from '@ionic/angular';
 export class AdsPage implements OnInit {
   selectTabs = 'ADS';
   myphoto: any;
-  products: Product[] = [];
-  imgbase;
+  postadds: PostAdd[] = [];
   public data: Register = new Register();
-  constructor( private menu: MenuController, public rest: RestService,) { }
+  constructor( private menu: MenuController, public rest: RestService) { }
 
   ngOnInit() {
-    this.retrieval();
-  }
-  openFirst() {
-    this.menu.enable(true, 'first');
-    this.menu.open('first');
+   // this.retrieval();
   }
 
-  openEnd() {
-    this.menu.open('end');
-  }
-  openCustom() {
-    this.menu.enable(true, 'custom');
-    this.menu.open('custom');
-  }
-  ionViewWillEnter(){
-    this.retrieval();
-    this.show();
-  }
-  show(){
-    console.log('Fired');
-  }
-  retrieval() {
-    this.rest.getproductOfAdmin().subscribe((Product) => {
-     if (Product === undefined) {
-        console.log(Product);
+ionViewWillEnter()
+{
+  this.retrieval();
+}
+
+
+ retrieval(){
+    this.postadds = [];
+    this.rest.getproductOfUser().subscribe((PostAdd) => {
+     if(PostAdd === undefined) {
+        console.log(PostAdd);
       }
       else {
-        console.log(Product.product);
-        this.products = Product.product;
-        
+        console.log(PostAdd.postadd);
+        let userid = localStorage.getItem("LoggedInUserId");
+        console.log(userid);
+        let data = PostAdd.postadd;
+        for(var i = 0;i<data.length;i++)
+        {
+           if(data[i].userId == userid)
+           {
+             console.log(data[i].userId);
+             this.postadds.push(data[i]);
+           }
+        }
+       // this.postadds = PostAdd.postadd;
       }
-    }, (err) => {
+    } , (err) => {
       console.log(err);
-    });
+    })
   }
 
 
-  doRefresh(event) {
-    this.retrieval();
-    console.log('Begin async operation');
 
-    setTimeout(() => {
-      console.log('Async operation has ended');
-      event.target.complete();
-    }, 2000);
-  }
 }
 

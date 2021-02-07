@@ -2,10 +2,18 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
- { path: '', redirectTo: 'dashboard/home', pathMatch: 'full' },
- {
-  path: '',
-  loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  {
+    path: '',
+    redirectTo: 'welcomepage',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
+    loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  },
+{
+  path: 'welcomepage',
+  loadChildren: () => import('./welcomepage/welcomepage.module').then( m => m.WelcomepagePageModule)
 },
   {
     path: 'admindashboard',
@@ -40,10 +48,7 @@ const routes: Routes = [
     path: 'forgot',
     loadChildren: () => import('./forgot/forgot.module').then( m => m.ForgotPageModule)
   },
-  {
-    path: 'register',
-    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
-  },
+ 
   {
     path: 'partner',
     loadChildren: () => import('./partner/partner.module').then( m => m.PartnerPageModule)
@@ -79,22 +84,59 @@ const routes: Routes = [
     path: 'enquire',
     loadChildren: () => import('./enquire/enquire.module').then( m => m.EnquirePageModule)
   },
-  {
-    path: 'langpop',
-    loadChildren: () => import('./langpop/langpop.module').then( m => m.LangpopPageModule)
-  },
-  {
-    path: 'new',
-    loadChildren: () => import('./new/new.module').then( m => m.NewPageModule)
-  },
-  {
-    path: 'product-search-page',
-    loadChildren: () => import('./product-search-page/product-search-page.module').then( m => m.ProductSearchPagePageModule)
-  },
+  
+ 
+ 
   {
     path: 'category',
     loadChildren: () => import('./category/category.module').then( m => m.CategoryPageModule)
   },
+  {
+    path: 'product-search',
+    loadChildren: () => import('./product-search/product-search.module').then( m => m.ProductSearchPageModule)
+  },
+  {
+    path: 'test',
+    loadChildren: () => import('./test/test.module').then( m => m.TestPageModule)
+  },
+
+  {
+    path: 'postadvert',
+    loadChildren: () => import('./postadvert/postadvert.module').then( m => m.PostadvertPageModule)
+  },
+  {
+    path: 'terms',
+    loadChildren: () => import('./terms/terms.module').then( m => m.TermsPageModule)
+  },
+  {
+    path: 'custome-support',
+    loadChildren: () => import('./custome-support/custome-support.module').then( m => m.CustomeSupportPageModule)
+  },
+  {
+    path: 'contactmodal',
+    loadChildren: () => import('./contactmodal/contactmodal.module').then( m => m.ContactmodalPageModule)
+  },
+ 
+
+ 
+  
+  {
+    path: 'signup',
+    loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
+  },
+  {
+    path: 'signup-success',
+    loadChildren: () => import('./signup-success/signup-success.module').then( m => m.SignupSuccessPageModule)
+  },
+  {
+    path: 'home2',
+    loadChildren: () => import('./home2/home2.module').then( m => m.Home2PageModule)
+  },
+  {
+    path: 'slidespage',
+    loadChildren: () => import('./slidespage/slidespage.module').then( m => m.SlidespagePageModule)
+  },
+ 
 ];
 @NgModule({
   imports: [

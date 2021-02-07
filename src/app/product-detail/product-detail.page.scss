@@ -2,6 +2,29 @@
 ion-button{
     --background:#27ae60;
 }
+*{
+    font-family: Montserrat!important;
+
+  }
+.productdesc {
+    background: #ffffff;
+    padding: 1rem;
+  }
+//   .productimage {
+//     height: 25rem;
+//     width: 30rem;
+//     padding: 2rem;
+//     object-fit: scale-down;
+//     margin: auto;
+//   }
+.price span{
+    color: #909090;
+    text-decoration: line-through;
+  }
+  p{
+    display: inline-block;
+    vertical-align: middle;
+  }
 #product-page{
     --background:#27ae60; 
 }

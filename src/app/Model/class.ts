@@ -35,6 +35,7 @@ export class Product {
  }
 
  export class PostAdd{
+   advcountry:String;
   advname:String;
   advdesc:String;
   advcity:String;
@@ -44,8 +45,7 @@ export class Product {
   advcategory:String;
   advphone:Number;
   advfullname:String;
-  advimage:string;
-  
+  userId:Number;
   advimgbase: string;
   
 }
@@ -56,7 +56,6 @@ export class Product {
       productprice: Number;
      // quantity: Number;
       userId: Number;
-     
       productId: Number;
       image: File[];
   }

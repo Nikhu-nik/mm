@@ -1,216 +1,91 @@
 <ion-header>
-  <ion-toolbar no-border-bottom>
-
-  
-      <ion-buttons  slot="start">
-        <ion-menu-button color="light" ></ion-menu-button>
-      </ion-buttons>
-  
-      <div class="ion-text-start">  
-      <span class="address">{{address}}</span>
-       </div>
-  
-  
-   
-  <ion-buttons slot="end"> 
-    <ion-button  routerDirection="forward" (click)="gotoSearch()" class="search_icon">
-      <ion-icon color="light" slot="icon-only" mode="ios" name="search"></ion-icon>
-    </ion-button>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="true">
+        <img src="../../assets/imgs/menu_bar.svg" />
+      </ion-menu-button>
     </ion-buttons>
-   
-      
-  
-  <ion-select slot="end" class="location" interface="popover" [(ngModel)]="lng">
-  <ng-container *ngFor="let l of languages;  let i = index;">
-   <ion-select-option [value]="l.languages" selected="true">{{l.lngtype}}</ion-select-option>
-  </ng-container>
-    </ion-select>
-      
-</ion-toolbar>
-  </ion-header>
 
-
-<ion-content no-padding>
-
-
-
- 
- 
-
-
- 
-
-
- 
-
-  <div class="slides1" >
-
-  <ion-slides [options]="slideOptions" autoplay="2000"  pager="true" #slider 
-  (ionSlidesDidLoad)="slidesDidLoad(slider)">
-    <ion-slide>
-      <img src="../../assets/mic/slide11.jpg">
-    </ion-slide>
-
-   
-    <ion-slide>
-      <img src="../../assets/mic/slide2.jpg">
-    
-    </ion-slide>
-
-    <ion-slide>
-      <img src="../../assets/mic/slide0.jpg">
-    
-    </ion-slide>
-
-    <ion-slide>
-      <img src="../../assets/mic/slide13.jpg">
-     
-    </ion-slide>
-
-    <ion-slide>
-      <img src="../../assets/mic/slide8.jpg">
-    
-    </ion-slide>
-
-    <ion-slide>
-      <img src="../../assets/mic/slide5.jpg">
-     
-    </ion-slide>
-
-    <ion-slide>
-      <img src="../../assets/mic/slide11.jpg">
-    
-    </ion-slide>
-    <img src="../../assets/mic/slide4.jpg">
-  </ion-slides>
-</div>
-
-  <div class="ss">
-    <span class="ion-text-start" class="category">Category</span>
-    <span class="viewall ion-text-end" (click)="opencategory()">Viewall</span>
-  </div>
-
-  
-  
-
-  <div class="thumnails">
-    <div class="list-thumbnail">
-      <div class="img-thumb" [class.selected-img]="g.selected" 
-      *ngFor="let g of group" (click)="onThumbnailClick(g)">
-        <img class="category_img" [src]="g.catimg">
-        <p>{{g.catname}}</p>
-      </div>
+    <div class="location" >
+      <p>Your Location</p>
+      <span class="address">{{address}}</span>
     </div>
+
+
+    <ion-buttons slot="end">
+      <ion-button  (click)="opensearch()"class="notification">
+        <ion-icon (click)="opensearch()" name="search-outline" color="light"></ion-icon>
+        <span>&nbsp;</span>
+      </ion-button>
+      <ion-select mode="md" slot="end" (ionChange)="changelang($event)" class="location" interface="popover"
+      [(ngModel)]="selectedtemp">
+      <ion-select-option *ngFor="let l of languages" value="{{l.code}}">{{l.type}}</ion-select-option>
+    </ion-select>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding-bottom">
+<ion-slides pager  [options]="slideOptions" autoplay="1000" #slider
+       (ionSlidesDidLoad)="slidesDidLoad(slider)">
+        <ion-slide *ngFor="let slid of slides">
+          <img  src="{{slid.slideimage }}" />
+        </ion-slide>
+    </ion-slides>
+
+    
+
+  <div class="category-slider ion-padding-start">
+    <div class="title ion-padding">
+      <h2 class="font-bold">Category</h2>
+      <p>See all</p>
+    </div>
+    <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
+      <ion-slide *ngFor="let cat of categories">
+        <ion-col>
+          <h4>{{ cat.name }}</h4>
+          <img style="border-radius: 75%;
+          width: 5rem;height: 5rem;" src="{{cat.categoryimage }}" />
+        </ion-col>  
+      
+      </ion-slide>
+    </ion-slides>
   </div>
-  
 
-</ion-content>
- 
-  
-
-
-
-
-  
-
-  <!-- <ion-grid>
-    <ion-row>
-      <ion-col *ngFor="let l of products">
-        <ion-card mode='ios'>
-          <ion-item>
-            <ion-icon class="icon" name="location"></ion-icon>
-            <ion-label color="light">{{l.location}}</ion-label>
-            <span>View</span>
-          </ion-item>
-
-          <ion-card-header>
-            <ion-card-subtitle>{{l.productfullname}}</ion-card-subtitle>
+  <ion-content>
+    
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let items of postadds" size="6">
+          <div class="product">
+            <ion-card>
+            <img class="p-2" [routerLink]="['/product-detail',items.id]"
+              src="http://localhost:4000/{{items.advimgbase.split(',')[0]}}" />
           
-          </ion-card-header>
-          <ion-card-content>
-            <ion-slides (ionSlidesDidLoad)="load(slider)" zoom>
-              <ion-slide *ngFor="let fig of l.imgbase.split(',')">
-                <p class="more" >1 more +</p>
-    <img class="pro-image" src="http://ec2-18-141-56-81.ap-southeast-1.compute.amazonaws.com:4000/{{fig}}"/>
-              </ion-slide>
-            </ion-slides>
-<div >
-            <p class="pro-content">{{l.name}}</p>
-            <p class="pro-content">Price &#8377;{{l.price}}</p>
-            <p style="text-align: start;
-            font-size: 12px;" class="pro-content">Description: &nbsp;{{l.desc}}</p>
-            <p style="font-size: 12px;" class="pro-content">Quantity: {{l.quant}}</p>
-            <p style="font-size: 12px;" class="pro-content">City: {{l.city}}</p>
-            <ion-col size="10">
-              <p style="font-size: 12px;" class="pro-content">
-                Contact: {{l.productphone}}</p>
-            </ion-col>
-            <ion-col size="2">
-              <ion-badge  color="dark" (click)="callnow(l.productphone)">Enquire</ion-badge>
-            </ion-col>
-            </div>
+              <h4 class="name">{{items.advname}} </h4>
+              <p class="name">{{items.advquant}}</p>
+          
             
+              <div class="price">{{items.advprice | currency :"Rs. "}}</div>
+         
+          </ion-card>
+        </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
-
-            <div class="ion-text-end">
-              <ion-button fill="solid" [routerLink]="['/product-detail',l.id]">View </ion-button>
-            </div>
-          </ion-card-content>
-         </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid> -->
-
-
-  <ion-grid>
-    <ion-row>
-      <ion-col *ngFor="let a of postadds" >
-        <ion-card mode='ios'>
-          <ion-item>
-            <ion-icon class="icon" name="location"></ion-icon>
-            <ion-label color="light">{{a.location}}</ion-label>
-            <span>View</span>
-          </ion-item>
-
-          <ion-card-header>
-            <ion-card-subtitle>{{a.advfullname}}</ion-card-subtitle>
-       
-          </ion-card-header>
-          <ion-card-content>       
-          <ion-slides (ionSlidesDidLoad)="load(slider)" zoom>  
-           
-          <ion-slide *ngFor="let user of a.advimgbase.split(',')">
-            <p class="more">1 more +</p>
-            <img class="pro-image" src="http://localhost:3000/{{user}}"/>
-           </ion-slide>
-           </ion-slides>
-
-            <p class="pro-content">{{a.advname}}</p>
-            <p class="pro-content">Price &#8377;{{a.advprice}}</p>
-            <p class="pro-content">Description: &nbsp;{{a.advdesc}}</p>
-            <p style="font-size: 12px;" class="pro-content">Quantity: {{a.advquant}}</p>
-            <p style="font-size: 12px;" class="pro-content">City: {{a.advcity}}</p>
-            <p style="font-size: 12px;" class="pro-content">
-              Contact: {{a.advphone}}</p>
-            <ion-badge  color="dark">Enquire</ion-badge>
-
-
-            <div class="ion-text-end">
-              <ion-button fill="solid" [routerLink]="['/product-detail',a.id]">View </ion-button>
-            </div>
-          </ion-card-content>
+    
+    
 
 
 
 
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
 
 
 
- 
+  
+  
+  </ion-content>
 
-
-
+  

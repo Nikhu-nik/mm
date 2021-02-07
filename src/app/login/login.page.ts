@@ -21,7 +21,7 @@ export class LoginPage implements OnInit {
   showMsg: any;
   formValid: any;
    server: any;
-  constructor( public platform:Platform , public menuCtrl: MenuController,private popover:PopoverController,
+  constructor(public modalCtrl: ModalController, public platform:Platform , public menuCtrl: MenuController,private popover:PopoverController,
      private loadingCtrl  : LoadingController,private fb: FormBuilder,
      private alertCtrl: AlertController,public alertservice:AlertService,
     public rest: RestService, private myRoute: Router,) {
@@ -68,9 +68,10 @@ export class LoginPage implements OnInit {
       this.myRoute.navigate(['/login']);
     }
   }
-  
+ async dismiss(){
+   return await this.modalCtrl.dismiss();
+ }
   login(){
-   
     this.isSubmitted = true;
     this.formcontrol.get("number").setValidators(Validators.required);
    this.formcontrol.get("number").updateValueAndValidity();

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MenuController } from '@ionic/angular';
-
+import { TranslateService } from '@ngx-translate/core';
 import { ModalController, Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -32,7 +32,7 @@ export class AppComponent {
   admin: boolean = false;
   user: boolean = false;
   public data: Register = new Register();
-  //apptoken = {"token":""};
+  
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -40,7 +40,7 @@ export class AppComponent {
     private rest: RestService,
     private route: Router,
     private menu: MenuController,
-    
+    private _translate: TranslateService,
    private modalController:ModalController
   ) {
     this.initializeApp();
@@ -62,19 +62,13 @@ export class AppComponent {
       this.splashScreen.hide();
     });
   }
-
+ 
   ngOnInit() {
+
     //this.navi();
     this.getuserprofiles();
   }
-  doRefresh(event) {
-    this.getuserprofiles();
-    console.log('Begin async operation');
-        setTimeout(() => {
-          console.log('Async operation has ended');
-          event.target.complete();
-        }, 2000);
-      }
+
 //  navi(){
 //   if(this.rest.getRole()=="ADMIN"){
 //     this.route.navigate(['/admindashboard']);

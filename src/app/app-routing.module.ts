@@ -57,10 +57,7 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
-  {
-    path: 'postad',
-    loadChildren: () => import('./postad/postad.module').then( m => m.PostadPageModule)
-  },
+  
   {
     path: 'product-detail/:id',
     loadChildren: () => import('./product-detail/product-detail.module').then( m => m.ProductDetailPageModule)
@@ -117,25 +114,13 @@ const routes: Routes = [
     loadChildren: () => import('./contactmodal/contactmodal.module').then( m => m.ContactmodalPageModule)
   },
  
-
- 
-  
   {
     path: 'signup',
     loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
   },
-  {
-    path: 'signup-success',
-    loadChildren: () => import('./signup-success/signup-success.module').then( m => m.SignupSuccessPageModule)
-  },
-  {
-    path: 'home2',
-    loadChildren: () => import('./home2/home2.module').then( m => m.Home2PageModule)
-  },
-  {
-    path: 'slidespage',
-    loadChildren: () => import('./slidespage/slidespage.module').then( m => m.SlidespagePageModule)
-  },
+ 
+  
+ 
  
 ];
 @NgModule({

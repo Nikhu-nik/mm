@@ -14,7 +14,7 @@ import { File } from '@ionic-native/File/ngx';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import {NativeGeocoder} from '@ionic-native/native-geocoder/ngx';
 import { FileChooser } from '@ionic-native/file-chooser/ngx';
-import { enterAnimation } from './nav-animation';
+// import { enterAnimation } from './nav-animation';
 // import { BrowserAnimationsModule } from '@angular/-browser/animations';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -26,7 +26,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import{ LanguageService} from './providers/language.service';
-import { ContactmodalPage } from './contactmodal/contactmodal.page';
+
+
 
 // const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
@@ -39,13 +40,15 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    ContactmodalPage,
+  
+    
  ],
-  entryComponents: [ContactmodalPage],
+  entryComponents: [],
   imports: [
+
   BrowserModule, 
   IonicModule.forRoot({
-    navAnimation: enterAnimation // Animations!!!
+    //navAnimation: enterAnimation // Animations!!!
   }), 
   
   AppRoutingModule, 

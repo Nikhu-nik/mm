@@ -12,10 +12,10 @@
     <img src="../../assets/gif/gg.gif" />
       
     <div class="button-container">
-     <ion-button class="main-button"   (click)="navigateToLogin()"
-       expand="block">Login</ion-button>
-     <ion-button  routerLink="/signup"  expand="block" fill="clear" (click)="navigateTosignup()"
-     color="dark">Signup</ion-button>
+     <ion-button routerDirection="forward" class="main-button"  routerLink="/login"
+    expand="block">Login</ion-button>
+     <ion-button  routerDirection="forward" fill="outline"    routerLink="/signup"  expand="block" 
+   >Signup</ion-button>
     </div>
   
   </div>

@@ -6,12 +6,19 @@ ion-toolbar{
     font-family: Montserrat!important;
 
   }
-  p{
-    color: red;
-    font-size: 8px;
-    font-weight: 700;
+  .validation_messsage{
+    p{
     
+      color: red!important;
+      font-size: 10px!important;
+    }
+    ion-icon{
+      font-size: 16px!important;
+      margin-top: 1px!important;
+      float: right;
+    }
   }
+ 
   .btn-post{
     margin: 20px;
     --background: #0b833c!important;
@@ -61,7 +68,7 @@ ion-card {
 ion-textarea {
   border: 1px solid darkgrey !important;
   border-radius: 4px !important;
-  margin-bottom: 20px !important;
+ 
 }
 
 .mobile-num {

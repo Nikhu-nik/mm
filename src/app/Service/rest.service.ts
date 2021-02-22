@@ -22,14 +22,11 @@ favorites:Array<any> = [];
  }
    
  sendToken(token: string) {
-
-  localStorage.setItem("LoggedInUser", token)
+ localStorage.setItem("LoggedInUser", token)
  }
 
  getToken() {
-  //localStorage.removeItem("LoggedInUser");
-
-  return localStorage.getItem("LoggedInUser");
+ return localStorage.getItem("LoggedInUser");
 }
 isLoggednIn() {  
   return this.getToken() !== null;

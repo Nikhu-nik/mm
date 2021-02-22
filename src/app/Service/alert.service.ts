@@ -65,10 +65,10 @@ const alert = await this.alertController.create({
        async loginfailurealert() {
         const alert = await this.alertController.create({
           cssClass: 'login-failure',
-          
-          header: 'Failed',
+          mode:'ios',
          
-         message: 'Please signup and login',
+          header: 'Failed',
+          message: 'please register',
           buttons: ['OK']
         });
         await alert.present(); 

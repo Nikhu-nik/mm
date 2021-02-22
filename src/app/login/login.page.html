@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <form [formGroup]="formcontrol">
+  <form [formGroup]="loginForm" (ngSubmit)="loggedin(loginForm.value)">
 
   <div class="ion-padding container">
    <img class="logo" src="../../assets/icon/Artboard 2.png"/>
@@ -27,6 +27,7 @@
       </ion-item>
 
       <!-----Validate Number ------->
+      <div class="validation_message">
 <p class="error" *ngIf="isSubmitted && errorControl.number.errors?.required">
  <ion-icon name="alert-circle-outline"></ion-icon> Phone number is required.</p>
 <p class="error" *ngIf="isSubmitted && errorControl.number.errors?.minlength">
@@ -34,8 +35,10 @@
 <p class="error" *ngIf="isSubmitted && errorControl.number.errors?.pattern">
   <ion-icon name="alert-circle-outline"></ion-icon>Please enter a valid number.</p>
 
+</div>
+
       <ion-button expand="block" class="main-button"
-       (click)="login()">Log in
+      (click)="loggedin(loginForm.value)">Log in
       </ion-button>
 
 

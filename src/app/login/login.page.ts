@@ -13,7 +13,7 @@ import {AlertService} from '../Service/alert.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  public formcontrol : FormGroup;
+  public loginForm : FormGroup;
   isSubmitted = false;
   public data: Login = new Login();
   valid: boolean = false;
@@ -21,13 +21,14 @@ export class LoginPage implements OnInit {
   showMsg: any;
   formValid: any;
    server: any;
-  constructor(public modalCtrl: ModalController, public platform:Platform , public menuCtrl: MenuController,private popover:PopoverController,
+  constructor(public modalCtrl: ModalController, public platform:Platform ,
+     public menuCtrl: MenuController,private popover:PopoverController,
      private loadingCtrl  : LoadingController,private fb: FormBuilder,
-     private alertCtrl: AlertController,public alertservice:AlertService,
+     private alertController: AlertController,public alertservice:AlertService,
     public rest: RestService, private myRoute: Router,) {
-  this.formcontrol = this.fb.group({
-   
-      number: ['', [Validators.required, (Validators.minLength(10)), (Validators.pattern(/^[6-9]\d{9}$/))]],
+  this.loginForm = this.fb.group({
+  number: ['', [Validators.required,
+     (Validators.minLength(10)), (Validators.pattern(/^[6-9]\d{9}$/))]],
     });
     this.platform.backButton.subscribe(async () => {
       if (this.myRoute.isActive('/login', true) && this.myRoute.url === '/login') {
@@ -41,21 +42,14 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.navi();
-    this.login();
+    this.loggedin();
+    
   }
   get errorControl() {
-    return this.formcontrol.controls;
+    return this.loginForm.controls;
   }
  
-  async showLoader(){
-    const loading = this.loadingCtrl.create({
-        message:'Please wait',
-        spinner: 'crescent',
-       duration: 500,
-       mode:'ios'
-      });
-    (await loading).present();
-  }
+
   
   navi(){
     if(this.rest.getRole()=="ADMIN"){
@@ -71,44 +65,99 @@ export class LoginPage implements OnInit {
  async dismiss(){
    return await this.modalCtrl.dismiss();
  }
-  login(){
-    this.isSubmitted = true;
-    this.formcontrol.get("number").setValidators(Validators.required);
-   this.formcontrol.get("number").updateValueAndValidity();
-    if (!this.formcontrol.valid) {
-      return false;
-   }
-   else{
-    if (this.formcontrol.valid) 
-   {
-    Object.assign(this.data, this.formcontrol.value);
-    console.log(this.data);
-    this.rest.login(this.data).subscribe((result) => {
-      if (result === undefined) {
-        console.log(result);
-        this.errmsg = true;
-        this.alertservice.loginfailurealert();
-       }
-       else {
-        this.showLoader();
-        this.rest.sendToken(result.accessToken);
-   
-        this.myRoute.navigate(['dashboard/home']);
-        this.formcontrol.reset();
-       }
-    }, (err) => {
-      this.alertservice.loginfailurealert();
-      console.log(err);
-     
-    });
-   }
-   else {
-    this.valid = true;
-    this.formcontrol.reset();
-  }
-  
+ async showAlert(message) {
+  const alert = await this.alertController.create({
+    mode: 'ios',
+    message: message,
+  });
+  await alert.present();
+  setTimeout(() => {
+    alert.dismiss();
+  }, 5000);
 }
-  
+
+
+loggedin(){
+  this.isSubmitted = true;
+  if (!this.loginForm.valid) {
+  return false;
+}else{
+  if (this.loginForm.valid) 
+  {
+    this.loadingCtrl.create({
+      message:"SigningIn....",
+      mode:'ios',
+      cssClass:'register-loader',
+      duration: 5000,
+      spinner: 'crescent',
+    }).then((ele)=>{
+      ele.present();
+      Object.assign(this.data, this.loginForm.value);
+      console.log(this.data);
+      this.rest.login(this.data).subscribe((result)=>{
+        if (result === undefined) {
+          console.log(result);
+          this.errmsg = true;
+          this.alertservice.loginfailurealert();
+         } else{
+          this.rest.sendToken(result.accessToken);
+          ele.dismiss();
+          this.myRoute.navigate(['dashboard/home']);
+          }
+      }, (err)=>{
+        this.alertservice.loginfailurealert();
+      console.log(err);
+      });
+    })
   }
+}
+
+
+
+
+
+
+}
+
+
+
+//   sss(){
+//     this.isSubmitted = true;
+  
+// if (!this.loginForm.valid) {
+//       return false;
+//    }
+//    else{
+//     if (this.loginForm.valid) 
+//    {
+//     Object.assign(this.data, this.loginForm.value);
+//     console.log(this.data);
+//     this.rest.login(this.data).subscribe((result) => {
+//       if (result === undefined) {
+//         console.log(result);
+//         this.errmsg = true;
+//         this.alertservice.loginfailurealert();
+//        }
+//        else {
+      
+//         this.rest.sendToken(result.accessToken);
+   
+//         this.myRoute.navigate(['dashboard/home']);
+//         this.loginForm.reset();
+//        }
+//     }, (err) => {
+//       this.alertservice.loginfailurealert();
+//       console.log(err);
+     
+//     });
+//    }
+//    else {
+//     this.valid = true;
+//     this.loginForm.reset();
+//   }
+  
+// }
+  
+//   }
 }
 

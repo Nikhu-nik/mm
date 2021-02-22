@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Geolocation, Geoposition ,GeolocationOptions } from '@ionic-native/geolocation/ngx';
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, ToastController } from '@ionic/angular';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RestService } from '../Service/rest.service';
@@ -15,7 +15,7 @@ declare var google;
 export class PostadvertPage implements OnInit {
   valid: boolean = false;
   isSubmitted = false;
-  public formcontrol: FormGroup;
+  public postadvertForm: FormGroup;
   countryList;
   categoryList = [
     {categorytype:"Vegatebles"},
@@ -35,10 +35,10 @@ export class PostadvertPage implements OnInit {
   constructor(private httpClient: HttpClient,
     private fb: FormBuilder,
     private geolocation:Geolocation,
-     private camera: Camera, 
+     private camera: Camera,public toastController:ToastController, 
       public rest: RestService,
     private actionSheetCtrl:ActionSheetController) {
-      this.formcontrol = this.fb.group({
+      this.postadvertForm = this.fb.group({
         advname: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
         advprice: ['', [Validators.required, (Validators.minLength(10), (Validators.pattern(/^[0-9]\d{9}$/)))]],
         advquant: ['', [Validators.required, (Validators.minLength(10))]],
@@ -64,7 +64,7 @@ export class PostadvertPage implements OnInit {
 
    //helps in triggers an error in validation
    get errorControl() {
-    return this.formcontrol.controls;
+    return this.postadvertForm.controls;
   }
   getaddress()
   {
@@ -157,11 +157,22 @@ export class PostadvertPage implements OnInit {
       alert('error' + JSON.stringify(err));
     });
   }
+
+  async showtoast(message) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 4000,
+     
+    });
+    toast.present();
+  }
+  
+
   postadvertisement(){
     if(this.images.length < 2)
     {
-      alert("Please select minimum 2 images to proceed..!")
-      return;
+    this.showtoast('Please select minimum 2 images to proceed');
+    return true;
     }
     this.isSubmitted = true;
     this.data["filename"] = undefined;
@@ -178,32 +189,32 @@ export class PostadvertPage implements OnInit {
       }
      for(var i = 0;i<this.images.length;i++)
       {
-        this.formcontrol.get("advname").setValidators(Validators.required);
-          this.formcontrol.get("advname").updateValueAndValidity();
-          this.formcontrol.get("advprice").setValidators(Validators.required);
-          this.formcontrol.get("advprice").updateValueAndValidity();
-          this.formcontrol.get("advdesc").setValidators(Validators.required);
-          this.formcontrol.get("advdesc").updateValueAndValidity();
-          this.formcontrol.get("advquant").setValidators(Validators.required);
-          this.formcontrol.get("advquant").updateValueAndValidity();
-          this.formcontrol.get("advfullname").setValidators(Validators.required);
-          this.formcontrol.get("advfullname").updateValueAndValidity();
-          this.formcontrol.get("advphone").setValidators(Validators.required);
-          this.formcontrol.get("advphone").updateValueAndValidity();
-          this.formcontrol.get("advcategory").setValidators(Validators.required);
-          this.formcontrol.get("advcategory").updateValueAndValidity();
-          this.formcontrol.get("advcity").setValidators(Validators.required);
-          this.formcontrol.get("advcity").updateValueAndValidity();
-     if (this.formcontrol.valid) {
-      alert('Form values are passed');
+        this.postadvertForm.get("advname").setValidators(Validators.required);
+          this.postadvertForm.get("advname").updateValueAndValidity();
+          this.postadvertForm.get("advprice").setValidators(Validators.required);
+          this.postadvertForm.get("advprice").updateValueAndValidity();
+          this.postadvertForm.get("advdesc").setValidators(Validators.required);
+          this.postadvertForm.get("advdesc").updateValueAndValidity();
+          this.postadvertForm.get("advquant").setValidators(Validators.required);
+          this.postadvertForm.get("advquant").updateValueAndValidity();
+          this.postadvertForm.get("advfullname").setValidators(Validators.required);
+          this.postadvertForm.get("advfullname").updateValueAndValidity();
+          this.postadvertForm.get("advphone").setValidators(Validators.required);
+          this.postadvertForm.get("advphone").updateValueAndValidity();
+          this.postadvertForm.get("advcategory").setValidators(Validators.required);
+          this.postadvertForm.get("advcategory").updateValueAndValidity();
+          this.postadvertForm.get("advcity").setValidators(Validators.required);
+          this.postadvertForm.get("advcity").updateValueAndValidity();
+     if (this.postadvertForm.valid) {
+     alert('Form values are passed');
       }
     
       else {
       
       console.log('Form Valid')
         this.valid = true;
-      }
-    Object.assign(this.data, this.formcontrol.value);
+     }
+    Object.assign(this.data, this.postadvertForm.value);
     console.log(this.images);
     this.data["advimgbase"] = this.images[i];
     this.data["advlocation"] = this.address;

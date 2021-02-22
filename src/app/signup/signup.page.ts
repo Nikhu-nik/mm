@@ -1,44 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpResponse, HttpEventType } from '@angular/common/http';
 import { RestService } from '../Service/rest.service';
 import { Router } from '@angular/router';
-import { AlertController, ModalController, LoadingController,PopoverController, MenuController, Platform } from '@ionic/angular';
+import { AlertController, ModalController, LoadingController,
+  PopoverController, MenuController, Platform, ToastController } from '@ionic/angular';
 import { Register } from '../Model/class';
 import { AlertService } from '../Service/alert.service';
-import { SignupSuccessPage } from '../signup-success/signup-success.page';
-import { SignupSuccessPageModule } from '../signup-success/signup-success.module';
-import { modalEnterAnimation } from '../modal.animate';
+
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.page.html',
   styleUrls: ['./signup.page.scss'],
 })
 export class SignupPage implements OnInit {
-
-  public formcontrol: FormGroup;
+  public registerForm: FormGroup;
   public formValid = true;
   isSubmitted = false;
-  showMsg: boolean = false;
-  valid: boolean;
-  flag: any;
-  load: HTMLIonLoadingElement = null;
-  selectedFile: FileList;
-  currentFileUpload: File;
-  errmsg: any;
-  public data: Register = new Register();
+  valid: boolean= false;
+ public data: Register = new Register();
+
+
+
   constructor(private platform: Platform, public menuCtrl: MenuController,
-    private popover: PopoverController, 
+    private popover: PopoverController,public toastController: ToastController,
     public fb: FormBuilder, private loadingCtrl: LoadingController,public alertservice:AlertService,
    private alertController: AlertController, public rest: RestService,
     private myRoute: Router, private modalCtrl: ModalController) {
-   this.formcontrol = this.fb.group({
-     fullname: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*'),
-      (Validators.maxLength(20)), (Validators.minLength(5))]],
+   this.registerForm = this.fb.group({
+     fullname: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*') ]],
      number: ['', [Validators.required, (Validators.minLength(10)), (Validators.pattern(/^[6-9]\d{9}$/))]],
      roles: this.fb.array(['USER'])
    });
- }
+ }  
 
  ionViewWillEnter() {
   this.menuCtrl.enable(false);
@@ -46,70 +40,85 @@ export class SignupPage implements OnInit {
 
 //helps in triggers an error in validation
 get errorControl() {
-  return this.formcontrol.controls;
+  return this.registerForm.controls;
 }
 
 
-async showLoader(){
-const loading = this.loadingCtrl.create({
-    message:'Please wait',
-    spinner: 'crescent',
-    cssClass:'register-loader',
-    duration: 500,
-    mode:'ios'
-   
-  });
-(await loading).present();
 
-}
 
 ngOnInit() {
   this.valid = false;
-  this.errmsg = false;
-  this.isSubmitted = false;
-}
-
-async success() {
-  const modal = await this.modalCtrl.create({
-    component: SignupSuccessPage,
-    cssClass: 'sucess-image',
-    showBackdrop: false,
-   
-    backdropDismiss: true,
-  });
-  return await modal.present();
+ this.isSubmitted = false;
 }
 
 
- getregister() {
-  this.showLoader();
- this.isSubmitted = true;
-  if (!this.formcontrol.valid) {
-     return false;
-  } 
-   else {
-    if (this.formcontrol.valid) 
-    {
-     
-    Object.assign(this.data, this.formcontrol.value);
-    console.log(this.data);
-    this.rest.Register(this.data).subscribe((result) => {
-     if (result === undefined) {
-          console.log(result);
-          this.errmsg = true;
-        
-         } else {
-          this.success();
-          };
-      }, (err) => {
-      console.log(err);
-      this.alertservice.failurealert();
-      });
-      } 
-      else {
-      this.valid = true;
-      this.formcontrol.reset();
-    }
+
+isInputNumber(event: any) {
+  const ch = String.fromCharCode(event.which);
+  if (!(/[0-9]/.test(ch))) {
+    event.preventDefault();
   }
 }
+
+getregister(){
+  this.isSubmitted = true;
+  if (this.registerForm.invalid) {
+    return false;
+  } 
+this.loadingCtrl.create({
+  message:"Signingin...",
+  mode:'ios',
+  cssClass:'register-loader',
+  duration: 4000,
+  spinner: 'crescent',
+}).then((ele)=>{
+  ele.present();  
+  Object.assign(this.data, this.registerForm.value);
+    console.log(this.data);
+  this.rest.Register(this.data).subscribe((result)=>{
+    console.log(result);
+  this.showAlert('Registered Successfully...');
+    ele.dismiss();
+    this.myRoute.navigate(['/login']);
+  },(error)=>{
+    if(error.status==400){
+      this.showAlert('This mobile number is already registered,try logging in');
+      console.log(error);
+    }else{
+      if(error.status==0){
+        this.showtoast('Server is low, Please try again later');
+        console.log(error);
+        //this.registerForm.reset();  
+      }
+    }
+  })
+})
+
+
+
+}
+
+async showtoast(message) {
+  const toast = await this.toastController.create({
+    message: message,
+    duration: 4000,
+   
+  });
+  toast.present();
+}
+
+
+
+async showAlert(message) {
+  const alert = await this.alertController.create({
+    mode: 'ios',
+    message: message,
+  });
+  await alert.present();
+  setTimeout(() => {
+    alert.dismiss();
+  }, 4000);
+}
+
+
 }

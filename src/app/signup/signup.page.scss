@@ -2,11 +2,15 @@
 ion-toolbar {
   --border-width: 0 !important;
 }
-
+// ion-toolbar {
+//   --border-width: 0 !important;
+//   --background: #0b833c;
+// }
 // Removing Android Header Line
 .header-md::after {
   background: none !important;
 }
+
 
 .backbtn {
   margin-left: 20px;
@@ -14,23 +18,38 @@ ion-toolbar {
 .container h1 {
   margin-top: 0;
 }
-ion-content{
+// .background{
 
-  --background: url(../../assets/imgs/bg.png) 0 0/100% 100% no-repeat;
-  }
+//   --background: url(../../assets/imgs/bg.png) no-repeat;
+//   -webkit-background-size: cover;
+//   -moz-background-size: cover;
+//   background-size: cover;
+//   }
+ 
 ion-title{
-  font-weight: 900;
+  font-weight: 500;
     color: green;
 }
 .backbtn {
   margin-left: 20px;
 }
-
+.validation_message{
+  p{
+    
+    color: red!important;
+    font-size: 10px!important;
+  }
+  ion-icon{
+    font-size: 16px!important;
+    margin-top: 1px!important;
+    float: right;
+  }
+}
 .form-container {
   margin-top: 48px;
 }
 ion-title{
-  font-weight: 900;
+  font-weight: 500;
     color: green;
 }
 .form-container ion-item {
@@ -60,11 +79,7 @@ ion-title{
 .sign-up ion-button {
   margin: 0;
 }
-p{
-  font-weight: bolder;
-    color: red;
-    font-size: 10px;
-}
+
 .logo{
   height: 7rem;
     width: 9rem;

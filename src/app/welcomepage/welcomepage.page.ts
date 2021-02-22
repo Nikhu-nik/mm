@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { enterAnimation } from '../nav-animation';
+
 
 @Component({
   selector: 'app-welcomepage',
@@ -14,13 +14,13 @@ export class WelcomepagePage implements OnInit {
 
   ngOnInit() {
   }
-  navigateToLogin() {
-    this.navCtrl.setDirection('forward', true, 'forward', enterAnimation);
-    this.router.navigateByUrl('login');
-  }
+  // navigateToLogin() {
+  //   //this.navCtrl.setDirection('forward', true, 'forward', enterAnimation);
+  //   this.router.navigate(['/login']);
+  // }
 
-  navigateTosignup() {
-    this.navCtrl.setDirection('forward', true, 'forward', enterAnimation);
-    this.router.navigateByUrl('signup');
-  }
+  // navigateTosignup() {
+  //  // this.navCtrl.setDirection('forward', true, 'forward', enterAnimation);
+  //   this.router.navigateByUrl('signup');
+  // }
 }

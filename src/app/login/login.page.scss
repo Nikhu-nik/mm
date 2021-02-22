@@ -1,8 +1,8 @@
 // This will remove iOS Header Line
-ion-toolbar {
-  --border-width: 0 !important;
-  --background: #0b833c;
-}
+// ion-toolbar {
+//   --border-width: 0 !important;
+//   --background: #0b833c;
+// }
 
 // Removing Android Header Line
 .header-md::after {
@@ -21,6 +21,18 @@ ion-title{
 
 //   --background: url(../../assets/imgs/bg.png) 0 0/100% 100% no-repeat;
 //   }
+
+.validation_message{
+  p{
+    
+    color: red!important;
+    font-size: 10px!important;
+  }
+  ion-icon{
+    font-size: 16px!important;
+    margin-top: 1px!important;
+  }
+}
  
 .backbtn {
   margin-left: 20px;
@@ -67,11 +79,7 @@ ion-label{
 .sign-up ion-button {
   margin: 0;
 }
-p{
-  font-weight: bolder;
-    color: red;
-    font-size: 10px;
-}
+
 .logo{
   height: 7rem;
     width: 9rem;

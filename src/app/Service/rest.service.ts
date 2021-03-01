@@ -21,6 +21,8 @@ favorites:Array<any> = [];
     return body || { };
  }
    
+
+
  sendToken(token: string) {
  localStorage.setItem("LoggedInUser", token)
  }
@@ -41,7 +43,7 @@ getRole(){
 }
 sendId(id){
   localStorage.setItem("LoggedInUserId", id)
-}
+} 
 getId(){
   return localStorage.getItem("LoggedInUserId");
 }
@@ -69,7 +71,12 @@ logout() {
     return this.http.post<Register>(endpoint + 'api/auth/signup' , data,this.httpOptions);
  }
 
- 
+ checkEmailNotTaken(number: string, userId: string) {
+  return this.http.post('http://localhost:4000/api/customers/checkEmailNotTaken', {
+    number,
+    userId
+  });
+}
  
 
 

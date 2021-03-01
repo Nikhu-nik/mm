@@ -1,9 +1,9 @@
 
 
-ion-tabs{
-  // background: red
-  background: white!important;
-}
+// ion-tabs{
+//   // background: red
+//   background: white!important;
+// }
 
 ion-tab-bar  {
    //background: red;
@@ -13,116 +13,109 @@ ion-tab-bar  {
   border-radius: 30px;
   margin: 5px 0px 5px 5% !important;
   max-height: 56px;
-  height: 95px;
+  height
+  : 95px;
   max-height: 95px;
   border: unset;
 }
 
-.tab-selected ion-icon{
-  color: white;
-  padding-bottom: 9px;
-}
+// .tab-selected ion-icon{
+//   color: white;
+//   padding-bottom: 9px;
+// }
 
-.tab-selected, ion-tab-button{
-  background: #2c2c2c;
-}
+// .tab-selected, ion-tab-button{
+//   background: #2c2c2c;
+// }
 
-#tab-button-tab1,
-#tab-button-tab2,
-#tab-button-tab3,
-#tab-button-tab4,
-#tab-button-tab5 {
-  // background: green;
- // background: aliceblue;
- background: white;
-  -webkit-box-shadow: 5px 5px 15px -15px  rgba(0,0,0,0.4);
-  -moz-box-shadow: 5px 5px 15px -15px  rgba(0,0,0,0.4);
-  box-shadow: 5px 5px 15px -15px  rgba(0,0,0,0.4);
-  --border: none;
-  max-height: 56px;
-  margin-top: 53px;
-}
+// #tab-button-tab1,
+// #tab-button-tab2,
+// #tab-button-tab3,
+// #tab-button-tab4,
+// #tab-button-tab5 {
+//   // background: green;
+//  // background: aliceblue;
+//  background: white;
+//   -webkit-box-shadow: 5px 5px 15px -15px  rgba(0,0,0,0.4);
+//   -moz-box-shadow: 5px 5px 15px -15px  rgba(0,0,0,0.4);
+//   box-shadow: 5px 5px 15px -15px  rgba(0,0,0,0.4);
+//   --border: none;
+//   max-height: 56px;
+//   margin-top: 53px;
+// }
 
-ion-tab-button:hover {
-  ion-icon, ion-label {
-      color: green !important;
-      --ion-color-base: green !important;
-  }
-}
+// ion-tab-button:hover {
+//   ion-icon, ion-label {
+//       color: #0b833c !important;
+//       --ion-color-base:  #0b833c!important;
+//   }
+// }
 
 
 
-#tab-button-tab1 {
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
-}
+// #tab-button-tab1 {
+//   border-top-left-radius: 30px;
+//   border-bottom-left-radius: 30px;
+// }
 
-#tab-button-tab2 {
-border-top-right-radius: 15px;
-}
+// #tab-button-tab2 {
+// border-top-right-radius: 15px;
+// }
 
-#tab-button-tab4 {
-border-top-left-radius: 15px;
-}
+// #tab-button-tab4 {
+// border-top-left-radius: 15px;
+// }
 
-#tab-button-tab3 {
-  overflow: visible !important;
-  max-height: 120px !important;
-  height: 120px !important;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+// #tab-button-tab3 {
+//   overflow: visible !important;
+//   max-height: 120px !important;
+//   height: 120px !important;
+//   border-top-left-radius: 20px;
+//   border-top-right-radius: 20px;
 
-  ion-icon {
+//   ion-icon {
     
-      transform: translate3d(0, 0px, 0);
+//       transform: translate3d(0, 0px, 0);
      
-      color:white;
+//       color:white;
       
       
-      border: unset;
-  }
-}
+//       border: unset;
+//   }
+// }
 
-#tab-button-tab3::part(a) {
-  --margin-top: -2px !important;
-}
-#tab-button-tab3 > a {
-  --margin-top: -2px !important;
-}
+// #tab-button-tab3::part(a) {
+//   --margin-top: -2px !important;
+// }
+// #tab-button-tab3 > a {
+//   --margin-top: -2px !important;
+// }
 
-#tab-button-tab5 {
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
+// #tab-button-tab5 {
+//   border-top-right-radius: 30px;
+//   border-bottom-right-radius: 30px;
 
-  ion-icon {
-      background-repeat:no-repeat;
-      background-position:center;
-      height:24px;
-      width:24px;
-      background-size:contain;
-      border-radius: 50%;
-      -webkit-background-size: contain;
-      -moz-background-size: contain;
-      -o-background-size: contain;
-      &:before {
-          display:none;
-      }
-  }
-}
+//   ion-icon {
+//       background-repeat:no-repeat;
+//       background-position:center;
+//       height:24px;
+//       width:24px;
+//       background-size:contain;
+//       border-radius: 50%;
+//       -webkit-background-size: contain;
+//       -moz-background-size: contain;
+//       -o-background-size: contain;
+//       &:before {
+//           display:none;
+//       }
+//   }
+// }
 
 #tab-button-tab5.tab-selected ion-icon{
   padding-bottom: 0px;
 }
 
-ion-badge {
-  --background: purple;
-  --color: white;
-  width: 23px;
-  height: 21px;
-  font-size: 0.8rem;
-  margin-top: -8px;
-  padding-top: 5px;
-}
+
 
 #tab-button-tab1 > ion-icon:after,
 #tab-button-tab2 > ion-icon:after,

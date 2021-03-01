@@ -4,15 +4,27 @@ ion-menu-button {
 ion-toolbar{
   --background: #0b833c;
 }
-.product{
+.homeproducts{
 ion-card{
 box-shadow: none;
 border: 1px solid #efe6e6;
 }
-img{
-  padding: 6px;
-    border-radius: 10px;
+
+.homeproducts {
+  width: 95%;
+  padding: 0;
+  margin: 0;
+  column-count: 2;
+  column-fill: auto;
+  text-align: center;
 }
+.p-2 {
+  height:14rem;
+  padding: 1rem;
+  object-fit: scale-down;
+}
+
+
 
 }
 .filter {

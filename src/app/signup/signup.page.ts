@@ -74,15 +74,15 @@ this.loadingCtrl.create({
 }).then((ele)=>{
   ele.present();  
   Object.assign(this.data, this.registerForm.value);
-    console.log(this.data);
+  console.log(this.data);
   this.rest.Register(this.data).subscribe((result)=>{
-    console.log(result);
+  console.log(result);
   this.showAlert('Registered Successfully...');
-    ele.dismiss();
-    this.myRoute.navigate(['/login']);
+  ele.dismiss();
+  this.myRoute.navigate(['/login']);
   },(error)=>{
     if(error.status==400){
-      this.showAlert('This mobile number is already registered,try logging in');
+      this.showtoast('This mobile number has already been registered');
       console.log(error);
     }else{
       if(error.status==0){
@@ -102,7 +102,7 @@ async showtoast(message) {
   const toast = await this.toastController.create({
     message: message,
     duration: 4000,
-   
+   position:'top'
   });
   toast.present();
 }
@@ -111,13 +111,12 @@ async showtoast(message) {
 
 async showAlert(message) {
   const alert = await this.alertController.create({
-    mode: 'ios',
+   // mode: 'ios',
     message: message,
+    buttons: ['OK']
   });
   await alert.present();
-  setTimeout(() => {
-    alert.dismiss();
-  }, 4000);
+ 
 }
 
 

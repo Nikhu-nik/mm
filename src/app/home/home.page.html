@@ -1,8 +1,8 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button autoHide="true">
-        <img src="../../assets/imgs/menu_bar.svg" />
+      <ion-menu-button color="light" autoHide="false"   >
+        <!-- <img src="../../assets/imgs/menu_bar.svg" /> -->
       </ion-menu-button>
     </ion-buttons>
 
@@ -57,9 +57,9 @@
     
     <ion-grid>
       <ion-row>
-        <ion-col *ngFor="let items of postadds" size="6">
-          <div class="product">
-            <ion-card>
+        <ion-col  size="6">
+          <div class="homeproducts">
+            <ion-card *ngFor="let items of postadds">
             <img class="p-2" [routerLink]="['/product-detail',items.id]"
               src="http://localhost:4000/{{items.advimgbase.split(',')[0]}}" />
           

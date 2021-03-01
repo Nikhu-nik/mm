@@ -20,8 +20,20 @@
 
 .profile img{
   width: 5rem;
+  border-radius: 56px;
 }
-
+.profile {
+.name{
+  margin-left: -45px;
+    margin-top: -10px;
+  text-decoration: underline;
+  font-weight: 600;
+  color: green;
+} .hi{
+  margin-left: -42px;
+    margin-top: 14px;
+}
+}
 *{
   font-family: Montserrat;
 }
@@ -58,6 +70,7 @@
 .menu-header img {
   width:8rem;
   margin-top: 6rem;
+ 
 }
 
 .menu-header p {

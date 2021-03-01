@@ -66,7 +66,7 @@ export class HomePage implements OnInit {
   ngOnInit() {
   
    this.retrival();
-   this.userpostedgetproduct();
+   //this.userpostedgetproduct();
     this.categories = this.data.getCategories();
     this.slides = this.data.getSlides();
   }
@@ -97,21 +97,21 @@ export class HomePage implements OnInit {
 
 
  //Mapping Products Posted by User
- userpostedgetproduct(){
-  this.rest.MapUserProduct().subscribe((result) => {
-   console.log(result);
-   if(result == undefined) {
-     console.log(result);
-   }
-   else{
-     //console.log(result);
-     this.arr = Object.entries(result).map(([type, value]) => ({type , value }));
-     this.states = this.arr[0].value;
-   }
- },(err) => {
-   console.log(err);
- });
-   }
+//  userpostedgetproduct(){
+//   this.rest.MapUserProduct().subscribe((result) => {
+//    console.log(result);
+//    if(result == undefined) {
+//      console.log(result);
+//    }
+//    else{
+//      //console.log(result);
+//      this.arr = Object.entries(result).map(([type, value]) => ({type , value }));
+//      this.states = this.arr[0].value;
+//    }
+//  },(err) => {
+//    console.log(err);
+//  });
+//    }
 
 
    retrival(){

@@ -1,8 +1,8 @@
-<ion-header>
+<ion-header >
   <ion-toolbar >
     <ion-buttons slot="start">
       <ion-button class="backbtn" routerLink="/welcomepage"  routerDirection="backward">
-        <ion-icon color="light" name="arrow-back-outline"></ion-icon>
+        <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-title color="light">Login</ion-title>
@@ -29,11 +29,11 @@
       <!-----Validate Number ------->
       <div class="validation_message">
 <p class="error" *ngIf="isSubmitted && errorControl.number.errors?.required">
- <ion-icon name="alert-circle-outline"></ion-icon> Phone number is required.</p>
+  Phone number is required.</p>
 <p class="error" *ngIf="isSubmitted && errorControl.number.errors?.minlength">
-  <ion-icon name="alert-circle-outline"></ion-icon> Please enter 10 digit Mobile number.</p>
+  <ion-icon name="alert-circle-sharp"></ion-icon> Please enter 10 digit Mobile number.</p>
 <p class="error" *ngIf="isSubmitted && errorControl.number.errors?.pattern">
-  <ion-icon name="alert-circle-outline"></ion-icon>Please enter a valid number.</p>
+  <ion-icon name="alert-circle-sharp"></ion-icon>Please enter a valid number.</p>
 
 </div>
 

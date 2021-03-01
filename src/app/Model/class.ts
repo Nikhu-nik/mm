@@ -8,7 +8,10 @@ export class Register {
 export class Roles {
   roles: string;
 }
-
+export class Customer{
+  name:String;
+  email:String;
+}
 
 export class Login {
   fullname: String;

@@ -17,10 +17,7 @@ ion-title{
   font-weight: 500;
     color: green;
 }
-// ion-content{
 
-//   --background: url(../../assets/imgs/bg.png) 0 0/100% 100% no-repeat;
-//   }
 
 .validation_message{
   p{
@@ -38,16 +35,8 @@ ion-title{
 .backbtn {
   margin-left: 20px;
 }
-ion-label{
-  color: green!important;
-  
-    margin: 8px;
-}
-// ion-input{
-  
-  
-//     margin-bottom: 2rem;
-// }
+
+
 .form-container {
   margin-top: 48px;
 }
@@ -82,8 +71,12 @@ ion-label{
 }
 
 .logo{
-  height: 7rem;
-    width: 9rem;
-    margin: 0 auto;
+  width: 6em;
+    float: right;
     display: block;
+    height: auto;
 }
+.beginning{
+  margin: 79px 0px 0px 0px;
+}
+

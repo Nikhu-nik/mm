@@ -7,13 +7,17 @@ import { ModalController } from '@ionic/angular';
 import { RestService } from '../Service/rest.service';
 import { ProductSearchPage } from '../product-search/product-search.page';
 import { PostAdd } from '../Model/class';
-
+import { Geolocation, Geoposition ,GeolocationOptions } from '@ionic-native/geolocation/ngx';
+declare var google;
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  address: string;       // Users Address
+  latitude: number;     //Users latitiude
+  longitude: number;  //Users longitiude
    items: Array<any>;
   loader=false;
   languages: any[ ] = [
@@ -49,7 +53,7 @@ export class HomePage implements OnInit {
   public featuredProducts = [];
   public bestSellProducts = [];
   constructor(public modalController: ModalController,
-    public platform:Platform,
+    public platform:Platform,  private geolocation:Geolocation,
     public langserv : LanguageService,public rest: RestService,
     private myRoute: Router,private data: DataService) { 
      
@@ -95,7 +99,43 @@ export class HomePage implements OnInit {
     this.myRoute.navigate(['/product-search']);
   }
 
-
+  getaddress()
+  {
+    let geocoder = new google.maps.Geocoder;
+    let address = "";
+     let ref = this;
+      var latlng = { lat:this.latitude, lng:this.longitude };
+      geocoder.geocode({ 'location': latlng }, function (results, status) {
+        console.log(results);
+        console.log(status);
+         if (status === 'OK') {
+         if (results[2]) {
+            address = results[2].formatted_address;
+            ref.address = address;
+         }
+        }
+       });
+    }
+  
+  //Longitude and latitude 
+  latlong() {
+    let options:GeolocationOptions={
+  enableHighAccuracy:true
+    }
+    this.geolocation.getCurrentPosition(options).then((resp:Geoposition) => {
+     
+      this.latitude = resp.coords.latitude;
+      this.longitude = resp.coords.longitude;
+      console.log(this.latitude);
+      console.log(this.longitude);
+      this.getaddress();
+      },(err)=>{
+        alert(JSON.stringify(err));
+       console.log('Error getting location', err);
+    })  
+  } 
+ 
+  
  //Mapping Products Posted by User
 //  userpostedgetproduct(){
 //   this.rest.MapUserProduct().subscribe((result) => {
@@ -129,35 +169,5 @@ export class HomePage implements OnInit {
        console.log(err);
      })
    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

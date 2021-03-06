@@ -1,22 +1,26 @@
 <ion-header >
-  <ion-toolbar >
+  <ion-toolbar  no-border color="none" mode="ios" >
+  
+      <img class="logo" src="../../assets/icon/Artboard 2.png"/>
+ 
     <ion-buttons slot="start">
       <ion-button class="backbtn" routerLink="/welcomepage"  routerDirection="backward">
         <ion-icon mode="ios" name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-title color="light">Signup</ion-title>
+      
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding background">
 
-
+<div class="beginning">
  
   <form [formGroup]="registerForm" (ngSubmit)="getregister(registerForm.value)">
   <div class="ion-padding container">
-    <!-- <img class="logo" src="../../assets/icon/Artboard 2.png"/> -->
-
+ 
     <div class="form-container">
       <ion-item>
         <ion-label position="floating">FullName</ion-label>
@@ -88,5 +92,5 @@
     </div>
   </div>
 </form>
-
+</div>
 </ion-content>

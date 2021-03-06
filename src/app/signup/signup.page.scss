@@ -60,6 +60,9 @@ ion-title{
 .form-container ion-item ion-label {
   color: #A6A6A6;
 }
+ion-label {
+  color: #A6A6A6;
+}
 
 .form-container ion-item ion-icon {
   margin-top: auto;
@@ -79,10 +82,15 @@ ion-title{
 .sign-up ion-button {
   margin: 0;
 }
-
+ion-avatar{
+  float:right;
+}
 .logo{
-  height: 7rem;
-    width: 9rem;
-    margin: 0 auto;
-    display: block;
+  width: 6em;
+  float: right;
+  display: block;
+  height: auto;
+}
+.beginning{
+  margin: 61px 0px 0px 0px;
 }

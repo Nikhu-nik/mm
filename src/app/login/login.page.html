@@ -1,5 +1,7 @@
 <ion-header >
-  <ion-toolbar >
+  <ion-toolbar  no-border color="none" mode="ios" >
+    <img class="logo" src="../../assets/icon/Artboard 2.png"/>
+  
     <ion-buttons slot="start">
       <ion-button class="backbtn" routerLink="/welcomepage"  routerDirection="backward">
         <ion-icon name="arrow-back-outline"></ion-icon>
@@ -10,10 +12,13 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+  <div class="beginning">
+
+
   <form [formGroup]="loginForm" (ngSubmit)="loggedin(loginForm.value)">
 
   <div class="ion-padding container">
-   <img class="logo" src="../../assets/icon/Artboard 2.png"/>
+  
 
     <div class="form-container">
       <ion-item>
@@ -50,5 +55,7 @@
       </div>
     </div>
   </div>
+
   </form>
+</div>
 </ion-content>

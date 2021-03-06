@@ -12,12 +12,23 @@
     <img src="../../assets/gif/gg.gif" />
       
     <div class="button-container">
-     <ion-button routerDirection="forward" class="main-button"  routerLink="/login"
-    expand="block">Login</ion-button>
-     <ion-button  routerDirection="forward" fill="outline"    routerLink="/signup"  expand="block" 
-   >Signup</ion-button>
+      <ion-row>
+        <ion-col col-6>
+          <ion-button  class="main-button" shape="round" routerDirection="forward"  routerLink="/login"
+          >Login</ion-button>
+        </ion-col>
+
+        <ion-col col-6>
+          <ion-button  class="main-button" shape="round" routerDirection="forward"   routerLink="/signup"  
+          >Signup</ion-button>
+        </ion-col>
+      </ion-row>
+     
+      
+  <small style="font-weight: bold;" routerDirection="forward"   routerLink="/dashboard/home"  
+ >Skip</small>
     </div>
   
-  </div>
-  
+  </div>  
+
 </ion-content>

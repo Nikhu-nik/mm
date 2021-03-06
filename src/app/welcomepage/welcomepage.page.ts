@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { MenuController, ModalController, NavController } from '@ionic/angular';
+import { DashboardPage } from '../dashboard/dashboard.page';
+import { HomePage } from '../home/home.page';
+import { LoginPage } from '../login/login.page';
 
 
 @Component({
@@ -10,17 +13,14 @@ import { NavController } from '@ionic/angular';
 })
 export class WelcomepagePage implements OnInit {
 
-  constructor(private router: Router,private navCtrl: NavController) { }
+  constructor(private menuCtrl:MenuController,
+    private router: Router,private modalctrl:ModalController,
+) { }
 
   ngOnInit() {
   }
-  // navigateToLogin() {
-  //   //this.navCtrl.setDirection('forward', true, 'forward', enterAnimation);
-  //   this.router.navigate(['/login']);
-  // }
+  ionViewWillEnter() {
+    this.menuCtrl.enable(false);
+  }
 
-  // navigateTosignup() {
-  //  // this.navCtrl.setDirection('forward', true, 'forward', enterAnimation);
-  //   this.router.navigateByUrl('signup');
-  // }
 }

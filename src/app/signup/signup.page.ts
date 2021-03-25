@@ -81,12 +81,12 @@ this.loadingCtrl.create({
   ele.dismiss();
   this.myRoute.navigate(['/login']);
   },(error)=>{
-    if(error.status==400){
-      this.showtoast('This mobile number has already been registered');
+    if(error.status==0){
+      this.showtoast('Server is low, Please try again later');
       console.log(error);
     }else{
-      if(error.status==0){
-        this.showtoast('Server is low, Please try again later');
+      if(error.status==400){
+        this.showtoast('status 400');
         console.log(error);
         //this.registerForm.reset();  
       }
@@ -102,7 +102,7 @@ async showtoast(message) {
   const toast = await this.toastController.create({
     message: message,
     duration: 4000,
-   position:'top'
+   position:'bottom'
   });
   toast.present();
 }
@@ -121,3 +121,5 @@ async showAlert(message) {
 
 
 }
+
+

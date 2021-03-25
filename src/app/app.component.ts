@@ -32,7 +32,7 @@ export class AppComponent {
   admin: boolean = false;
   user: boolean = false;
   public data: Register = new Register();
-  
+ 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -56,7 +56,7 @@ export class AppComponent {
    
     this.platform.ready().then(() => {
       if (window.location.pathname === "/"){
-        this.route.navigateByUrl('dashboard/home');
+        this.route.navigateByUrl('welcomepage');
       }
       this.statusBar.styleDefault();
       this.splashScreen.hide();

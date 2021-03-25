@@ -36,10 +36,7 @@ const routes: Routes = [
     path: 'mapmodel',
     loadChildren: () => import('./mapmodel/mapmodel.module').then( m => m.MapmodelPageModule)
   },
-  {
-    path: 'addpro',
-    loadChildren: () => import('./addpro/addpro.module').then( m => m.AddproPageModule)
-  },
+ 
   {
     path: 'offerings',
     loadChildren: () => import('./offerings/offerings.module').then( m => m.OfferingsPageModule)
@@ -118,6 +115,11 @@ const routes: Routes = [
     path: 'signup',
     loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
   },
+  {
+    path: 'about',
+    loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)
+  },
+ 
  
   
  

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {DataService} from '../Service/data.service';
 import { LanguageService } from '../providers/language.service';
-import { IonSlides, Platform } from '@ionic/angular';
+import { IonSlides, NavController, Platform } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { RestService } from '../Service/rest.service';
 import { ProductSearchPage } from '../product-search/product-search.page';
@@ -52,7 +52,7 @@ export class HomePage implements OnInit {
   public slides = [];
   public featuredProducts = [];
   public bestSellProducts = [];
-  constructor(public modalController: ModalController,
+  constructor(public modalController: ModalController,private navCtrl:NavController,
     public platform:Platform,  private geolocation:Geolocation,
     public langserv : LanguageService,public rest: RestService,
     private myRoute: Router,private data: DataService) { 
@@ -66,15 +66,18 @@ export class HomePage implements OnInit {
     slidesDidLoad(slides: IonSlides) {
       slides.startAutoplay();
     }
-
+    ionViewWillEnter(){
+      this.latlong();
+    }
   ngOnInit() {
-  
+    this.latlong();
    this.retrival();
-   //this.userpostedgetproduct();
+  
     this.categories = this.data.getCategories();
     this.slides = this.data.getSlides();
   }
-  selectedtemp:any = this.languages[0].code;
+  
+ selectedtemp:any = this.languages[0].code;
   changelang(event){
     let val = event
     if(event["target"]){
@@ -83,6 +86,7 @@ export class HomePage implements OnInit {
    this.langserv.changelang(val);
 
   }
+
 
   opencategorypage(){
     this.myRoute.navigate(['/category']);
@@ -109,7 +113,7 @@ export class HomePage implements OnInit {
         console.log(results);
         console.log(status);
          if (status === 'OK') {
-         if (results[2]) {
+         if (results[5]) {
             address = results[2].formatted_address;
             ref.address = address;
          }

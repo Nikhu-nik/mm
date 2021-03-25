@@ -20,6 +20,7 @@
     font-size: 24px;
     color: green;
     margin-top: -17px;
+    margin-left: 5px;
 }
 ion-toolbar {
     --border-width: 0 !important;
@@ -28,4 +29,11 @@ ion-toolbar {
   // Removing Android Header Line
   .header-md::after {
     background: none !important;
+  }
+
+  .homeproducts{
+    ion-card{
+    box-shadow: none;
+    border: 1px solid #efe6e6;
+    }
   }

@@ -1,27 +1,88 @@
 <ion-header no-border>
   <ion-toolbar>
-  <ion-icon routerDirection="backward" color="dark"
-  routerLink="/dashboard/home" 
-  class="searchicon" slot="start" name="arrow-back"></ion-icon>
-    
- 
-
-  </ion-toolbar>
-</ion-header>
-   
-   
-
-  
-<ion-content no-padding>  
+  <!-- <ion-icon routerDirection="backward" color="dark"
+  routerLink="/dashboard/home" class="searchicon" slot="start" name="arrow-back"></ion-icon>
   <div class="search ion-padding">
     <ion-item lines="none">
-      <ion-input placeholder="Search Your Product"></ion-input>
+      <ion-input   (ionInput)="filterList($event)" placeholder="Search Your Product"></ion-input>
       <ion-icon name="search-outline" slot="start"></ion-icon>
     </ion-item>
-  </div>
+  </div>  -->
+  <!-- <ion-searchbar
+      debounce="500"
+      color="light"
+      (ionChange)="search($event)"
+      placeholder="Enter Keyword..."
+    ></ion-searchbar> -->
+
+   
+    
+ </ion-toolbar>
+</ion-header>
+   
+<ion-content>
+ 
+  <ion-list >
+    <ion-item *ngFor="let items of postadds">
+    <ion-thumbnail>
+      <img  src="http://localhost:4000/{{items.advimgbase.split(',')[0]}}" />
+    </ion-thumbnail> 
+      <h4 class="name" >{{items.advname}} </h4>
+      <small >{{items.advdesc}} </small>
+      </ion-item>
+      </ion-list>
 
   
+</ion-content> 
+
+  
+<!-- <ion-content no-padding>  
+ <ion-grid>
+    <ion-row>
+      <ion-col >
+        <ion-list >
+          <ion-item *ngFor="let items of postadds">
+          <ion-thumbnail>
+            <img  src="http://localhost:4000/{{items.advimgbase.split(',')[0]}}" />
+          </ion-thumbnail> 
+            <h4 class="name" >{{items.advname}} </h4>
+            <small >{{items.advdesc}} </small>
+          
+       
+       
+        </ion-item>
+      </ion-list>
+      
+ 
+  <ion-list *ngIf="showSkeleton">
+    <ion-item>
+      <ion-thumbnail>
+       <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-thumbnail>
+      <ion-label>
+        <h4><ion-skeleton-text animated style="width: 60%;"></ion-skeleton-text></h4>
+        <ion-text>
+          <p><ion-skeleton-text animated style="width: 40%;"></ion-skeleton-text></p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 
 
 
-</ion-content>
+   <ion-list *ngIf="postadds.length >= 0 && touched" lines="none">
+    <ion-item>
+      <ion-label>
+        <h3>No Products Found</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  </ion-col>
+  </ion-row>
+  </ion-grid> 
+
+
+
+
+</ion-content> -->

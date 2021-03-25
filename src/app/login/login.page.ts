@@ -1,7 +1,8 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, ModalController,PopoverController } from '@ionic/angular';
+import { AlertController, ModalController,PopoverController, ToastController } from '@ionic/angular';
 import { RestService } from '../Service/rest.service';
 import {Login} from '../Model/class';
 import { LoadingController,Platform  } from '@ionic/angular';
@@ -25,7 +26,8 @@ export class LoginPage implements OnInit {
      public menuCtrl: MenuController,private popover:PopoverController,
      private loadingCtrl  : LoadingController,private fb: FormBuilder,
      private alertController: AlertController,public alertservice:AlertService,
-    public rest: RestService, private myRoute: Router,) {
+    public rest: RestService,public toastController:ToastController,
+     private myRoute: Router,) {
   this.loginForm = this.fb.group({
   number: ['', [Validators.required,
      (Validators.minLength(10)), (Validators.pattern(/^[6-9]\d{9}$/))]],
@@ -76,40 +78,55 @@ export class LoginPage implements OnInit {
   }, 5000);
 }
 
+async showtoast(message) {
+  const toast = await this.toastController.create({
+    message: message,
+    duration: 4000,
+   position:'bottom'
+  });
+  toast.present();
+}
+
 
 loggedin(){
   this.isSubmitted = true;
-  if (!this.loginForm.valid) {
-  return false;
-}else{
-  if (this.loginForm.valid) 
-  {
-    this.loadingCtrl.create({
-      message:"SigningIn....",
-      mode:'ios',
-      cssClass:'register-loader',
-      duration: 5000,
-      spinner: 'crescent',
-    }).then((ele)=>{
-      ele.present();
-      Object.assign(this.data, this.loginForm.value);
-      console.log(this.data);
-      this.rest.login(this.data).subscribe((result)=>{
-        if (result === undefined) {
-          console.log(result);
-          this.errmsg = true;
-          this.alertservice.loginfailurealert();
-         } else{
-          this.rest.sendToken(result.accessToken);
-          ele.dismiss();
-          this.myRoute.navigate(['dashboard/home']);
-          }
-      }, (err)=>{
-        this.alertservice.loginfailurealert();
-      console.log(err);
-      });
-    })
-  }
+  if (this.loginForm.invalid) {
+    return false;
+  } 
+  this.loadingCtrl.create({
+    message:"Please wait...",
+    mode:'ios',
+    cssClass:'register-loader',
+    duration: 2000,
+    spinner: 'crescent',
+  }).then((ele)=>{
+    ele.present();  
+    Object.assign(this.data, this.loginForm.value);
+    console.log(this.data);
+    this.rest.login(this.data).subscribe((result)=>{
+      if (result === undefined) {
+      console.log(result);
+      this.errmsg = true;
+    this.showAlert('Failed to login..!');
+    ele.dismiss();
+    }
+    else{
+      this.rest.sendToken(result.accessToken);
+      this.myRoute.navigate(['dashboard/home']);
+    }
+  
+   }, (error)=> {
+    if(error.status == 0) {
+      this.showtoast('Server is low, Please try again later');
+      console.log(error);
+    } else{
+      if(error.status ==404) {
+        this.showtoast('This mobile number is not found in records');
+        console.log(error);
+      }
+    }
+  })
+})
 }
 
 
@@ -117,7 +134,8 @@ loggedin(){
 
 
 
-}
+
+
 
 
 
@@ -159,5 +177,6 @@ loggedin(){
 // }
   
 //   }
-}
 
+
+}

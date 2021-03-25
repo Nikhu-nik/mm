@@ -4,29 +4,58 @@ ion-menu-button {
 ion-toolbar{
   --background: #0b833c;
 }
-.homeproducts{
-ion-card{
-box-shadow: none;
-border: 1px solid #efe6e6;
+.ios, .md {
+  .card-has-background-image {
+      .card-text { 
+          padding-left: 8px; 
+          padding-right: 8px; 
+          &.is-vertically-centered {
+              position: absolute;
+              transform: translateY(-50%);
+              top: 50%;
+              width: 100%;
+              > div {
+                  position: relative; 
+              }
+          }
+      }
+  }
 }
 
-.homeproducts {
-  width: 95%;
-  padding: 0;
-  margin: 0;
-  column-count: 2;
-  column-fill: auto;
-  text-align: center;
+// .homeproducts {
+//   // width: 95%;
+//   padding: 0;
+//   margin: 0;
+//   // column-count: 2;
+//   column-fill: auto;
+//   text-align: center;
+// }
+// .p-2 {
+//   height:14rem;
+//   padding: 1rem;
+//   object-fit: scale-down;
+// }
+
+.quantity {
+  text-align: left;
+  font-size: 1.2rem;
+  color: #444444;
+  font-weight: 500;
 }
-.p-2 {
-  height:14rem;
-  padding: 1rem;
-  object-fit: scale-down;
+
+.price {
+  text-align: left;
+  font-size: 1.2rem;
+  color: #fd4449;
+  font-weight: 500;
+}
+
+.qty{
+  display: inline-flex;
+  vertical-align: middle;
 }
 
 
-
-}
 .filter {
   margin-right: 10px;
 }
@@ -74,12 +103,18 @@ ion-skeleton-text {
       color: #656565;
   }
 }
+
 .location{
   background:#0b833c;
   color: #ffffff;
   font-size:12px;
-  width: fit-content;
-  }
+}
+// .location{
+//   background:#0b833c;
+//   color: #ffffff;
+//   font-size:12px;
+//   width: fit-content;
+//   }
 .category-slider {
   ion-slide {
     

@@ -1,9 +1,8 @@
 {
 "Hello":"Hello",
-
 "Home_menu":"Home",
 "Category_menu":"Category",
-"Offers_menu":"Offers",
+"See_all" : "See All",
 "Post Advertisement_menu":"Post Advertisemnt",
 "Buy Package_menu":"Buy Package",
 "Support_menu":"Support",
@@ -82,7 +81,7 @@
 
 "Adspage_title":"MY ADS",
 "Adspage_ads":"ADS",
-"Adspage_favourites":"FAVOURITES",
+"Adspage_favourites":"FAVOURITES"
 
 
 
@@ -104,9 +103,6 @@
 
 
 
-"Homepage_category" : "Category",
-"Homepage_category_all" : "View All",
-"Homepage_offers":"offers",
-"Homepage_products":"Products"
+
 
 }

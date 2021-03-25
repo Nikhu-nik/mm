@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable} from 'rxjs';
 import {  Router } from '@angular/router';
-import { Register, Login,Forgot ,Product,AddtoCart, PostAdd} from '../Model/class';
+import { Register, Login,Forgot , Product,PostAdd} from '../Model/class';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpRequest,HttpEvent } from '@angular/common/http';
 import { HTTP } from '@ionic-native/http/ngx';
 //const endpoint = 'http://ec2-18-141-56-81.ap-southeast-1.compute.amazonaws.com:4000/';
@@ -21,6 +21,7 @@ favorites:Array<any> = [];
     return body || { };
  }
    
+
 
 
  sendToken(token: string) {
@@ -60,6 +61,9 @@ logout() {
 
 }   
 
+// searchProducts(keyword: string): Observable<any> {
+// return this.http.get<PostAdd>(endpoint + 'products?search=${keyword}')
+//  }
 
 
  Register(data: Register): Observable<any> {
@@ -156,15 +160,15 @@ isFavourite(id:number):boolean{
 
 //Admin Upload Product to UserDashboard
 
-addProduct(data: Product): Observable<any> {
-  this.httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-     'x-access-token': this.getToken()
-        })          
-  };
-    return this.http.post<Product>(endpoint + 'api/postproduct' , data,this.httpOptions); 
- }
+// addProduct(data: Product): Observable<any> {
+//   this.httpOptions = {
+//     headers: new HttpHeaders({
+//       'Content-Type':  'application/json',
+//      'x-access-token': this.getToken()
+//         })          
+//   };
+//     return this.http.post<Product>(endpoint + 'api/postproduct' , data,this.httpOptions); 
+//  }
 
  
  productid(): Observable<any> {

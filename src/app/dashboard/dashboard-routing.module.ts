@@ -24,8 +24,8 @@ const routes: Routes = [
         loadChildren: ()  => import('../ads/ads.module').then( m => m.AdsPageModule)
       },
       {
-        path: 'addpro',
-        loadChildren: ()  => import('../addpro/addpro.module').then( m => m.AddproPageModule)
+        path: 'postadvert',
+        loadChildren: ()  => import('../postadvert/postadvert.module').then( m => m.PostadvertPageModule)
       },
       {
         path: 'chat',

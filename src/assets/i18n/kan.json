@@ -1,7 +1,8 @@
 {
 "Hello":"ನಮಸ್ತೆ",
-"Home_menu":"ಮನೆ",
+
 "Category_menu":"ವರ್ಗ",
+"See_all":"ಎಲ್ಲವನ್ನೂ ನೋಡು",
 "Offers_menu":"ಕೊಡುಗೆಗಳು",
 "Post Advertisement_menu":"ಪೋಸ್ಟ್ ಜಾಹೀರಾತು",
 "Buy Package_menu":"ಪ್ಯಾಕೇಜ್ ಖರೀದಿಸಿ",
@@ -81,10 +82,6 @@
 
 "Adspage_title":"ನನ್ನ ಜಾಹೀರಾತುಗಳು",
 "Adspage_ads":"ಜಾಹೀರಾತುಗಳು",
-"Adspage_favourites":"ಮೆಚ್ಚಿನವುಗಳು",
-"Homepage_category" : "ವರ್ಗ",
-                    
-  "Homepage_category_all":"ಎಲ್ಲಾ ವೀಕ್ಷಿಸಿ",
-  "Homepage_offers":"ಕೊಡುಗೆಗಳು",
-  "Homepage_products":"ಉತ್ಪನ್ನಗಳು"
+"Adspage_favourites":"ಮೆಚ್ಚಿನವುಗಳು"
+
 }
